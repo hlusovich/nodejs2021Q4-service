@@ -42,22 +42,6 @@ class BoardsController {
     return `Bard with ${id} was successfully  deleted`;
   }
 
-  unsubscribeUser(id) {
-    let columns = null;
-    this.boards = this.boards.map(board => {
-      columns = board.toResponse().columns.map(column => ({
-        ...column, tasks: column.tasks.map(task => {
-          if (task.userId === id) {
-            return { ...task, userId: null };
-          }
-          return task;
-        })
-      }));
-      const result = { ...board };
-      result.columns = columns;
-      return new Board(result);
-    });
-  }
 
 }
 
