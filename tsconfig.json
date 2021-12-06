@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": true,
+      "strict": true,
+      "target": "es6",
+      "baseUrl": "./",
+      "rootDir": "./",
+      "removeComments": true,
+      "lib": [
+        "es6",
+        "dom",
+        "es2017"
+      ],
+      "preserveConstEnums": true
+    },
+    "include": [
+      "./src/",
+      "./Errors/",
+      "./handler/"
+    ],
+    "exclude": [
+      "./.github/",
+      "./node_modules"
+    ]
+  }

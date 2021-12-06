@@ -1,5 +1,5 @@
-const Error404 = require('../Errors/404error');
+"use strict";
 const errorHandler = (error, res) => {
-  return res.code(404);
+    return res.code(404);
 };
 module.exports = errorHandler;
