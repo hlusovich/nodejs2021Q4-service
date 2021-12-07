@@ -4,6 +4,4 @@ import { ResponseObject } from '@hapi/hapi';
  * @param there is no param
  * @returns void
  */
-export const errorHandler = (error: Error, res: ResponseObject): void => {
-  res.code(404);
-};
+export const errorHandler = (error: Error, res: ResponseObject): ResponseObject => res.code(404);

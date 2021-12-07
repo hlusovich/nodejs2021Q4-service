@@ -11,7 +11,7 @@ export const createRoute = (method, path, handler) => ({
         }
         catch (e) {
             const moc = () => 'Not Found';
-            console.log(e)
+            console.log(e);
             if (e instanceof Error) {
                 return errorHandler(e, h.response(moc()));
             }
