@@ -1,4 +1,4 @@
-const codeStatuses = {
+export const codeStatuses = {
   POST:201,
   GET:200,
   PUT:200,

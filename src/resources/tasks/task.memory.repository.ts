@@ -4,6 +4,7 @@ import {Error404} from '../../../Errors/404error.js';
 
 class TasksController {
   tasks:Task[];
+
   constructor() {
     this.tasks = [];
   }
@@ -16,6 +17,7 @@ class TasksController {
   getAll():Task[] {
     return this.tasks;
   }
+
   /**
    * return  Task by id
    * @param id:string
@@ -29,6 +31,7 @@ class TasksController {
     throw new Error404('Not found');
 
   }
+
   /**
    * return  Fresh created Task
    * @param payload object with  fields title, id, order, description, boardId, userId, columnId
@@ -40,6 +43,7 @@ class TasksController {
     this.tasks.push(newTask);
     return newTask;
   }
+
   /**
    * return  Fresh updated Task
    * @param id:string
@@ -55,6 +59,7 @@ class TasksController {
     });
     return this.getTask(id);
   }
+
   /**
    * Delete task by id
    * @param id:string
@@ -68,6 +73,7 @@ class TasksController {
     throw new Error404('Not found');
 
   }
+
   /**
    * Change userId to null, if user with this is deleted
    * @param id:string
@@ -81,6 +87,7 @@ class TasksController {
       return item;
     });
   }
+
   /**
    * Change boardID to null, if board with this id is deleted
    * @param id:string

@@ -1,8 +1,19 @@
+import {Request,ServerRoute} from '@hapi/hapi'
 import  {server}  from '../../app.js';
 import { getAll,getBoardById,createBoard,updateBoard,deleteBoard } from './board.service.js';
 import {createRoute} from '../../../utils/routeCreater.js';
-import {Request,ServerRoute} from '@hapi/hapi'
-import { IBoardToResponse } from './board.model';
+
+interface IColumn {
+  id: string;
+  title: string;
+  order: number
+}
+export interface IBoardToResponse {
+  title: string;
+  id: string;
+  columns: IColumn[],
+}
+
 
 const routes: ServerRoute[] = [createRoute('GET', '/boards', () => getAll()),
   createRoute('GET', '/boards/{id}', (req:Request) => getBoardById(req.params.id)),

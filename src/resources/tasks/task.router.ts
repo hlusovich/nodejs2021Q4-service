@@ -1,7 +1,7 @@
+import {Request,ServerRoute} from '@hapi/hapi'
 import {server} from '../../app.js';
 import { getAll, getTaskById, createTask, updateTask, deleteTask } from './task.service.js';
 import {createRoute} from '../../../utils/routeCreater.js';
-import {Request,ServerRoute} from '@hapi/hapi'
 import { Task } from './task.model';
 
  const routes: ServerRoute[] = [createRoute('GET', '/boards/{id}/tasks', () => getAll()),

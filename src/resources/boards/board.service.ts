@@ -1,6 +1,17 @@
 import usersController from './board.memory.repository.js';
 import taskController from '../tasks/task.memory.repository.js';
-import { IBoardToResponse } from './board.model';
+
+interface IColumn {
+  id: string;
+  title: string;
+  order: number
+}
+export interface IBoardToResponse {
+  title: string;
+  id: string;
+  columns: IColumn[],
+}
+
 
 /**
  * return  Array of Boards object without methods

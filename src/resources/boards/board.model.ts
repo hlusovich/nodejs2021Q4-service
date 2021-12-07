@@ -17,13 +17,17 @@ export interface IBoardToResponse {
 
 export class Board {
   id:string;
+
   title:string;
+
   columns:Set<IColumn>;
+
   constructor({ title, columns, id }: IBoardToResponse) {
     this.id = id || v4();
     this.title = title;
     this.columns = new Set(columns);
   }
+
   /**
    * return Board object without methods
    * @param there is no param

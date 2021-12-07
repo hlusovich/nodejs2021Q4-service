@@ -8,6 +8,11 @@
       "rootDir": "./",
       "removeComments": true,
       "moduleResolution": "node",
+      "paths": {
+        "http://*": ["../../../.deno/deps/http/*"],
+        "https://*": ["../../../.deno/deps/https/*"],
+        "*.ts": ["*"]
+      },
       "lib": [
         "es6",
         "dom",

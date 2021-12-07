@@ -12,11 +12,17 @@ interface ITask {
 
 export class Task {
   id: string;
+
   title: string;
+
   order: number;
+
   userId: string | null;
-  boardId: string | null;;
+
+  boardId: string | null;
+
   columnId: string;
+
   description: string;
 
   constructor({ title, id, order, description, boardId, userId, columnId }: ITask) {

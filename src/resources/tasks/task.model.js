@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+
 export class Task {
     constructor({ title, id, order, description, boardId, userId, columnId }) {
         this.id = id || v4();
@@ -9,5 +10,4 @@ export class Task {
         this.columnId = columnId;
         this.description = description;
     }
-    ;
 }
