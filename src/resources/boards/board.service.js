@@ -5,7 +5,7 @@ const getBoardById = (id) => usersController.getBoard(id);
 const createBoard = (data) => usersController.createBoard(data);
 const updateBoard = (id, data) => usersController.updateBoard(id, data);
 const deleteBoard = (id) => {
-    usersController.deleteBoard(id);
     taskController.unsubscribeBoard(id);
+    return usersController.deleteBoard(id);
 };
 export { getAll, getBoardById, createBoard, updateBoard, deleteBoard };

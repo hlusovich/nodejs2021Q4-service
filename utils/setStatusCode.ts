@@ -5,6 +5,11 @@ const codeStatuses = {
   DELETE:200
 };
 type codeStatuses = typeof codeStatuses;
-
-export const  setStatusCode = (method:keyof codeStatuses)=> codeStatuses[method];
+export type methodsEnum = keyof codeStatuses
+/**
+ * return  number(code status)
+ * @param string key of enum with methods
+ * @returns number
+ */
+export const  setStatusCode = (method:methodsEnum):number=> codeStatuses[method];
 

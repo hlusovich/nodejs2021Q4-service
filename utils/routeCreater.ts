@@ -1,8 +1,8 @@
-import { setStatusCode } from './setStatusCode.js';
+import { methodsEnum, setStatusCode } from './setStatusCode.js';
 import { errorHandler } from '../handler/errorHandler.js';
-import { ServerRoute, ResponseToolkit } from '@hapi/hapi';
+import { ServerRoute, ResponseToolkit,Request } from '@hapi/hapi';
 
-export const createRoute = (method: string, path: string, handler: (req?: Request) => {}): ServerRoute => ({
+export const createRoute = (method: methodsEnum, path: string, handler: (req: Request) => {}): ServerRoute => ({
   method,
   path,
   handler(req: Request, h: ResponseToolkit) { //

@@ -10,7 +10,9 @@ export const createRoute = (method, path, handler) => ({
         }
         catch (e) {
             const moc = () => 'Not Found';
-            return errorHandler(new Error(e.message), h.response(moc()));
+            if (e instanceof Error) {
+                return errorHandler(e, h.response(moc()));
+            }
         }
     }
 });
