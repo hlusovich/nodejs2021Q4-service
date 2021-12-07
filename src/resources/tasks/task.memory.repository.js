@@ -1,5 +1,5 @@
-const Task = require('./task.model');
-const Error404 = require('../../../Errors/404error');
+import {Task} from './task.model.js';
+import {Error404} from '../../../Errors/404error.js';
 
 
 class TasksController {
@@ -61,4 +61,4 @@ class TasksController {
   }
 }
 
-module.exports = new TasksController();
+export default new TasksController();

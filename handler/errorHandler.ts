@@ -1,5 +1,9 @@
-
-const errorHandler = (error:Error, res:any) => {
-  return res.code(404);
+import { ResponseObject } from '@hapi/hapi';
+/**
+ * add responses objects header status code 404
+ * @param there is no param
+ * @returns void
+ */
+export const errorHandler = (error: Error, res: ResponseObject): void => {
+  res.code(404);
 };
-module.exports = errorHandler;

@@ -1,6 +1,6 @@
-const server = require('../../app');
-const { getAll, getUserById, createUser, deleteUser, updateUser } = require('./user.service');
-const createRoute = require('../../../utils/routeCreater');
+import {server} from '../../app.js';
+import { getAll, getUserById, createUser, deleteUser, updateUser } from './user.service.js';
+import {createRoute} from '../../../utils/routeCreater.js';
 
 const routes = [createRoute('GET', '/users', () => getAll()),
   createRoute('GET', '/users/{id}', (req) => getUserById(req.params.id)),
@@ -9,4 +9,4 @@ const routes = [createRoute('GET', '/users', () => getAll()),
   createRoute('DELETE', '/users/{id}', (req) => deleteUser(req.params.id))
 ];
 server.route(routes);
-module.exports = server;
+export default server

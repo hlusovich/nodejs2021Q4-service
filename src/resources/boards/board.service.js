@@ -1,13 +1,11 @@
-const usersController = require('./board.memory.repository');
-const taskController = require('../tasks/task.memory.repository');
-
+import usersController from './board.memory.repository.js';
+import taskController from '../tasks/task.memory.repository.js';
 const getAll = () => usersController.getAll();
 const getBoardById = (id) => usersController.getBoard(id);
 const createBoard = (data) => usersController.createBoard(data);
 const updateBoard = (id, data) => usersController.updateBoard(id, data);
 const deleteBoard = (id) => {
-  usersController.deleteBoard(id);
-  taskController.unsubscribeBoard(id);
+    usersController.deleteBoard(id);
+    taskController.unsubscribeBoard(id);
 };
-
-module.exports = { getAll, getBoardById, createBoard, updateBoard, deleteBoard };
+export { getAll, getBoardById, createBoard, updateBoard, deleteBoard };

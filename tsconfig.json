@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-      "module": "commonjs",
+      "module": "es6",
+      "target": "ES2017",
       "noImplicitAny": true,
       "strict": true,
-      "target": "es6",
       "baseUrl": "./",
       "rootDir": "./",
       "removeComments": true,
+      "moduleResolution": "node",
       "lib": [
         "es6",
         "dom",

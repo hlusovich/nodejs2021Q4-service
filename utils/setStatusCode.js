@@ -5,5 +5,5 @@ const codeStatuses = {
   DELETE:200
 };
 
-const  setStatusCode = (method)=> codeStatuses[method];
-module.exports = setStatusCode;
+export const  setStatusCode = (method)=> codeStatuses[method];
+

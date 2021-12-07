@@ -1,20 +1,16 @@
-const setStatusCode = require('./setStatusCode');
-const errorHandler = require('../handler/errorHandler');
-const createRoute = (method, path, handler) => {
-  return {
+import { setStatusCode } from './setStatusCode.js';
+import { errorHandler } from '../handler/errorHandler.js';
+export const createRoute = (method, path, handler) => ({
     method,
     path,
-    handler: function(req, h) { //
-      try{
-        const response = h.response(handler(req, h));
-        return response.code(setStatusCode(method)); // reply with text.
-      }
-      catch(e){
-        const moc = (req,h)=>{return "Not Found"};
-       return  errorHandler(e,h.response(moc(req,h)));
-      }
-
+    handler(req, h) {
+        try {
+            const response = h.response(handler(req));
+            return response.code(setStatusCode(method));
+        }
+        catch (e) {
+            const moc = () => 'Not Found';
+            return errorHandler(new Error(e.message), h.response(moc()));
+        }
     }
-  };
-};
-module.exports = createRoute;
+});

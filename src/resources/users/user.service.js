@@ -1,5 +1,5 @@
-const usersController = require('./user.memory.repository');
-const taskController = require('../tasks/task.memory.repository');
+import usersController from './user.memory.repository.js';
+import taskController  from '../tasks/task.memory.repository.js';
 
 const getAll = () => usersController.getAll();
 const getUserById = (id) => usersController.getUser(id);
@@ -10,4 +10,4 @@ const deleteUser = (id) => {
   taskController.unsubscribeUser(id);
 };
 
-module.exports = { getAll, getUserById, createUser, updateUser, deleteUser };
+export { getAll, getUserById, createUser, updateUser, deleteUser };

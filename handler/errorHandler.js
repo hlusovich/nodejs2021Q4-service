@@ -1,5 +1,3 @@
-"use strict";
-const errorHandler = (error, res) => {
-    return res.code(404);
+export const errorHandler = (error, res) => {
+    res.code(404);
 };
-module.exports = errorHandler;
