@@ -13,6 +13,7 @@ export const createRoute = (method: methodsEnum, path: string, handler: (req: Re
       return response.code(setStatusCode(method));
     } catch (e: unknown) {
       const moc = () => 'Not Found';
+      console.log(e)
       if (e instanceof Error) {
         return errorHandler(e, h.response(moc()));
       }

@@ -63,7 +63,7 @@ class TasksController {
   /**
    * Delete task by id
    * @param id:string
-   * @returns string with deleted board id
+   * @returns string with deleted task id
    */
   deleteTask(id:string):string|never {
     if (this.getTask(id)) {
