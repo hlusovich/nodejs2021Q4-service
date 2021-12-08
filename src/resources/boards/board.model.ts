@@ -6,7 +6,6 @@ interface IColumn {
   order: number
 }
 
-
 export interface IBoardToResponse {
   title: string;
   id: string;
