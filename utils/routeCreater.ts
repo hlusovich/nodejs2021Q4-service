@@ -4,7 +4,16 @@ import { errorHandler } from '../handler/errorHandler.js';
 
 type codeStatuses = typeof codeStatuses;
 type methodsEnum = keyof codeStatuses
-export const createRoute = (method: methodsEnum, path: string, handler: (req: Request) => ResponseValue|undefined): ServerRoute => ({
+/**
+ * create  server route object:ServerRoute
+ * @param method : methodsEnum (HTTP method);
+ * @param path :string  url endpoint;
+ * @param handler :function
+    * @param req: Request
+    *@returns ResponseValue
+ * @returns ServerRoute
+ */
+export const createRoute = (method: methodsEnum, path: string, handler: (req: Request) => ResponseValue): ServerRoute => ({
   method,
   path,
   handler(req: Request, h: ResponseToolkit): ResponseObject| void { //
@@ -13,7 +22,6 @@ export const createRoute = (method: methodsEnum, path: string, handler: (req: Re
       return response.code(setStatusCode(method));
     } catch (e: unknown) {
       const moc = () => 'Not Found';
-      console.log(e)
       if (e instanceof Error) {
         return errorHandler(e, h.response(moc()));
       }

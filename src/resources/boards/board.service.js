@@ -1,6 +1,5 @@
 import usersController from './board.memory.repository.js';
 import taskController from '../tasks/task.memory.repository.js';
-
 const getAll = () => usersController.getAll();
 const getBoardById = (id) => usersController.getBoard(id);
 const createBoard = (data) => usersController.createBoard(data);

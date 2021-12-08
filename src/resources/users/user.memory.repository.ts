@@ -55,10 +55,11 @@ class UserController {
    * return  Fresh updated user
    * @param id:string
    * @param payload object with  fields name: string; login: string; password: string; id: string
-   * @returns Omit<IUser, 'password'> or throw Error
+   * @returns Omit<IUser, 'password'> or throw custom Error404
    */
 
   updateUser(id: string, payload: Omit<IUser, 'password'>): Omit<IUser, 'password'> | never {
+    this.getUser(id);
     let user = null;
     this.users = this.users.map(item => {
       if (item.id === id) {
@@ -76,16 +77,14 @@ class UserController {
   /**
    * Delete user by id
    * @param id:string
-   * @returns string with deleted user id
+   * @returns string with deleted user id or if no user with such id
+     throw custom error (instance of Error404)
    */
 
   deleteUser(id: string): string | never {
-    if (this.getUser(id)) {
-      this.users = this.users.filter(item => item.id !== id);
-      return `User with ${id} was successfully  deleted`;
-    }
-    throw  new Error404('User not found');
-
+    this.getUser(id);
+    this.users = this.users.filter(item => item.id !== id);
+    return `User with ${id} was successfully  deleted`;
   }
 }
 

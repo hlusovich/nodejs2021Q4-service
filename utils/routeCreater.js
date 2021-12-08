@@ -1,6 +1,5 @@
 import { setStatusCode } from './setStatusCode.js';
 import { errorHandler } from '../handler/errorHandler.js';
-
 export const createRoute = (method, path, handler) => ({
     method,
     path,
@@ -11,7 +10,6 @@ export const createRoute = (method, path, handler) => ({
         }
         catch (e) {
             const moc = () => 'Not Found';
-            console.log(e);
             if (e instanceof Error) {
                 return errorHandler(e, h.response(moc()));
             }

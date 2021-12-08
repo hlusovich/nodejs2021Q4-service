@@ -8,8 +8,8 @@ type codeStatuses = typeof codeStatuses;
 export type methodsEnum = keyof codeStatuses
 /**
  * return  number(code status)
- * @param string key of enum with methods
- * @returns number
+ * @param string key of enum with HTTP methods
+ * @returns number (HTTP status code)
  */
 export const  setStatusCode = (method:methodsEnum):number=> codeStatuses[method];
 

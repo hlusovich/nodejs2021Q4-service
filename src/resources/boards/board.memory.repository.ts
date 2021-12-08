@@ -21,7 +21,7 @@ class BoardsController {
   }
 
   /**
-   * return  Array of Boards object without methods
+   * return  Array of Boards  without methods
    * @param there is no param
    * @returns IBoardToResponse[]
    */
@@ -32,7 +32,7 @@ class BoardsController {
   /**
    * return  Board by id
    * @param id:string
-   * @returns IBoardToResponse or if no board with such id throw error
+   * @returns IBoardToResponse or if no board with such id throw custom error (instance of Error404)
    */
   getBoard(id: string): IBoardToResponse | never {
     const board = this.boards.find(item => item.id === id);
@@ -57,9 +57,10 @@ class BoardsController {
    * return  Fresh updated Board
    * @param id:string
    * @param payload object with unnecessary fields title,id,columns
-   * @returns IBoardToResponse
+   * @returns IBoardToResponse or if no board with such id throw custom error (instance of Error404)
    */
-  updateBoard(id: string, payload: IBoardToResponse): IBoardToResponse {
+  updateBoard(id: string, payload: IBoardToResponse): IBoardToResponse | never {
+    this.getBoard(id);
     this.boards = this.boards.map(item => {
       if (item.id === id) {
         return new Board({ ...item, ...payload });
@@ -76,6 +77,7 @@ class BoardsController {
    * @returns string with deleted board id
    */
   deleteBoard(id: string): string {
+    this.getBoard(id);
     this.boards = this.boards.filter(item => item.id !== id);
     return `Bard with ${id} was successfully  deleted`;
   }
