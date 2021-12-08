@@ -39,7 +39,7 @@ class BoardsController {
     if (board) {
       return board.toResponse();
     }
-    throw  Error404;
+    throw  new Error404("no board with this id");
   }
 
   /**
@@ -72,11 +72,12 @@ class BoardsController {
   }
 
   /**
-   * Delete post by id
+   * Delete board by id
    * @param id:string
-   * @returns string with deleted board id
+   * @returns string with deleted board id or if no board with such id
+      throw custom error (instance of Error404)
    */
-  deleteBoard(id: string): string {
+  deleteBoard(id: string): string|never {
     this.getBoard(id);
     this.boards = this.boards.filter(item => item.id !== id);
     return `Bard with ${id} was successfully  deleted`;

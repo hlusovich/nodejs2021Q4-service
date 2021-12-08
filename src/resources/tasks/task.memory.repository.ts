@@ -1,29 +1,30 @@
-import {Task} from './task.model.js';
-import {Error404} from '../../../Errors/404error.js';
+import { Task } from './task.model.js';
+import { Error404 } from '../../../Errors/404error.js';
 
 
 class TasksController {
-  tasks:Task[];
+  tasks: Task[];
 
   constructor() {
     this.tasks = [];
   }
+
   /**
    * return  Array of Tasks
    * @param there is no param
    * @returns Task[]
    */
 
-  getAll():Task[] {
+  getAll(): Task[] {
     return this.tasks;
   }
 
   /**
    * return  Task by id
    * @param id:string
-   * @returns Task or if no Task with such id throw error
+   * @returns Task or if no Task with such id throw error (custom Error404)
    */
-  getTask(id:string):Task|never {
+  getTask(id: string): Task | never {
     const task = this.tasks.find(item => item.id === id);
     if (task) {
       return task;
@@ -38,8 +39,8 @@ class TasksController {
    * @param boardId:string
    * @returns Task
    */
-  createTask(payload:Task,boardId:string):Task {
-    const newTask = new Task({...payload, boardId});
+  createTask(payload: Task, boardId: string): Task {
+    const newTask = new Task({ ...payload, boardId });
     this.tasks.push(newTask);
     return newTask;
   }
@@ -50,7 +51,7 @@ class TasksController {
    * @param payload object with  fields title, id, order, description, boardId, userId, columnId
    * @returns Task
    */
-  updateTask(id:string, payload:Task):Task {
+  updateTask(id: string, payload: Task): Task {
     this.tasks = this.tasks.map(item => {
       if (item.id === id) {
         return new Task({ ...item, ...payload });
@@ -63,15 +64,13 @@ class TasksController {
   /**
    * Delete task by id
    * @param id:string
-   * @returns string with deleted task id
+   * @returns string with deleted task id or if
+    no task with such id throw custom error (instance of Error404)
    */
-  deleteTask(id:string):string|never {
-    if (this.getTask(id)) {
-      this.tasks = this.tasks.filter(item => item.id !== id);
-      return `Task with ${id} deleted`;
-    }
-    throw new Error404('Not found');
-
+  deleteTask(id: string): string | never {
+    this.getTask(id);
+    this.tasks = this.tasks.filter(item => item.id !== id);
+    return `Task with ${id} deleted`;
   }
 
   /**
@@ -79,7 +78,7 @@ class TasksController {
    * @param id:string
    * @returns void
    */
-  unsubscribeUser(id:string):void {
+  unsubscribeUser(id: string): void {
     this.tasks = this.tasks.map(item => {
       if (item.userId === id) {
         return { ...item, userId: null };
@@ -93,7 +92,7 @@ class TasksController {
    * @param id:string
    * @returns void
    */
-  unsubscribeBoard(id:string):void {
+  unsubscribeBoard(id: string): void {
     this.tasks = this.tasks.filter(item => item.boardId !== id);
   }
 }

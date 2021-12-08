@@ -29,11 +29,9 @@ class TasksController {
         return this.getTask(id);
     }
     deleteTask(id) {
-        if (this.getTask(id)) {
-            this.tasks = this.tasks.filter(item => item.id !== id);
-            return `Task with ${id} deleted`;
-        }
-        throw new Error404('Not found');
+        this.getTask(id);
+        this.tasks = this.tasks.filter(item => item.id !== id);
+        return `Task with ${id} deleted`;
     }
     unsubscribeUser(id) {
         this.tasks = this.tasks.map(item => {

@@ -12,7 +12,7 @@ class BoardsController {
         if (board) {
             return board.toResponse();
         }
-        throw Error404;
+        throw new Error404("no board with this id");
     }
     createBoard(payload) {
         const board = new Board(payload);
