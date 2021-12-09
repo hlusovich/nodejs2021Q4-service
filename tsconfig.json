@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "ES2017",
+    "noImplicitAny": true,
+    "strict": true,
+    "baseUrl": "./",
+    "rootDir": "./",
+    "removeComments": true,
+    "moduleResolution": "node",
+    "lib": [
+      "es6",
+      "dom",
+      "es2017"
+    ],
+    "preserveConstEnums": true
+  },
+  "include": [
+    "./src/",
+    "./Errors/",
+    "./handler/"
+  ],
+  "exclude": [
+    "./.github/",
+    "./node_modules"
+  ]
+}

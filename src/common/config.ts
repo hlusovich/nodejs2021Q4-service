@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 
 config({ path: '../../.env' });
-export const PORT = process.env.PORT || '4000';
+export const PORT: string|undefined = process.env.PORT || '4000';
