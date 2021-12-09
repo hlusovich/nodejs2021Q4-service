@@ -1,40 +1,35 @@
 import usersController from './user.memory.repository.js';
 import taskController  from '../tasks/task.memory.repository.js';
+import {User} from "./user.model";
 
-interface IUser {
-  name: string;
-  login: string;
-  id: string,
-  password:string
-}
 /**
  * return  Array of users without password
  * @param there is no param
- * @returns  Omit<IUser, 'password'>[]
+ * @returns  Omit<User, 'password'>[]
  */
 
 const getAll = () => usersController.getAll();
 /**
  * return  User by id
  * @param id:string
- * @returns Omit<IUser, 'password'>  or if no Task with such id throw error
+ * @returns Omit<User, 'password'>  or if no Task with such id throw error
  */
 const getUserById = (id:string) => usersController.getUser(id);
 
 /**
  * return  Fresh created User
  * @param payload object with  fields name: string; login: string; password: string; id: string
- * @returns Omit<IUser, 'password'>
+ * @returns Omit<User, 'password'>
  */
-const createUser = (data:IUser) => usersController.createUser(data);
+const createUser = (data:User) => usersController.createUser(data);
 /**
  * return  Fresh updated user
  * @param id:string
  * @param payload object with  fields name: string; login: string; password: string; id: string
- * @returns Omit<IUser, 'password'> or throw Error
+ * @returns Omit<User, 'password'> or throw Error
  */
 
-const updateUser = (id:string, data:Omit<IUser, "password">) => usersController.updateUser(id, data);
+const updateUser = (id:string, data:Omit<User, "password">) => usersController.updateUser(id, data);
 /**
  * Delete user by id
  * @param id:string

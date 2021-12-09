@@ -1,43 +1,31 @@
-import { v4 } from 'uuid';
-
-interface IColumn {
-  id: string;
-  title: string;
-  order: number
-}
-
-export interface IBoardToResponse {
-  title: string;
-  id: string;
-  columns: IColumn[],
-}
-
+import {v4} from 'uuid';
+import {Column} from "./Column";
 
 
 export class Board {
-  id:string;
+    id: string;
 
-  title:string;
+    title: string;
 
-  columns:Set<IColumn>;
+    columns: Array<Column>;
 
-  constructor({ title, columns, id }: IBoardToResponse) {
-    this.id = id || v4();
-    this.title = title;
-    this.columns = new Set(columns);
-  }
+    constructor({title, columns, id}: Omit<Board, "toResponse">) {
+        this.id = id || v4();
+        this.title = title;
+        this.columns = columns;
+    }
 
-  /**
-   * return Board object without methods
-   * @param there is no param
-   * @returns IBoardToResponse
-   */
-  toResponse():IBoardToResponse {
-    return {
-      id: this.id,
-      title: this.title,
-      columns: [...this.columns]
-    };
-  }
+    /**
+     * create Board object without methods
+     * @param there is no param
+     * @returns Board without methods
+     */
+    toResponse(): Omit<Board, "toResponse"> {
+        return {
+            id: this.id,
+            title: this.title,
+            columns: [...this.columns]
+        };
+    }
 
 }

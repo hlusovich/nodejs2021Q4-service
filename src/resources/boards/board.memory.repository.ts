@@ -1,17 +1,7 @@
 import { Board } from './board.model.js';
 import { Error404 } from '../../../Errors/404error.js';
 
-interface IColumn {
-  id: string;
-  title: string;
-  order: number
-}
 
-export interface IBoardToResponse {
-  title: string;
-  id: string;
-  columns: IColumn[],
-}
 
 class BoardsController {
   boards: Board[];
@@ -23,18 +13,18 @@ class BoardsController {
   /**
    * return  Array of Boards  without methods
    * @param there is no param
-   * @returns IBoardToResponse[]
+   * @returns Array of Board without methods
    */
-  getAll(): IBoardToResponse[] {
+  getAll(): Omit<Board, "toResponse">[] {
     return this.boards.map(item => item.toResponse());
   }
 
   /**
    * return  Board by id
    * @param id:string
-   * @returns IBoardToResponse or if no board with such id throw custom error (instance of Error404)
+   * @returns Board without methods or if no board with such id throw custom error (instance of Error404)
    */
-  getBoard(id: string): IBoardToResponse | never {
+  getBoard(id: string): Omit<Board, "toResponse"> | never {
     const board = this.boards.find(item => item.id === id);
     if (board) {
       return board.toResponse();
@@ -45,9 +35,9 @@ class BoardsController {
   /**
    * return  Fresh created Board
    * @param payload object with  fields title,id,columns
-   * @returns IBoardToResponse
+   * @returns Board without methods
    */
-  createBoard(payload: IBoardToResponse): IBoardToResponse {
+  createBoard(payload: Omit<Board, "toResponse">): Omit<Board, "toResponse"> {
     const board: Board = new Board(payload);
     this.boards.push(board);
     return board.toResponse();
@@ -57,9 +47,9 @@ class BoardsController {
    * return  Fresh updated Board
    * @param id:string
    * @param payload object with unnecessary fields title,id,columns
-   * @returns IBoardToResponse or if no board with such id throw custom error (instance of Error404)
+   * @returns Board without methods or if no board with such id throw custom error (instance of Error404)
    */
-  updateBoard(id: string, payload: IBoardToResponse): IBoardToResponse | never {
+  updateBoard(id: string, payload: Omit<Board, "toResponse">): Omit<Board, "toResponse"> | never {
     this.getBoard(id);
     this.boards = this.boards.map(item => {
       if (item.id === id) {
@@ -67,7 +57,7 @@ class BoardsController {
       }
       return item;
     });
-    const board: IBoardToResponse = this.getBoard(id);
+    const board: Omit<Board, "toResponse"> = this.getBoard(id);
     return board;
   }
 

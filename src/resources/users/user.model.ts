@@ -1,12 +1,5 @@
 import { v4 } from 'uuid';
 
-interface IUser {
-  name: string;
-  login: string;
-  password: string;
-  id: string
-}
-
 export class User {
   name: string;
 
@@ -16,7 +9,7 @@ export class User {
 
   id: string;
 
-  constructor({ name, login, password, id }: IUser) {
+  constructor({ name, login, password, id }: User) {
     this.id = id || v4();
     this.name = name;
     this.login = login;
@@ -25,10 +18,10 @@ export class User {
 
   /**
    * return user without password
-   * @param user:IUser
+   * @param user:User; object with fields id, name, login
    * @returns user with deleted user password  Omit<IUser, 'password'>
    */
-  static toResponse(user: IUser): Omit<IUser, 'password'> {
+  static toResponse(user: User): Omit<User, 'password'> {
     const { id, name, login } = user;
     return { id, name, login };
   }
