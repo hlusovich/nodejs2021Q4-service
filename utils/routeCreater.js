@@ -1,11 +1,18 @@
 import { setStatusCode } from './setStatusCode.js';
 import { errorHandler } from '../handler/errorHandler.js';
-
 export const createRoute = (method, path, handler) => ({
     method,
     path,
     handler(req, h) {
         try {
+            const query = req.url.searchParams + "";
+            console.log(`full path with query ${req.url.href}
+      path origin ${req.url.origin}
+      status code ${setStatusCode(method)}
+      ${query.length ? `query params ${req.url.searchParams}` : ''}
+      ${req.payload ? `body ${JSON.stringify(req.payload)}` : ``}
+      
+     `);
             const response = h.response(handler(req));
             return response.code(setStatusCode(method));
         }
