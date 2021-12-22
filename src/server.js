@@ -8,6 +8,13 @@ const boardRoutes = board;
 const taskRoutes = task;
 async function startServer() {
     await server.start();
+    process.on("uncaughtException", () => {
+        console.log('we have an ' + 'uncaughtException');
+    });
+    process.on("unhandledRejection", () => {
+        console.log('we have an ' + 'unhandledRejection');
+    });
+    Promise.reject(Error('Oops!'));
     console.log(`Server successfully started on port ${PORT}`);
 }
 startServer();
