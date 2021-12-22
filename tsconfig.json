@@ -16,12 +16,11 @@
     "preserveConstEnums": true
   },
   "include": [
-    "./src/",
-    "./Errors/",
-    "./handler/"
+    "./"
   ],
   "exclude": [
     "./.github/",
-    "./node_modules"
+    "./node_modules",
+    "./test"
   ]
 }

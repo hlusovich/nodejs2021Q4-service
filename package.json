@@ -43,6 +43,8 @@
     "@types/uuid": "^8.3.3",
     "cross-env": "7.0.3",
     "dotenv": "10.0.0",
+    "es-dirname": "^0.1.0",
+    "expose": "^0.1.4",
     "hapi": "^14.0.0",
     "uuid": "8.3.2",
     "yamljs": "0.3.0"
