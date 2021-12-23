@@ -19,7 +19,7 @@ export const createRoute = (method: methodsEnum, path: string, handler: (req: Re
     path,
     handler(req: Request, h: ResponseToolkit): ResponseObject | void { //
         try {
-            const query: string = req.url.searchParams + "";
+            const query = `${req.url.searchParams  }`;
             const message = `full path with query ${req.url.href}
       path origin ${req.url.origin}
       status code ${setStatusCode(method)}
@@ -31,11 +31,11 @@ export const createRoute = (method: methodsEnum, path: string, handler: (req: Re
             const response = h.response(handler(req));
             return response.code(setStatusCode(method));
         } catch (e: unknown) {
-            const moc = () => 'Not Found';
+            const moc = (message:string) => message;
             if (e instanceof Error) {
-                return errorHandler(e, h.response(moc()));
+                return errorHandler(e, h.response(moc(e.message)));
             }
-            return errorHandler(new Error('System mistake'), h.response(moc()));
+            return errorHandler(new Error('System mistake'), h.response(moc('System mistake')));
         }
 
     }

@@ -7,7 +7,7 @@ class Logger {
     }
     writeLog(data) {
         try {
-            fs.appendFileSync(this.basePath, data + '\n');
+            fs.appendFileSync(this.basePath, `${data}\n`);
         }
         catch (e) {
             console.log(e);
@@ -15,7 +15,7 @@ class Logger {
     }
     writeErrorLog(data) {
         try {
-            fs.appendFileSync(this.errorBasePath, data + '\n');
+            fs.appendFileSync(this.errorBasePath, `${data}\n`);
         }
         catch (e) {
             console.log(e);

@@ -8,29 +8,35 @@ interface ILogObject {
 
 class Logger {
     loggLevel: number;
+
     basePath: string;
+
     errorBasePath: string;
+
     constructor(basePath:string, errorBasePath:string) {
         this.loggLevel = +(process.env.LEVEL || 4);
         this.basePath = basePath;
         this.errorBasePath =  errorBasePath;
     }
+
     writeLog(data:string){
       try{
-          fs.appendFileSync(this.basePath,data+'\n');
+          fs.appendFileSync(this.basePath,`${data}\n`);
         }
         catch (e) {
             console.log(e)
         }
     }
+
     writeErrorLog(data:string){
         try{
-            fs.appendFileSync(this.errorBasePath,data+'\n');
+            fs.appendFileSync(this.errorBasePath,`${data}\n`);
         }
         catch (e) {
             console.log(e)
         }
     }
+
     log(logObject: ILogObject): void {
         if (logObject.level > this.loggLevel) {
             return

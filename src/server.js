@@ -10,12 +10,11 @@ const taskRoutes = task;
 async function startServer() {
     await server.start();
     process.on("uncaughtException", () => {
-        Logger.log({ message: 'we have an ' + 'uncaughtException', level: 0 });
+        Logger.log({ message: 'we have an uncaughtException', level: 0 });
     });
     process.on("unhandledRejection", () => {
-        Logger.log({ level: 0, message: 'we have an ' + 'unhandledRejection' });
+        Logger.log({ level: 0, message: 'we have an unhandledRejection' });
     });
-    Promise.reject(Error('Oops!'));
     Logger.log({ level: 2, message: `Server successfully started on port ${PORT}` });
 }
 startServer();
