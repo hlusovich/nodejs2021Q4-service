@@ -27,8 +27,8 @@ export const createRoute = (method: methodsEnum, path: string, handler: (req: Re
       ${req.payload ? `body ${JSON.stringify(req.payload)}` : ``}
       
      `;
-            logger.log({level: 2, message});
             const response = h.response(handler(req));
+            logger.log({level: 2, message});
             return response.code(setStatusCode(method));
         } catch (e: unknown) {
             const moc = (message:string) => message;

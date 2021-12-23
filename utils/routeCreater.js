@@ -14,8 +14,8 @@ export const createRoute = (method, path, handler) => ({
       ${req.payload ? `body ${JSON.stringify(req.payload)}` : ``}
       
      `;
-            logger.log({ level: 2, message });
             const response = h.response(handler(req));
+            logger.log({ level: 2, message });
             return response.code(setStatusCode(method));
         }
         catch (e) {
