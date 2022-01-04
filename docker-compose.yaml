@@ -4,8 +4,13 @@ volumes:
 services:
   taskdocker:
     build: .
+    networks:
+      - db
     volumes:
       - vol:/src/logs
     ports:
       - "4000:4000"
     restart: always
+networks:
+  db:
+
