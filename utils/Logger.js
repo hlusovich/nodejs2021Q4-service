@@ -8,6 +8,7 @@ class Logger {
     writeLog(data) {
         try {
             fs.appendFileSync(this.basePath, `${data}\n`);
+            console.log(fs.readFileSync(this.basePath, { encoding: 'utf8', flag: 'r' }));
         }
         catch (e) {
             console.log(e);
@@ -51,4 +52,4 @@ class Logger {
         }
     }
 }
-export default new Logger('allLogs', 'errorBaseLogs');
+export default new Logger('src/logs/allLogs', 'src/logs/errorBaseLogs');

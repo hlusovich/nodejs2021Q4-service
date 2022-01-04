@@ -18,3 +18,15 @@ Info:
       
       
      
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
