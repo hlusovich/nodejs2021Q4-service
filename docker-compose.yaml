@@ -1,0 +1,11 @@
+version: "3"
+volumes:
+  vol:
+services:
+  taskdocker:
+    build: .
+    volumes:
+      - vol:/src/logs
+    ports:
+      - "4000:4000"
+    restart: always

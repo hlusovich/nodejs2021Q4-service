@@ -70,3 +70,10 @@ npm run lint
 Press <kbd>F5</kbd> to debug.
 
 For more information, visit: https://code.visualstudio.com/docs/editor/debugging
+
+### Debugging in VSCode:
+if you want to create docker container - docker build . -t (tag name for your container);
+example docker build . -t 7081379/taskdocker
+if you want to run container - docker run -p  (your outside port): 4000 (default port in env file) -v (volume name):/src/logs (tag name for your container)
+example docker run -p 4000:4000  -v vol:/src/logs 7081379/taskdocker
+
