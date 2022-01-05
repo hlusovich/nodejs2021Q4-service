@@ -2,15 +2,18 @@ version: "3"
 volumes:
   vol:
 services:
-  taskdocker:
+  node:
     build: .
     networks:
       - db
     volumes:
       - vol:/src/logs
     ports:
-      - "4000:4000"
+      - "${PORT}:${PORT}"
     restart: always
+
 networks:
   db:
+    external:
+      name: my-bridge
 
