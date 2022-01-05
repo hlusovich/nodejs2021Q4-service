@@ -76,5 +76,9 @@ if you want to create docker container - docker build . -t (tag name for your co
 example docker build . -t 7081379/taskdocker
 if you want to run container - docker run -p  (your outside port): 4000 (default port in env file) -v (volume name):/src/logs (tag name for your container)
 example docker run -p 4000:4000  -v vol:/src/logs 7081379/taskdocker
-before run docker-compose.yaml you need create external user defined bridge with command - docker network create my-bridge (this name i use in my compose file? you can use your own one and change it in docker-compose.yaml file)
-If you want run app with data base you can do it in root dir with command - docker-compose up 
+before run docker-compose.yaml you need create external user defined bridge with command 
+- docker network create my-bridge (this name i use in my compose file? you can use your own one and change it in docker-compose.yaml file)
+create two volumes with command docker volume create  
+-docker volume create vol 
+ -docker volume create postgresdatavol
+And then if you want run app with data base you can do it in root dir with command - docker-compose up 

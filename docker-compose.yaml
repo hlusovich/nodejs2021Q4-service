@@ -1,7 +1,17 @@
 version: "3"
 volumes:
   vol:
+  postgresdatavol:
 services:
+  postgres:
+    build: PostgressDocker
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD : ${POSTGRES_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    volumes:
+      - postgresdatavol:/var/lib
   node:
     build: .
     networks:
@@ -11,7 +21,8 @@ services:
     ports:
       - "${PORT}:${PORT}"
     restart: always
-
+    depends_on:
+      - postgres
 networks:
   db:
     external:

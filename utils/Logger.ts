@@ -22,7 +22,6 @@ class Logger {
     writeLog(data:string){
       try{
           fs.appendFileSync(this.basePath,`${data}\n`);
-          console.log(fs.readFileSync(this.basePath,{encoding:'utf8', flag:'r'}));
         }
         catch (e) {
             console.log(e)
