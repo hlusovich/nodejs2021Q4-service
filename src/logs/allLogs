@@ -104,3 +104,807 @@ Info:
                 Server successfully started on port 4000
 Info:
                 Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"name":"mouse23","login":"66","password":"777"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"name":"mouse23","login":"66","password":"777"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"name":"mouse25","login":"66","password":"777"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"name":"mouse25","login":"66","password":"777"}
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"name":"mo5","login":"66","password":"777"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users/49886b41-e9ed-4fb7-b83d-e03331837ade
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      body {"name":"mo5","login":"66","password":"777"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users/49886b41-e9ed-4fb7-b83d-e03331837ade
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      body {"name":"mo5","login":"66","password":"777"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":30,"title":"title","userid":"userId","boardid":"boardId","columnid":"columnId","description":"description"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":303,"title":"title","userid":"userId","boardid":"boardId","columnid":"columnId","description":"description434"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/303
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      body {"id":303,"title":"666","userid":"userId","boardid":"boardId","columnid":"columnId","description":"description434"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/303
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/303
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      body {"id":303,"title":"666","userid":"userId","boardid":"boardId","columnid":"columnId","description":"description434"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/303
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/218139fc-e9cf-4669-89a0-10f927b99ab3
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/a9047dac-1c7a-4712-9d99-b79c9b6bc818
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/018373c4-5fb8-4b32-893a-d2e8d8c7f051
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"id":"018373c4-5fb8-4b32-893a-d2e8d8c7f051","title":"Autotest updated board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/018373c4-5fb8-4b32-893a-d2e8d8c7f051
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/018373c4-5fb8-4b32-893a-d2e8d8c7f051
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/7dd53aa5-3742-4270-99d1-b3b75ae820fc
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/218139fc-e9cf-4669-89a0-10f927b99ab3
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f6ff0755-7320-4eb5-b472-ad5a209d6d0f/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f6ff0755-7320-4eb5-b472-ad5a209d6d0f/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/29
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f6ff0755-7320-4eb5-b472-ad5a209d6d0f
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":13,"title":"666","userid":"95199b5d-4fca-47f5-87e0-f78936c0e4d2","boardid":"boardId","columnid":"columnId","description":"description434"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":13,"title":"666","userid":"27","boardid":"boardId","columnid":"columnId","description":"description434"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":13,"title":"666","userid":"27","boardid":"boardId","columnid":"columnId","description":"description434"}
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000

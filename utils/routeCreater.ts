@@ -14,10 +14,10 @@ type methodsEnum = keyof codeStatuses
  *@returns ResponseValue
  * @returns ServerRoute
  */
-export const createRoute = (method: methodsEnum, path: string, handler: (req: Request) => ResponseValue): ServerRoute => ({
+export const createRoute =  (method: methodsEnum, path: string, handler: (req: Request) => ResponseValue): ServerRoute => ({
     method,
     path,
-    handler(req: Request, h: ResponseToolkit): ResponseObject | void { //
+   async handler(req: Request, h: ResponseToolkit): Promise<ResponseObject | void> { //
         try {
             const query = `${req.url.searchParams  }`;
             const message = `full path with query ${req.url.href}
@@ -27,7 +27,7 @@ export const createRoute = (method: methodsEnum, path: string, handler: (req: Re
       ${req.payload ? `body ${JSON.stringify(req.payload)}` : ``}
       
      `;
-            const response = h.response(handler(req));
+            const response = await h.response(await handler(req));
             logger.log({level: 2, message});
             return response.code(setStatusCode(method));
         } catch (e: unknown) {

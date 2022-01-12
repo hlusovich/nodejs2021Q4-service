@@ -48,7 +48,7 @@ class UserController {
   createUser(payload: IUser): Omit<IUser, 'password'> {
     const user = new User(payload);
     this.users.push(user);
-    return User.toResponse(user);
+    return user;
   }
 
   /**

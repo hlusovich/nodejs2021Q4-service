@@ -7,37 +7,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { BaseEntity, } from '../node_modules/typeorm/repository/BaseEntity.js';
-import { Column } from '../node_modules/typeorm/decorator/columns/Column.js';
-import { PrimaryColumn } from '../node_modules/typeorm/decorator/columns/PrimaryColumn.js';
-import { Entity } from '../node_modules/typeorm/decorator/entity/Entity.js';
-let User = class User extends BaseEntity {
-    constructor(id, first_name, last_name, age) {
+import { BaseEntity, } from '../../node_modules/typeorm/repository/BaseEntity.js';
+import { Column } from '../../node_modules/typeorm/decorator/columns/Column.js';
+import { PrimaryColumn } from '../../node_modules/typeorm/decorator/columns/PrimaryColumn.js';
+import { Entity } from '../../node_modules/typeorm/decorator/entity/Entity.js';
+let BoardModel = class BoardModel extends BaseEntity {
+    constructor(id, title, columns) {
         super();
         this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.age = age;
+        this.title = title;
+        this.columns = columns;
     }
 };
 __decorate([
     PrimaryColumn(),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], BoardModel.prototype, "id", void 0);
 __decorate([
     Column(),
     __metadata("design:type", String)
-], User.prototype, "first_name", void 0);
+], BoardModel.prototype, "title", void 0);
 __decorate([
     Column(),
     __metadata("design:type", String)
-], User.prototype, "last_name", void 0);
-__decorate([
-    Column(),
-    __metadata("design:type", Number)
-], User.prototype, "age", void 0);
-User = __decorate([
-    Entity('students3'),
-    __metadata("design:paramtypes", [Number, String, String, Number])
-], User);
-export { User };
+], BoardModel.prototype, "columns", void 0);
+BoardModel = __decorate([
+    Entity('boards'),
+    __metadata("design:paramtypes", [Number, String, String])
+], BoardModel);
+export { BoardModel };

@@ -39,8 +39,8 @@ class TasksController {
    * @param boardId:string
    * @returns Task
    */
-  createTask(payload: Task, boardId: string): Task {
-    const newTask = new Task({ ...payload, boardId });
+  createTask(payload: Task, boardid: string): Task {
+    const newTask = new Task({ ...payload, boardid });
     this.tasks.push(newTask);
     return newTask;
   }
@@ -80,7 +80,7 @@ class TasksController {
    */
   unsubscribeUser(id: string): void {
     this.tasks = this.tasks.map(item => {
-      if (item.userId === id) {
+      if (item.userid === id) {
         return { ...item, userId: null };
       }
       return item;
@@ -93,7 +93,7 @@ class TasksController {
    * @returns void
    */
   unsubscribeBoard(id: string): void {
-    this.tasks = this.tasks.filter(item => item.boardId !== id);
+    this.tasks = this.tasks.filter(item => item.boardid !== id);
   }
 }
 

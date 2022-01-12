@@ -1,6 +1,9 @@
 import usersController from './user.memory.repository.js';
-import taskController  from '../tasks/task.memory.repository.js';
+import taskController from '../tasks/task.memory.repository.js';
 import {User} from "./user.model";
+import {UserControllerModel} from "../../controllers/userController.js";
+import {DeleteResult} from "typeorm";
+
 
 /**
  * return  Array of users without password
@@ -8,20 +11,22 @@ import {User} from "./user.model";
  * @returns  Omit<User, 'password'>[]
  */
 
-const getAll = () => usersController.getAll();
+const getAll = async () => await UserControllerModel.getAll();
+;
 /**
  * return  User by id
  * @param id:string
  * @returns Omit<User, 'password'>  or if no Task with such id throw error
  */
-const getUserById = (id:string) => usersController.getUser(id);
+const getUserById = async (id: string) => await UserControllerModel.getUserById(id);
 
 /**
  * return  Fresh created User
  * @param payload object with  fields name: string; login: string; password: string; id: string
  * @returns Omit<User, 'password'>
  */
-const createUser = (data:User) => usersController.createUser(data);
+const createUser = async (data: User) =>{
+    await UserControllerModel.createUser(usersController.createUser(data))};
 /**
  * return  Fresh updated user
  * @param id:string
@@ -29,16 +34,16 @@ const createUser = (data:User) => usersController.createUser(data);
  * @returns Omit<User, 'password'> or throw Error
  */
 
-const updateUser = (id:string, data:Omit<User, "password">) => usersController.updateUser(id, data);
+const updateUser = async (id: string, data: Omit<User, "password">) => await UserControllerModel.updateUser(id, data);
 /**
  * Delete user by id
  * @param id:string
  * @returns string with deleted user id
  */
-const deleteUser = (id:string):string => {
-  taskController.unsubscribeUser(id);
-  return  usersController.deleteUser(id);
+const deleteUser = async (id: string): Promise<DeleteResult> => {
+    taskController.unsubscribeUser(id);
+    return await UserControllerModel.deleteUser(id);
 };
 
-export { getAll, getUserById, createUser, updateUser, deleteUser };
+export {getAll, getUserById, createUser, updateUser, deleteUser};
 

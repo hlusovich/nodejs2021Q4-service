@@ -14,8 +14,8 @@ class TasksController {
         }
         throw new Error404('Not found');
     }
-    createTask(payload, boardId) {
-        const newTask = new Task(Object.assign(Object.assign({}, payload), { boardId }));
+    createTask(payload, boardid) {
+        const newTask = new Task(Object.assign(Object.assign({}, payload), { boardid }));
         this.tasks.push(newTask);
         return newTask;
     }
@@ -35,14 +35,14 @@ class TasksController {
     }
     unsubscribeUser(id) {
         this.tasks = this.tasks.map(item => {
-            if (item.userId === id) {
+            if (item.userid === id) {
                 return Object.assign(Object.assign({}, item), { userId: null });
             }
             return item;
         });
     }
     unsubscribeBoard(id) {
-        this.tasks = this.tasks.filter(item => item.boardId !== id);
+        this.tasks = this.tasks.filter(item => item.boardid !== id);
     }
 }
 export default new TasksController();
