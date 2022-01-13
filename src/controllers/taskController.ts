@@ -1,6 +1,6 @@
 import taskController from '../resources/tasks/task.memory.repository';
 import { Task } from '../resources/tasks/task.model';
-import { TaskModel } from '../models/task.js';
+import { TaskModel } from '../entity/task.js';
 import {DeleteResult, UpdateResult} from "typeorm";
 
 interface ITask {

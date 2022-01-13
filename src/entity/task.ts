@@ -6,13 +6,13 @@ import {ManyToOne} from '../../node_modules/typeorm/decorator/relations/ManyToOn
 import {UserModel} from "./user.js";
 // @Column()
 // order: number;
-@Entity('tasks666')
+@Entity('tasks667')
 export class TaskModel extends BaseEntity{
-  constructor(id:number, title:string,order:number,userId:string, boardId:string,columnId:string, description:string){
+  constructor(id:number, title:string,order:number,user:string, boardId:string,columnId:string, description:string){
     super();
     this.id = id;
     this.title = title;
-    this.userid = userId;
+    this.userid = user;
     this.boardid = boardId;
     this.columnid = columnId;
     this.description = description;
@@ -23,7 +23,6 @@ export class TaskModel extends BaseEntity{
   @Column()
   title: string;
   @ManyToOne(type=>UserModel,{onDelete:"SET NULL"})
-  @Column()
   userid: string;
   @Column()
   boardid: string;

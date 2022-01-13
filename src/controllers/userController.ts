@@ -1,6 +1,6 @@
 import userController from '../resources/users/user.memory.repository';
 import {User} from '../resources/users/user.model.js';
-import {UserModel} from '../models/user.js';
+import {UserModel} from '../entity/user.js';
 
 interface IUser {
     id: string;

@@ -4,20 +4,17 @@
   "port": 5432,
   "username": "nikita3",
   "password": "7081379",
-  "database": "Studetns",
-  "synchronize": false,
+  "database": "tester",
+  "synchronize": true,
   "entities": [
-    "src/entity/**/*.ts"
+    "src/models/**/*.js"
   ],
   "migrations": [
-    "database/migrations/**/*.ts"
-  ],
-  "subscribers": [
-    "src/subscriber/**/*.ts"
+    "migration/**/*.ts"
   ],
   "cli": {
-    "entitiesDir": "src/entity",
-    "migrationsDir": "database/migrations",
-    "subscribersDir": "src/subscriber"
+    "entitiesDir": "src/models",
+    "migrationsDir": "migration",
+    "subscribersDir": "subscriber"
   }
 }

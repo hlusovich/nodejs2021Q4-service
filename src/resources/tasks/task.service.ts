@@ -3,7 +3,7 @@ import { Task } from './task.model';
 import {TaskModelController} from "../../controllers/taskController.js";
 import {awaitExpression} from "@babel/types";
 import {DeleteResult, UpdateResult} from "typeorm";
-import {TaskModel} from "../../models/task";
+import {TaskModel} from "../../entity/task";
 /**
  * return  Array of Tasks
  * @param there is no param

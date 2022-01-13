@@ -5,10 +5,11 @@ import board from './resources/boards/board.router.js';
 import task from './resources/tasks/task.router.js';
 import Logger from "../utils/Logger.js";
 import {ConnectionOptions} from "typeorm";
+import "reflect-metadata"
 import {createConnection} from '../node_modules/typeorm/globals.js';
-import {TaskModel} from './models/task.js';
-import {UserModel} from './models/user.js';
-import {BoardModel} from './models/board.js';
+import {TaskModel} from './entity/task.js';
+import {UserModel} from './entity/user.js';
+import {BoardModel} from './entity/board.js';
 
 
 const options: ConnectionOptions = {
@@ -23,7 +24,9 @@ const options: ConnectionOptions = {
 
 async function createDBConnection():Promise<void> {
   try{
-    await createConnection(options).then(async ()=>{await startServer();});
+    await createConnection(options).then(async (server)=>{
+        server.runMigrations();
+        await startServer();});
   }
   catch (e) {
     Logger.log({message:'we have an error when trying to connect ot db', level:0})

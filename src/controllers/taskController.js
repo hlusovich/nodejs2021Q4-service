@@ -1,4 +1,4 @@
-import { TaskModel } from '../models/task.js';
+import { TaskModel } from '../entity/task.js';
 export class TaskModelController {
     static async getAll() {
         return await TaskModel.query("SELECT * FROM tasks6");

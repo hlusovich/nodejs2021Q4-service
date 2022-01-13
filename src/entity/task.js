@@ -14,11 +14,11 @@ import { Entity } from '../../node_modules/typeorm/decorator/entity/Entity.js';
 import { ManyToOne } from '../../node_modules/typeorm/decorator/relations/ManyToOne.js';
 import { UserModel } from "./user.js";
 let TaskModel = class TaskModel extends BaseEntity {
-    constructor(id, title, order, userId, boardId, columnId, description) {
+    constructor(id, title, order, user, boardId, columnId, description) {
         super();
         this.id = id;
         this.title = title;
-        this.userid = userId;
+        this.userid = user;
         this.boardid = boardId;
         this.columnid = columnId;
         this.description = description;
@@ -34,7 +34,6 @@ __decorate([
 ], TaskModel.prototype, "title", void 0);
 __decorate([
     ManyToOne(type => UserModel, { onDelete: "SET NULL" }),
-    Column(),
     __metadata("design:type", String)
 ], TaskModel.prototype, "userid", void 0);
 __decorate([
@@ -50,7 +49,7 @@ __decorate([
     __metadata("design:type", String)
 ], TaskModel.prototype, "description", void 0);
 TaskModel = __decorate([
-    Entity('tasks666'),
+    Entity('tasks667'),
     __metadata("design:paramtypes", [Number, String, Number, String, String, String, String])
 ], TaskModel);
 export { TaskModel };
