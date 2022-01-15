@@ -19,13 +19,12 @@ export const createRoute =  (method: methodsEnum, path: string, handler: (req: R
     path,
    async handler(req: Request, h: ResponseToolkit): Promise<ResponseObject | void> { //
         try {
-            const query = `${req.url.searchParams  }`;
+            const query = `${req.url.searchParams }`;
             const message = `full path with query ${req.url.href}
       path origin ${req.url.origin}
       status code ${setStatusCode(method)}
       ${query.length ? `query params ${req.url.searchParams}` : ''}
       ${req.payload ? `body ${JSON.stringify(req.payload)}` : ``}
-      
      `;
             const response = await h.response(await handler(req));
             logger.log({level: 2, message});

@@ -39,8 +39,8 @@ class TasksController {
    * @param boardId:string
    * @returns Task
    */
-  createTask(payload: Task, boardid: string): Task {
-    const newTask = new Task({ ...payload, boardid });
+  createTask(payload: Task, boardId: string): Task {
+    const newTask = new Task({ ...payload, boardId });
     this.tasks.push(newTask);
     return newTask;
   }
@@ -51,15 +51,6 @@ class TasksController {
    * @param payload object with  fields title, id, order, description, boardId, userId, columnId
    * @returns Task
    */
-  updateTask(id: string, payload: Task): Task {
-    this.tasks = this.tasks.map(item => {
-      if (item.id === id) {
-        return new Task({ ...item, ...payload });
-      }
-      return item;
-    });
-    return this.getTask(id);
-  }
 
   /**
    * Delete task by id
@@ -80,7 +71,7 @@ class TasksController {
    */
   unsubscribeUser(id: string): void {
     this.tasks = this.tasks.map(item => {
-      if (item.userid === id) {
+      if (item.userId === id) {
         return { ...item, userId: null };
       }
       return item;
@@ -93,7 +84,7 @@ class TasksController {
    * @returns void
    */
   unsubscribeBoard(id: string): void {
-    this.tasks = this.tasks.filter(item => item.boardid !== id);
+    this.tasks = this.tasks.filter(item => item.boardId !== id);
   }
 }
 

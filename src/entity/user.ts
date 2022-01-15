@@ -4,7 +4,7 @@ import {PrimaryColumn} from '../../node_modules/typeorm/decorator/columns/Primar
 import {Entity} from '../../node_modules/typeorm/decorator/entity/Entity.js';
 
 
-@Entity('users3')
+@Entity('users')
 export class UserModel extends BaseEntity{
   constructor(id:string, name:string,login:string,password:string){
     super();

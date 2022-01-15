@@ -1,11 +1,10 @@
-import taskController from '../resources/tasks/task.memory.repository';
 import { Task } from '../resources/tasks/task.model';
 import { TaskModel } from '../entity/task.js';
 import {DeleteResult, UpdateResult} from "typeorm";
 
 interface ITask {
   title?: string;
-  // order: number;
+  order: number;
   userid?: string;
   boardid?: string;
   columnid?: string;
@@ -19,7 +18,7 @@ export class TaskModelController {
    * @returns Task[]
    */
    static async getAll() {
-   return await TaskModel.query("SELECT * FROM tasks6");
+   return await TaskModel.query("SELECT * FROM tasks");
   };
 
   /**
@@ -65,5 +64,11 @@ export class TaskModelController {
    */
  static async deleteTask(id: string):Promise<DeleteResult> {
    return await TaskModel.delete(id);
+  };
+  static async unsubcribeBoard(boardId: string):Promise<DeleteResult> {
+    return await TaskModel.delete({boardId});
+  };
+  static async unsubscribeUser(userId: string):Promise<DeleteResult> {
+    return await TaskModel.update({userId}, {userId:null});
   };
 }

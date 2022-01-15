@@ -44,9 +44,9 @@ var task_router_js_1 = require("./resources/tasks/task.router.js");
 var Logger_js_1 = require("../utils/Logger.js");
 require("reflect-metadata");
 var globals_js_1 = require("../node_modules/typeorm/globals.js");
-var task_js_1 = require("./models/task.js");
-var user_js_1 = require("./models/user.js");
-var board_js_1 = require("./models/board.js");
+var task_js_1 = require("./entity/task.js");
+var user_js_1 = require("./entity/user.js");
+var board_js_1 = require("./entity/board.js");
 var options = {
     type: "postgres",
     host: "localhost",

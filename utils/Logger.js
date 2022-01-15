@@ -1,54 +1,53 @@
-import * as fs from 'fs';
-class Logger {
-    constructor(basePath, errorBasePath) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var fs = require("fs");
+var Logger = (function () {
+    function Logger(basePath, errorBasePath) {
         this.loggLevel = +(process.env.LEVEL || 4);
         this.basePath = basePath;
         this.errorBasePath = errorBasePath;
     }
-    writeLog(data) {
+    Logger.prototype.writeLog = function (data) {
         try {
-            fs.appendFileSync(this.basePath, `${data}\n`);
+            fs.appendFileSync(this.basePath, "".concat(data, "\n"));
         }
         catch (e) {
             console.log(e);
         }
-    }
-    writeErrorLog(data) {
+    };
+    Logger.prototype.writeErrorLog = function (data) {
         try {
-            fs.appendFileSync(this.errorBasePath, `${data}\n`);
+            fs.appendFileSync(this.errorBasePath, "".concat(data, "\n"));
         }
         catch (e) {
             console.log(e);
         }
-    }
-    log(logObject) {
+    };
+    Logger.prototype.log = function (logObject) {
         if (logObject.level > this.loggLevel) {
             return;
         }
         switch (logObject.level) {
             case 0:
                 console.error(logObject.message);
-                this.writeErrorLog(`Error:
-                ${logObject.message}`);
+                this.writeErrorLog("Error:\n                ".concat(logObject.message));
                 break;
             case 1:
                 console.warn(logObject.message);
-                this.writeLog(`Warn:
-                ${logObject.message}`);
+                this.writeLog("Warn:\n                ".concat(logObject.message));
                 break;
             case 2:
                 console.log(logObject.message);
-                this.writeLog(`Info:
-                ${logObject.message}`);
+                this.writeLog("Info:\n                ".concat(logObject.message));
                 break;
             case 3:
                 console.debug(logObject.message);
-                this.writeLog(`Debug:
-                ${logObject.message}`);
+                this.writeLog("Debug:\n                ".concat(logObject.message));
                 break;
             default:
                 console.log(logObject.message);
         }
-    }
-}
-export default new Logger('src/logs/allLogs', 'src/logs/errorBaseLogs');
+    };
+    return Logger;
+}());
+exports.default = new Logger('src/logs/allLogs', 'src/logs/errorBaseLogs');

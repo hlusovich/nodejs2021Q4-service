@@ -48,7 +48,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserControllerModel = void 0;
-var user_js_1 = require("../models/user.js");
+var user_js_1 = require("../entity/user.js");
 var UserControllerModel = (function () {
     function UserControllerModel() {
     }
@@ -57,7 +57,9 @@ var UserControllerModel = (function () {
             var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, user_js_1.UserModel.query("SELECT * FROM users3")];
+                    case 0:
+                        console.log(111);
+                        return [4, user_js_1.UserModel.query("SELECT * FROM users3")];
                     case 1:
                         result = _a.sent();
                         return [2, result];

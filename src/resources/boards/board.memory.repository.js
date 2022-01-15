@@ -1,39 +1,54 @@
-import { Board } from './board.model.js';
-import { Error404 } from '../../../Errors/404error.js';
-class BoardsController {
-    constructor(boards = []) {
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var board_model_js_1 = require("./board.model.js");
+var _404error_js_1 = require("../../../Errors/404error.js");
+var BoardsController = (function () {
+    function BoardsController(boards) {
+        if (boards === void 0) { boards = []; }
         this.boards = boards;
     }
-    getAll() {
-        return this.boards.map(item => item.toResponse());
-    }
-    getBoard(id) {
-        const board = this.boards.find(item => item.id === id);
+    BoardsController.prototype.getAll = function () {
+        return this.boards.map(function (item) { return item.toResponse(); });
+    };
+    BoardsController.prototype.getBoard = function (id) {
+        var board = this.boards.find(function (item) { return item.id === id; });
         if (board) {
             return board.toResponse();
         }
-        throw new Error404("no board with this id");
-    }
-    createBoard(payload) {
-        const board = new Board(payload);
+        throw new _404error_js_1.Error404("no board with this id");
+    };
+    BoardsController.prototype.createBoard = function (payload) {
+        var board = new board_model_js_1.Board(payload);
         this.boards.push(board);
         return board.toResponse();
-    }
-    updateBoard(id, payload) {
+    };
+    BoardsController.prototype.updateBoard = function (id, payload) {
         this.getBoard(id);
-        this.boards = this.boards.map(item => {
+        this.boards = this.boards.map(function (item) {
             if (item.id === id) {
-                return new Board(Object.assign(Object.assign({}, item), payload));
+                return new board_model_js_1.Board(__assign(__assign({}, item), payload));
             }
             return item;
         });
-        const board = this.getBoard(id);
+        var board = this.getBoard(id);
         return board;
-    }
-    deleteBoard(id) {
+    };
+    BoardsController.prototype.deleteBoard = function (id) {
         this.getBoard(id);
-        this.boards = this.boards.filter(item => item.id !== id);
-        return `Bard with ${id} was successfully  deleted`;
-    }
-}
-export default new BoardsController([]);
+        this.boards = this.boards.filter(function (item) { return item.id !== id; });
+        return "Bard with ".concat(id, " was successfully  deleted");
+    };
+    return BoardsController;
+}());
+exports.default = new BoardsController([]);

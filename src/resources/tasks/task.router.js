@@ -1,11 +1,13 @@
-import { server } from '../../app.js';
-import { getAll, getTaskById, createTask, updateTask, deleteTask } from './task.service.js';
-import { createRoute } from '../../../utils/routeCreater.js';
-const routes = [createRoute('GET', '/boards/{id}/tasks', () => getAll()),
-    createRoute('GET', '/boards/{id}/tasks/{taskId}', (req) => getTaskById(req.params.taskId)),
-    createRoute('POST', '/boards/{id}/tasks', (req) => createTask(req.payload, req.params.id)),
-    createRoute('PUT', '/boards/{id}/tasks/{taskId}', (req) => updateTask(req.params.taskId, req.payload)),
-    createRoute('DELETE', '/boards/{id}/tasks/{taskId}', (req) => deleteTask(req.params.taskId))
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var app_js_1 = require("../../app.js");
+var task_service_js_1 = require("./task.service.js");
+var routeCreater_js_1 = require("../../../utils/routeCreater.js");
+var routes = [(0, routeCreater_js_1.createRoute)('GET', '/boards/{id}/tasks', function () { return (0, task_service_js_1.getAll)(); }),
+    (0, routeCreater_js_1.createRoute)('GET', '/boards/{id}/tasks/{taskId}', function (req) { return (0, task_service_js_1.getTaskById)(req.params.taskId); }),
+    (0, routeCreater_js_1.createRoute)('POST', '/boards/{id}/tasks', function (req) { return (0, task_service_js_1.createTask)(req.payload, req.params.id); }),
+    (0, routeCreater_js_1.createRoute)('PUT', '/boards/{id}/tasks/{taskId}', function (req) { return (0, task_service_js_1.updateTask)(req.params.taskId, req.payload); }),
+    (0, routeCreater_js_1.createRoute)('DELETE', '/boards/{id}/tasks/{taskId}', function (req) { return (0, task_service_js_1.deleteTask)(req.params.taskId); })
 ];
-server.route(routes);
-export default server;
+app_js_1.server.route(routes);
+exports.default = app_js_1.server;

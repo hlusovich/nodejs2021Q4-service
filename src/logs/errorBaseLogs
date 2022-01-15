@@ -244,3 +244,289 @@ Error:
                 we have an error when trying to connect ot db
 Error:
                 we have an error when trying to connect ot db
+Error:
+                relation "tasks667" does not exist
+Error:
+                column TaskModel.boardid does not exist
+Error:
+                column TaskModel.boardid does not exist
+Error:
+                column TaskModel.boardid does not exist
+Error:
+                column TaskModel.boardid does not exist
+Error:
+                column TaskModel.boardid does not exist
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                duplicate key value violates unique constraint "PK_8d12ff38fcc62aaba2cab748772"
+Error:
+                null value in column "columns" of relation "boards" violates not-null constraint
+Error:
+                malformed array literal: "95199b5d-4fca-47f5-87e0-f78936c0e4d2"
+Error:
+                malformed array literal: "[1]"
+Error:
+                invalid input syntax for type integer: "{"title":"Backlog","order":1}"
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                invalid input syntax for type integer: "{"title":"Backlog","order":1}"
+Error:
+                invalid input syntax for type integer: "{"title":"Backlog","order":1}"
+Error:
+                invalid input syntax for type integer: "{"title":"Backlog","order":1}"
+Error:
+                invalid input syntax for type integer: "{"title":"Backlog","order":1}"
+Error:
+                invalid input syntax for type integer: "{"title":"Backlog","order":1}"
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                Cannot read property 'map' of undefined
+Error:
+                we have an unhandledRejection
+Error:
+                i is not defined
+Error:
+                invalid input syntax for type integer: "NaN"
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "userId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                invalid input syntax for type integer: "NaN"
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                invalid input syntax for type integer: "NaN"
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                invalid input syntax for type integer: "NaN"
+Error:
+                Cannot read property 'map' of undefined
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                invalid input syntax for type integer: "NaN"
+Error:
+                we have an unhandledRejection
+Error:
+                invalid input syntax for type integer: "NaN"
+Error:
+                we have an unhandledRejection
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an error when trying to connect ot db
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                Cannot read property 'map' of undefined
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                we have an unhandledRejection
+Error:
+                we have an unhandledRejection
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint
+Error:
+                null value in column "columnId" of relation "tasks" violates not-null constraint

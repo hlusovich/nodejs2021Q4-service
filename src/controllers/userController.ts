@@ -16,7 +16,7 @@ export class UserControllerModel {
      * @returns User[]
      */
     static async getAll() {
-        const result = await UserModel.query("SELECT * FROM users3");
+        const result = await UserModel.query("SELECT * FROM users");
         return result;
     };
 

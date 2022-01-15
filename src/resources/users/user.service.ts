@@ -3,6 +3,7 @@ import taskController from '../tasks/task.memory.repository.js';
 import {User} from "./user.model";
 import {UserControllerModel} from "../../controllers/userController.js";
 import {DeleteResult} from "typeorm";
+import { TaskModelController } from '../../controllers/taskController';
 
 
 /**
@@ -41,7 +42,7 @@ const updateUser = async (id: string, data: Omit<User, "password">) => await Use
  * @returns string with deleted user id
  */
 const deleteUser = async (id: string): Promise<DeleteResult> => {
-    taskController.unsubscribeUser(id);
+    await TaskModelController.unsubscribeUser(id);
     return await UserControllerModel.deleteUser(id);
 };
 

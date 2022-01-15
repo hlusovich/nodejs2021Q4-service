@@ -2,32 +2,32 @@ import { BaseEntity, } from '../../node_modules/typeorm/repository/BaseEntity.js
 import {Column} from '../../node_modules/typeorm/decorator/columns/Column.js';
 import {PrimaryColumn} from '../../node_modules/typeorm/decorator/columns/PrimaryColumn.js';
 import {Entity} from '../../node_modules/typeorm/decorator/entity/Entity.js';
-import {ManyToOne} from '../../node_modules/typeorm/decorator/relations/ManyToOne.js';
-import {UserModel} from "./user.js";
-// @Column()
-// order: number;
-@Entity('tasks667')
+
+// @ManyToOne(type=>UserModel,{onDelete:"SET NULL"})
+@Entity('tasks')
 export class TaskModel extends BaseEntity{
-  constructor(id:number, title:string,order:number,user:string, boardId:string,columnId:string, description:string){
+  constructor(id:number, title:string,order:number,userId:string, boardId:string,columnId:string, description:string){
     super();
     this.id = id;
     this.title = title;
-    this.userid = user;
-    this.boardid = boardId;
-    this.columnid = columnId;
+    this.userId = userId;
+    this.boardId = boardId;
+    this.columnId = columnId;
     this.description = description;
-    // this.order = order;
+    this.order = order;
   }
   @PrimaryColumn()
   id:number;
   @Column()
   title: string;
-  @ManyToOne(type=>UserModel,{onDelete:"SET NULL"})
-  userid: string;
+  @Column({ nullable: true})
+  userId: string;
   @Column()
-  boardid: string;
+  boardId: string;
   @Column()
-  columnid: string;
+  columnId: string;
+  @Column()
+  order: number;
   @Column()
   description: string;
 }

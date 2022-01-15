@@ -970,3 +970,1561 @@ Info:
                 Server successfully started on port 4000
 Info:
                 Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":13,"name":"666","password":"27","login":"boardId"}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/users
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":3,"title":"666","userId":"95199b5d-4fca-47f5-87e0-f78936c0e4d2","boardId":"boardId","columnId":"columnId","description":"description434","order":8}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      body {"id":31,"title":"666","userId":"95199b5d-4fca-47f5-87e0-f78936c0e4d2","boardId":"boardId","columnId":"columnId","description":"description4","order":8}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/27
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/31
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks/31
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      body {"id":31,"title":"666","userId":"95199b5d-4fca-47f5-87e0-f78936c0e4d2","boardId":"boardId","columnId":"columnId","description":"description4","order":8}
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards/1/tasks
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":31,"title":"666","columns":[1]}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/1/tasks/3
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"title":"Autotest updated task"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"title":"Autotest updated board"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":"mouse23","title":"op","columns":[{"id":22,"title":"first","order":7},{"id":23,"title":"first2","order":7}]}
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 201
+      
+      body {"id":"mouse223","title":"op","columns":[{"id":1,"title":"first","order":7},{"id":23,"title":"first2","order":7}]}
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://0.0.0.0:4000/boards
+      path origin http://0.0.0.0:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/1/tasks/3
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"title":"Autotest updated task"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/659450e3-a876-42f4-a5fa-da181baa3e94/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/659450e3-a876-42f4-a5fa-da181baa3e94/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"title":"Autotest updated task"}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/659450e3-a876-42f4-a5fa-da181baa3e94/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/659450e3-a876-42f4-a5fa-da181baa3e94/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/659450e3-a876-42f4-a5fa-da181baa3e94/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/659450e3-a876-42f4-a5fa-da181baa3e94
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/74b981ca-8e84-465d-859a-44d10c9e26c1
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/4db2a6c5-5189-437a-b9f8-aa252462531b
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"id":"4db2a6c5-5189-437a-b9f8-aa252462531b","title":"Autotest updated board","columns":["NaN","NaN"]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/4db2a6c5-5189-437a-b9f8-aa252462531b
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/21bcce05-70c7-410b-afdf-2aa1e58231ec
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/21bcce05-70c7-410b-afdf-2aa1e58231ec
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/74b981ca-8e84-465d-859a-44d10c9e26c1
+      path origin http://localhost:4000
+      status code 200
+      
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"title":"Autotest updated task"}
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/bb5616fb-3b90-4c9e-80eb-bbf2da632ea1
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/6a5833e8-acfb-4d44-afd7-f74d9cfa5d1d
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"id":"6a5833e8-acfb-4d44-afd7-f74d9cfa5d1d","title":"Autotest updated board","columns":["NaN","NaN"]}
+     
+Info:
+                full path with query http://localhost:4000/boards/6a5833e8-acfb-4d44-afd7-f74d9cfa5d1d
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/cc94716b-8388-4678-ac49-7b6510ea7776
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/cc94716b-8388-4678-ac49-7b6510ea7776
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/bb5616fb-3b90-4c9e-80eb-bbf2da632ea1
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/f2fb4e88-43d0-4d2d-a69f-9c0e0e8ba1ed/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f2fb4e88-43d0-4d2d-a69f-9c0e0e8ba1ed/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"title":"Autotest updated task"}
+     
+Info:
+                full path with query http://localhost:4000/boards/undefined/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f2fb4e88-43d0-4d2d-a69f-9c0e0e8ba1ed/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f2fb4e88-43d0-4d2d-a69f-9c0e0e8ba1ed/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f2fb4e88-43d0-4d2d-a69f-9c0e0e8ba1ed/tasks/undefined
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/f2fb4e88-43d0-4d2d-a69f-9c0e0e8ba1ed
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     

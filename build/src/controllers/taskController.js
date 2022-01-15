@@ -48,7 +48,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskModelController = void 0;
-var task_js_1 = require("../models/task.js");
+var task_js_1 = require("../entity/task.js");
 var TaskModelController = (function () {
     function TaskModelController() {
     }
