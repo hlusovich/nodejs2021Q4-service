@@ -40,47 +40,65 @@ exports.deleteUser = exports.updateUser = exports.createUser = exports.getUserBy
 var user_memory_repository_js_1 = require("./user.memory.repository.js");
 var userController_js_1 = require("../../controllers/userController.js");
 var taskController_1 = require("../../controllers/taskController");
-var getAll = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, userController_js_1.UserControllerModel.getAll()];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var getAll = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, userController_js_1.UserControllerModel.getAll()];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.getAll = getAll;
-;
-var getUserById = function (id) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, userController_js_1.UserControllerModel.getUserById(id)];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var getUserById = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, userController_js_1.UserControllerModel.getUserById(id)];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.getUserById = getUserById;
 var createUser = function (data) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4, userController_js_1.UserControllerModel.createUser(user_memory_repository_js_1.default.createUser(data))];
             case 1:
-                _a.sent();
-                return [2];
+                result = _a.sent();
+                return [2, result];
         }
     });
 }); };
 exports.createUser = createUser;
-var updateUser = function (id, data) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, userController_js_1.UserControllerModel.updateUser(id, data)];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var updateUser = function (id, data) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, userController_js_1.UserControllerModel.updateUser(id, data)];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.updateUser = updateUser;
 var deleteUser = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4, taskController_1.TaskModelController.unsubscribeUser(id)];
             case 1:
                 _a.sent();
                 return [4, userController_js_1.UserControllerModel.deleteUser(id)];
-            case 2: return [2, _a.sent()];
+            case 2:
+                result = _a.sent();
+                return [2, result];
         }
     });
 }); };

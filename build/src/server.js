@@ -1,21 +1,21 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
+
+const __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P((resolve) => { resolve(value); }); }
+    return new (P || (P = Promise))((resolve, reject) => {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+const __generator = (this && this.__generator) || function (thisArg, body) {
+    let _ = { label: 0, sent() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }; let f; let y; let t; let g;
     return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (f = 1, y && (t = op[0] & 2 ? y.return : op[0] ? y.throw || ((t = y.return) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
@@ -36,18 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var app_js_1 = require("./app.js");
-var config_js_1 = require("../config.js");
-var user_router_js_1 = require("./resources/users/user.router.js");
-var board_router_js_1 = require("./resources/boards/board.router.js");
-var task_router_js_1 = require("./resources/tasks/task.router.js");
-var Logger_js_1 = require("../utils/Logger.js");
+const app_js_1 = require("./app.js");
+const config_js_1 = require("../config.js");
+const user_router_js_1 = require("./resources/users/user.router.js");
+const board_router_js_1 = require("./resources/boards/board.router.js");
+const task_router_js_1 = require("./resources/tasks/task.router.js");
+const Logger_js_1 = require("../utils/Logger.js");
 require("reflect-metadata");
-var globals_js_1 = require("../node_modules/typeorm/globals.js");
-var task_js_1 = require("./entity/task.js");
-var user_js_1 = require("./entity/user.js");
-var board_js_1 = require("./entity/board.js");
-var options = {
+const globals_js_1 = require("../node_modules/typeorm/globals.js");
+const task_js_1 = require("./entity/task.js");
+const user_js_1 = require("./entity/user.js");
+const board_js_1 = require("./entity/board.js");
+
+const options = {
     type: "postgres",
     host: "localhost",
     username: config_js_1.SUPER_USER,
@@ -58,14 +59,14 @@ var options = {
 };
 function createDBConnection() {
     return __awaiter(this, void 0, void 0, function () {
-        var e_1;
-        var _this = this;
-        return __generator(this, function (_a) {
+        let e_1;
+        const _this = this;
+        return __generator(this, (_a) => {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4, (0, globals_js_1.createConnection)(options).then(function (server) { return __awaiter(_this, void 0, void 0, function () {
-                            return __generator(this, function (_a) {
+                    return [4, (0, globals_js_1.createConnection)(options).then((server) => __awaiter(_this, void 0, void 0, function () {
+                            return __generator(this, (_a) => {
                                 switch (_a.label) {
                                     case 0:
                                         server.runMigrations();
@@ -75,7 +76,7 @@ function createDBConnection() {
                                         return [2];
                                 }
                             });
-                        }); })];
+                        }))];
                 case 1:
                     _a.sent();
                     return [3, 3];
@@ -88,21 +89,21 @@ function createDBConnection() {
         });
     });
 }
-var userRoutes = user_router_js_1.default;
-var boardRoutes = board_router_js_1.default;
-var taskRoutes = task_router_js_1.default;
+const userRoutes = user_router_js_1.default;
+const boardRoutes = board_router_js_1.default;
+const taskRoutes = task_router_js_1.default;
 createDBConnection();
 function startServer() {
     return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
+        return __generator(this, (_a) => {
             switch (_a.label) {
                 case 0: return [4, app_js_1.server.start()];
                 case 1:
                     _a.sent();
-                    process.on("uncaughtException", function () {
+                    process.on("uncaughtException", () => {
                         Logger_js_1.default.log({ message: 'we have an uncaughtException', level: 0 });
                     });
-                    process.on("unhandledRejection", function (error) {
+                    process.on("unhandledRejection", (error) => {
                         Logger_js_1.default.log({ level: 0, message: 'we have an unhandledRejection' });
                     });
                     Logger_js_1.default.log({ level: 2, message: "Server successfully started on port ".concat(config_js_1.PORT) });
@@ -111,4 +112,4 @@ function startServer() {
         });
     });
 }
-//# sourceMappingURL=server.js.map
+// # sourceMappingURL=server.js.map

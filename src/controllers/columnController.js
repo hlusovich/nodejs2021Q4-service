@@ -43,10 +43,13 @@ var ColumnModelController = (function () {
     }
     ColumnModelController.getColumn = function (id) {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, columns_1.ColumnsModel.findOne(id)];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        result = _a.sent();
+                        return [2, result];
                 }
             });
         });

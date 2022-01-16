@@ -1,7 +1,7 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Column = void 0;
-var Column = (function () {
+const Column = (function () {
     function Column(id, title, order) {
         this.id = id;
         this.title = title;
@@ -10,4 +10,4 @@ var Column = (function () {
     return Column;
 }());
 exports.Column = Column;
-//# sourceMappingURL=Column.js.map
+// # sourceMappingURL=Column.js.map

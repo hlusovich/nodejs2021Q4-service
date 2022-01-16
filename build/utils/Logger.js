@@ -1,7 +1,8 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs = require("fs");
-var Logger = (function () {
+const fs = require("fs");
+
+const Logger = (function () {
     function Logger(basePath, errorBasePath) {
         this.loggLevel = +(process.env.LEVEL || 4);
         this.basePath = basePath;
@@ -51,4 +52,4 @@ var Logger = (function () {
     return Logger;
 }());
 exports.default = new Logger('src/logs/allLogs', 'src/logs/errorBaseLogs');
-//# sourceMappingURL=Logger.js.map
+// # sourceMappingURL=Logger.js.map

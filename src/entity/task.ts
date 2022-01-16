@@ -1,12 +1,19 @@
-import { BaseEntity, } from '../../node_modules/typeorm/repository/BaseEntity.js';
-import {Column} from '../../node_modules/typeorm/decorator/columns/Column.js';
-import {PrimaryColumn} from '../../node_modules/typeorm/decorator/columns/PrimaryColumn.js';
-import {Entity} from '../../node_modules/typeorm/decorator/entity/Entity.js';
+import {
+  BaseEntity, Column, PrimaryColumn, Entity,
+} from 'typeorm';
 
 // @ManyToOne(type=>UserModel,{onDelete:"SET NULL"})
 @Entity('tasks')
-export class TaskModel extends BaseEntity{
-  constructor(id:number, title:string,order:number,userId:string, boardId:string,columnId:string, description:string){
+export class TaskModel extends BaseEntity {
+  constructor(
+    id:number,
+    title:string,
+    order:number,
+    userId:string| null,
+    boardId:string,
+    columnId:string,
+    description:string,
+  ) {
     super();
     this.id = id;
     this.title = title;
@@ -16,18 +23,25 @@ export class TaskModel extends BaseEntity{
     this.description = description;
     this.order = order;
   }
+
   @PrimaryColumn()
-  id:number;
+    id:number;
+
   @Column()
-  title: string;
-  @Column({ nullable: true})
-  userId: string;
+    title: string;
+
+  @Column({ type: 'varchar', nullable: true })
+    userId?: string|null;
+
   @Column()
-  boardId: string;
+    boardId: string;
+
+  @Column({ nullable: true })
+    columnId: string;
+
   @Column()
-  columnId: string;
+    order: number;
+
   @Column()
-  order: number;
-  @Column()
-  description: string;
+    description: string;
 }

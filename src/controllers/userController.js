@@ -52,12 +52,15 @@ var user_js_1 = require("../entity/user.js");
 var UserControllerModel = (function () {
     function UserControllerModel() {
     }
+    UserControllerModel.toResponse = function (user) {
+        return { id: user.id, login: user.login, name: user.name };
+    };
     UserControllerModel.getAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, user_js_1.UserModel.query("SELECT * FROM users")];
+                    case 0: return [4, user_js_1.UserModel.query('SELECT * FROM users')];
                     case 1:
                         result = _a.sent();
                         return [2, result];
@@ -65,7 +68,6 @@ var UserControllerModel = (function () {
             });
         });
     };
-    ;
     UserControllerModel.getUserById = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var user;
@@ -90,34 +92,37 @@ var UserControllerModel = (function () {
                         return [4, user.save()];
                     case 2:
                         _a.sent();
-                        return [2, user];
+                        return [2, this.toResponse(user)];
                 }
             });
         });
     };
-    ;
     UserControllerModel.updateUser = function (id, data) {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, user_js_1.UserModel.update(id, __assign({}, data))];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        response = _a.sent();
+                        return [2, response];
                 }
             });
         });
     };
-    ;
     UserControllerModel.deleteUser = function (id) {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, user_js_1.UserModel.delete(id)];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        response = _a.sent();
+                        return [2, response];
                 }
             });
         });
     };
-    ;
     return UserControllerModel;
 }());
 exports.UserControllerModel = UserControllerModel;

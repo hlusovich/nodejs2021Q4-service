@@ -25,9 +25,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardModel = void 0;
-var BaseEntity_js_1 = require("../../node_modules/typeorm/repository/BaseEntity.js");
-var PrimaryColumn_js_1 = require("../../node_modules/typeorm/decorator/columns/PrimaryColumn.js");
-var Entity_js_1 = require("../../node_modules/typeorm/decorator/entity/Entity.js");
 var typeorm_1 = require("typeorm");
 var BoardModel = (function (_super) {
     __extends(BoardModel, _super);
@@ -39,7 +36,7 @@ var BoardModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, PrimaryColumn_js_1.PrimaryColumn)(),
+        (0, typeorm_1.PrimaryColumn)(),
         __metadata("design:type", String)
     ], BoardModel.prototype, "id", void 0);
     __decorate([
@@ -47,13 +44,13 @@ var BoardModel = (function (_super) {
         __metadata("design:type", String)
     ], BoardModel.prototype, "title", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ type: "int", array: true, default: [] }),
+        (0, typeorm_1.Column)({ type: 'int', array: true, default: [] }),
         __metadata("design:type", Array)
     ], BoardModel.prototype, "columns", void 0);
     BoardModel = __decorate([
-        (0, Entity_js_1.Entity)('boards'),
+        (0, typeorm_1.Entity)('boards'),
         __metadata("design:paramtypes", [String, String, Array])
     ], BoardModel);
     return BoardModel;
-}(BaseEntity_js_1.BaseEntity));
+}(typeorm_1.BaseEntity));
 exports.BoardModel = BoardModel;

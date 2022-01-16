@@ -1,5 +1,5 @@
-"use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+
+const __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
             if (!ar) ar = Array.prototype.slice.call(from, 0, i);
@@ -10,10 +10,11 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Board = void 0;
-var uuid_1 = require("uuid");
-var Board = (function () {
+const uuid_1 = require("uuid");
+
+const Board = (function () {
     function Board(_a) {
-        var title = _a.title, columns = _a.columns, id = _a.id;
+        const {title} = _a; const {columns} = _a; const {id} = _a;
         this.id = id || (0, uuid_1.v4)();
         this.title = title;
         this.columns = columns;
@@ -28,4 +29,4 @@ var Board = (function () {
     return Board;
 }());
 exports.Board = Board;
-//# sourceMappingURL=board.model.js.map
+// # sourceMappingURL=board.model.js.map

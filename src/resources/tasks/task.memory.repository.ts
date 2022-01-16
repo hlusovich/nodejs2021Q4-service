@@ -1,7 +1,6 @@
 import { Task } from './task.model.js';
 import { Error404 } from '../../../Errors/404error.js';
 
-
 class TasksController {
   tasks: Task[];
 
@@ -25,12 +24,11 @@ class TasksController {
    * @returns Task or if no Task with such id throw error (custom Error404)
    */
   getTask(id: string): Task | never {
-    const task = this.tasks.find(item => item.id === id);
+    const task = this.tasks.find((item) => item.id === id);
     if (task) {
       return task;
     }
     throw new Error404('Not found');
-
   }
 
   /**
@@ -60,7 +58,7 @@ class TasksController {
    */
   deleteTask(id: string): string | never {
     this.getTask(id);
-    this.tasks = this.tasks.filter(item => item.id !== id);
+    this.tasks = this.tasks.filter((item) => item.id !== id);
     return `Task with ${id} deleted`;
   }
 
@@ -70,7 +68,7 @@ class TasksController {
    * @returns void
    */
   unsubscribeUser(id: string): void {
-    this.tasks = this.tasks.map(item => {
+    this.tasks = this.tasks.map((item) => {
       if (item.userId === id) {
         return { ...item, userId: null };
       }
@@ -84,9 +82,8 @@ class TasksController {
    * @returns void
    */
   unsubscribeBoard(id: string): void {
-    this.tasks = this.tasks.filter(item => item.boardId !== id);
+    this.tasks = this.tasks.filter((item) => item.boardId !== id);
   }
 }
 
 export default new TasksController();
-

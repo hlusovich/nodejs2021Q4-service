@@ -39,46 +39,73 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteBoard = exports.updateBoard = exports.createBoard = exports.getBoardById = exports.getAll = void 0;
 var boardContoller_js_1 = require("../../controllers/boardContoller.js");
 var taskController_1 = require("../../controllers/taskController");
-var getAll = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, boardContoller_js_1.BoardsModelController.getAll()];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
-exports.getAll = getAll;
-var getBoardById = function (id) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, boardContoller_js_1.BoardsModelController.getBoardById(id)];
-        case 1:
-            _a.sent();
-            return [2];
-    }
-}); }); };
-exports.getBoardById = getBoardById;
-var createBoard = function (data) { return __awaiter(void 0, void 0, void 0, function () {
+var _404error_1 = require("../../../Errors/404error");
+var getAll = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4, boardContoller_js_1.BoardsModelController.createBoard({ id: data.id, title: data.title, columns: data.columns })];
-            case 1: return [2, _a.sent()];
+            case 0: return [4, boardContoller_js_1.BoardsModelController.getAll()];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
+exports.getAll = getAll;
+var getBoardById = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, boardContoller_js_1.BoardsModelController.getBoardById(id)];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
+exports.getBoardById = getBoardById;
+var createBoard = function (data) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, boardContoller_js_1.BoardsModelController.createBoard({
+                    id: data.id,
+                    title: data.title,
+                    columns: data.columns,
+                })];
+            case 1:
+                result = _a.sent();
+                return [2, result];
         }
     });
 }); };
 exports.createBoard = createBoard;
-var updateBoard = function (id, data) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, boardContoller_js_1.BoardsModelController.updateBoard(id, data)];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
-exports.updateBoard = updateBoard;
-var deleteBoard = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+var updateBoard = function (id, data) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4, taskController_1.TaskModelController.unsubcribeBoard(id)];
+            case 0: return [4, boardContoller_js_1.BoardsModelController.updateBoard(id, data)];
             case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
+exports.updateBoard = updateBoard;
+var deleteBoard = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var deleteResult;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, boardContoller_js_1.BoardsModelController.deleteBoard(id)];
+            case 1:
+                deleteResult = _a.sent();
+                if (deleteResult.affected === 0) {
+                    throw new _404error_1.Error404('this board doesn\'t exist');
+                }
+                return [4, taskController_1.TaskModelController.unsubcribeBoard(id)];
+            case 2:
                 _a.sent();
-                return [4, boardContoller_js_1.BoardsModelController.deleteBoard(id)];
-            case 2: return [2, _a.sent()];
+                return [2, deleteResult];
         }
     });
 }); };

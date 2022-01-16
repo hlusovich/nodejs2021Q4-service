@@ -49,20 +49,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskModelController = void 0;
 var task_js_1 = require("../entity/task.js");
+var _404error_1 = require("../../Errors/404error");
 var TaskModelController = (function () {
     function TaskModelController() {
     }
     TaskModelController.getAll = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, task_js_1.TaskModel.query("SELECT * FROM tasks")];
-                    case 1: return [2, _a.sent()];
+                    case 0: return [4, task_js_1.TaskModel.query('SELECT * FROM tasks')];
+                    case 1:
+                        result = _a.sent();
+                        return [2, result];
                 }
             });
         });
     };
-    ;
     TaskModelController.getTaskById = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var task;
@@ -71,6 +74,9 @@ var TaskModelController = (function () {
                     case 0: return [4, task_js_1.TaskModel.findOne(id)];
                     case 1:
                         task = _a.sent();
+                        if (!task) {
+                            throw new _404error_1.Error404("suck tusk doesn't exists");
+                        }
                         return [2, task];
                 }
             });
@@ -92,51 +98,58 @@ var TaskModelController = (function () {
             });
         });
     };
-    ;
     TaskModelController.updateTask = function (id, data) {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, task_js_1.TaskModel.update(id, __assign({}, data))];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        result = _a.sent();
+                        return [2, result];
                 }
             });
         });
     };
-    ;
     TaskModelController.deleteTask = function (id) {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, task_js_1.TaskModel.delete(id)];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        result = _a.sent();
+                        return [2, result];
                 }
             });
         });
     };
-    ;
     TaskModelController.unsubcribeBoard = function (boardId) {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, task_js_1.TaskModel.delete({ boardId: boardId })];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        result = _a.sent();
+                        return [2, result];
                 }
             });
         });
     };
-    ;
     TaskModelController.unsubscribeUser = function (userId) {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, task_js_1.TaskModel.update({ userId: userId }, { userId: null })];
-                    case 1: return [2, _a.sent()];
+                    case 1:
+                        result = _a.sent();
+                        return [2, result];
                 }
             });
         });
     };
-    ;
     return TaskModelController;
 }());
 exports.TaskModelController = TaskModelController;

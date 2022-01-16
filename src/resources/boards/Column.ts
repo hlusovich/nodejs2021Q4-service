@@ -1,14 +1,13 @@
-export class Column{
-    id: string;
+export class Column {
+  id: string;
 
-    title: string;
+  title: string;
 
-    order: number;
+  order: number;
 
-    constructor(id:string,title:string,order:number){
-        this.id = id;
-        this.title = title;
-        this.order = order;
-
-}
+  constructor(id:string, title:string, order:number) {
+    this.id = id;
+    this.title = title;
+    this.order = order;
+  }
 }

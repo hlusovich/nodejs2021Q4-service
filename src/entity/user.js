@@ -25,10 +25,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
-var BaseEntity_js_1 = require("../../node_modules/typeorm/repository/BaseEntity.js");
-var Column_js_1 = require("../../node_modules/typeorm/decorator/columns/Column.js");
-var PrimaryColumn_js_1 = require("../../node_modules/typeorm/decorator/columns/PrimaryColumn.js");
-var Entity_js_1 = require("../../node_modules/typeorm/decorator/entity/Entity.js");
+var typeorm_1 = require("typeorm");
 var UserModel = (function (_super) {
     __extends(UserModel, _super);
     function UserModel(id, name, login, password) {
@@ -40,25 +37,25 @@ var UserModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, PrimaryColumn_js_1.PrimaryColumn)(),
+        (0, typeorm_1.PrimaryColumn)(),
         __metadata("design:type", String)
     ], UserModel.prototype, "id", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserModel.prototype, "name", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserModel.prototype, "login", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserModel.prototype, "password", void 0);
     UserModel = __decorate([
-        (0, Entity_js_1.Entity)('users'),
+        (0, typeorm_1.Entity)('users'),
         __metadata("design:paramtypes", [String, String, String, String])
     ], UserModel);
     return UserModel;
-}(BaseEntity_js_1.BaseEntity));
+}(typeorm_1.BaseEntity));
 exports.UserModel = UserModel;

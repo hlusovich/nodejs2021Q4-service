@@ -1,24 +1,26 @@
-import { BaseEntity, } from '../../node_modules/typeorm/repository/BaseEntity.js';
-import {Column} from '../../node_modules/typeorm/decorator/columns/Column.js';
-import {PrimaryColumn} from '../../node_modules/typeorm/decorator/columns/PrimaryColumn.js';
-import {Entity} from '../../node_modules/typeorm/decorator/entity/Entity.js';
-
+import {
+  BaseEntity, Column, PrimaryColumn, Entity,
+} from 'typeorm';
 
 @Entity('users')
-export class UserModel extends BaseEntity{
-  constructor(id:string, name:string,login:string,password:string){
+export class UserModel extends BaseEntity {
+  constructor(id:string, name:string, login:string, password:string) {
     super();
     this.id = id;
     this.name = name;
     this.login = login;
     this.password = password;
   }
+
   @PrimaryColumn()
-  id:string;
+    id:string;
+
   @Column()
-  name: string;
+    name: string;
+
   @Column()
-  login: string;
+    login: string;
+
   @Column()
-  password: string;
+    password: string;
 }

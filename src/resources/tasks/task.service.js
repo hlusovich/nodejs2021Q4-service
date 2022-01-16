@@ -39,38 +39,63 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTask = exports.updateTask = exports.createTask = exports.getTaskById = exports.getAll = void 0;
 var task_memory_repository_js_1 = require("./task.memory.repository.js");
 var taskController_js_1 = require("../../controllers/taskController.js");
-var getAll = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, taskController_js_1.TaskModelController.getAll()];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var getAll = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, taskController_js_1.TaskModelController.getAll()];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.getAll = getAll;
-var getTaskById = function (id) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, taskController_js_1.TaskModelController.getTaskById(id)];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var getTaskById = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, taskController_js_1.TaskModelController.getTaskById(id)];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.getTaskById = getTaskById;
-var createTask = function (data, id) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, taskController_js_1.TaskModelController.createTask(task_memory_repository_js_1.default.createTask(data, id))];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var createTask = function (data, id) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, taskController_js_1.TaskModelController.createTask(task_memory_repository_js_1.default.createTask(data, id))];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.createTask = createTask;
-var updateTask = function (id, data) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, taskController_js_1.TaskModelController.updateTask(id, data)];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var updateTask = function (id, data) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, taskController_js_1.TaskModelController.updateTask(id, data)];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.updateTask = updateTask;
-var deleteTask = function (id) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    switch (_a.label) {
-        case 0: return [4, taskController_js_1.TaskModelController.deleteTask(id)];
-        case 1: return [2, _a.sent()];
-    }
-}); }); };
+var deleteTask = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, taskController_js_1.TaskModelController.deleteTask(id)];
+            case 1:
+                result = _a.sent();
+                return [2, result];
+        }
+    });
+}); };
 exports.deleteTask = deleteTask;

@@ -25,10 +25,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ColumnsModel = void 0;
-var BaseEntity_js_1 = require("../../node_modules/typeorm/repository/BaseEntity.js");
-var Column_js_1 = require("../../node_modules/typeorm/decorator/columns/Column.js");
-var PrimaryColumn_js_1 = require("../../node_modules/typeorm/decorator/columns/PrimaryColumn.js");
-var Entity_js_1 = require("../../node_modules/typeorm/decorator/entity/Entity.js");
+var typeorm_1 = require("typeorm");
 var ColumnsModel = (function (_super) {
     __extends(ColumnsModel, _super);
     function ColumnsModel(id, title, order) {
@@ -39,21 +36,21 @@ var ColumnsModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, PrimaryColumn_js_1.PrimaryColumn)(),
+        (0, typeorm_1.PrimaryColumn)(),
         __metadata("design:type", String)
     ], ColumnsModel.prototype, "id", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], ColumnsModel.prototype, "title", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", Number)
     ], ColumnsModel.prototype, "order", void 0);
     ColumnsModel = __decorate([
-        (0, Entity_js_1.Entity)('columns'),
+        (0, typeorm_1.Entity)('columns'),
         __metadata("design:paramtypes", [String, String, Number])
     ], ColumnsModel);
     return ColumnsModel;
-}(BaseEntity_js_1.BaseEntity));
+}(typeorm_1.BaseEntity));
 exports.ColumnsModel = ColumnsModel;

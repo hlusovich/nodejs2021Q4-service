@@ -51,13 +51,14 @@ var createRoute = function (method, path, handler) { return ({
                     case 0:
                         _c.trys.push([0, 3, , 4]);
                         query = "".concat(req.url.searchParams);
-                        message = "full path with query ".concat(req.url.href, "\n      path origin ").concat(req.url.origin, "\n      status code ").concat((0, setStatusCode_js_1.setStatusCode)(method), "\n      ").concat(query.length ? "query params ".concat(req.url.searchParams) : '', "\n      ").concat(req.payload ? "body ".concat(JSON.stringify(req.payload)) : "", "\n     ");
+                        message = "full path with query ".concat(req.url.href, "\n      path origin ").concat(req.url.origin, "\n      status code ").concat((0, setStatusCode_js_1.setStatusCode)(method), "\n      ").concat(query.length ? "query params ".concat(req.url.searchParams) : '', "\n      ").concat(req.payload ? "body ".concat(JSON.stringify(req.payload)) : '', "\n     ");
                         _b = (_a = h).response;
                         return [4, handler(req)];
                     case 1: return [4, _b.apply(_a, [_c.sent()])];
                     case 2:
                         response = _c.sent();
                         Logger_js_1.default.log({ level: 2, message: message });
+                        response.headers['content-type'] = 'application/json';
                         return [2, response.code((0, setStatusCode_js_1.setStatusCode)(method))];
                     case 3:
                         e_1 = _c.sent();
@@ -70,6 +71,6 @@ var createRoute = function (method, path, handler) { return ({
                 }
             });
         });
-    }
+    },
 }); };
 exports.createRoute = createRoute;

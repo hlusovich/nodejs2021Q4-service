@@ -20,6 +20,7 @@ var Error404 = (function (_super) {
     __extends(Error404, _super);
     function Error404(message) {
         var _this = _super.call(this) || this;
+        _this.myCode = 404;
         _this.message = message;
         return _this;
     }

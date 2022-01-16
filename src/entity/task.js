@@ -25,10 +25,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskModel = void 0;
-var BaseEntity_js_1 = require("../../node_modules/typeorm/repository/BaseEntity.js");
-var Column_js_1 = require("../../node_modules/typeorm/decorator/columns/Column.js");
-var PrimaryColumn_js_1 = require("../../node_modules/typeorm/decorator/columns/PrimaryColumn.js");
-var Entity_js_1 = require("../../node_modules/typeorm/decorator/entity/Entity.js");
+var typeorm_1 = require("typeorm");
 var TaskModel = (function (_super) {
     __extends(TaskModel, _super);
     function TaskModel(id, title, order, userId, boardId, columnId, description) {
@@ -43,37 +40,37 @@ var TaskModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, PrimaryColumn_js_1.PrimaryColumn)(),
+        (0, typeorm_1.PrimaryColumn)(),
         __metadata("design:type", Number)
     ], TaskModel.prototype, "id", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], TaskModel.prototype, "title", void 0);
     __decorate([
-        (0, Column_js_1.Column)({ nullable: true }),
-        __metadata("design:type", String)
+        (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
+        __metadata("design:type", Object)
     ], TaskModel.prototype, "userId", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], TaskModel.prototype, "boardId", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", String)
     ], TaskModel.prototype, "columnId", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", Number)
     ], TaskModel.prototype, "order", void 0);
     __decorate([
-        (0, Column_js_1.Column)(),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], TaskModel.prototype, "description", void 0);
     TaskModel = __decorate([
-        (0, Entity_js_1.Entity)('tasks'),
-        __metadata("design:paramtypes", [Number, String, Number, String, String, String, String])
+        (0, typeorm_1.Entity)('tasks'),
+        __metadata("design:paramtypes", [Number, String, Number, Object, String, String, String])
     ], TaskModel);
     return TaskModel;
-}(BaseEntity_js_1.BaseEntity));
+}(typeorm_1.BaseEntity));
 exports.TaskModel = TaskModel;

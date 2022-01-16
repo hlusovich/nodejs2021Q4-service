@@ -39,36 +39,61 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_js_1 = require("../../app.js");
 var user_service_js_1 = require("./user.service.js");
 var routeCreater_js_1 = require("../../../utils/routeCreater.js");
-var routes = [(0, routeCreater_js_1.createRoute)('GET', '/users', function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4, (0, user_service_js_1.getAll)()];
-            case 1: return [2, _a.sent()];
-        }
-    }); }); }),
-    (0, routeCreater_js_1.createRoute)('GET', '/users/{id}', function (req) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4, (0, user_service_js_1.getUserById)(req.params.id)];
-            case 1: return [2, _a.sent()];
-        }
-    }); }); }),
-    (0, routeCreater_js_1.createRoute)('POST', '/users', function (req) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4, (0, user_service_js_1.createUser)(req.payload)];
-            case 1: return [2, _a.sent()];
-        }
-    }); }); }),
-    (0, routeCreater_js_1.createRoute)('PUT', '/users/{id}', function (req) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4, (0, user_service_js_1.updateUser)(req.params.id, req.payload)];
-            case 1: return [2, _a.sent()];
-        }
-    }); }); }),
-    (0, routeCreater_js_1.createRoute)('DELETE', '/users/{id}', function (req) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4, (0, user_service_js_1.deleteUser)(req.params.id)];
-            case 1: return [2, _a.sent()];
-        }
-    }); }); })
+var routes = [(0, routeCreater_js_1.createRoute)('GET', '/users', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, (0, user_service_js_1.getAll)()];
+                case 1:
+                    response = _a.sent();
+                    return [2, response];
+            }
+        });
+    }); }),
+    (0, routeCreater_js_1.createRoute)('GET', '/users/{id}', function (req) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, (0, user_service_js_1.getUserById)(req.params.id)];
+                case 1:
+                    response = _a.sent();
+                    return [2, response];
+            }
+        });
+    }); }),
+    (0, routeCreater_js_1.createRoute)('POST', '/users', function (req) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, (0, user_service_js_1.createUser)(req.payload)];
+                case 1:
+                    response = _a.sent();
+                    return [2, response];
+            }
+        });
+    }); }),
+    (0, routeCreater_js_1.createRoute)('PUT', '/users/{id}', function (req) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, (0, user_service_js_1.updateUser)(req.params.id, req.payload)];
+                case 1:
+                    response = _a.sent();
+                    return [2, response];
+            }
+        });
+    }); }),
+    (0, routeCreater_js_1.createRoute)('DELETE', '/users/{id}', function (req) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, (0, user_service_js_1.deleteUser)(req.params.id)];
+                case 1:
+                    response = _a.sent();
+                    return [2, response];
+            }
+        });
+    }); }),
 ];
 app_js_1.server.route(routes);
 exports.default = app_js_1.server;

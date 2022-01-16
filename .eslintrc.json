@@ -2,7 +2,8 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "typeorm"
   ],
   "env": {
     "es2020": true,
@@ -23,9 +24,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:node/recommended",
-    "airbnb-base",
     "prettier",
-    "eslint:recommended",
+    "airbnb-base",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],

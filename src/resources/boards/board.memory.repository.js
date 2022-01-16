@@ -26,7 +26,7 @@ var BoardsController = (function () {
         if (board) {
             return board.toResponse();
         }
-        throw new _404error_js_1.Error404("no board with this id");
+        throw new _404error_js_1.Error404('no board with this id');
     };
     BoardsController.prototype.createBoard = function (payload) {
         var board = new board_model_js_1.Board(payload);

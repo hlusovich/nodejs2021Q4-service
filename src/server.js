@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var typeorm_1 = require("typeorm");
 var app_js_1 = require("./app.js");
 var config_js_1 = require("../config.js");
 var user_router_js_1 = require("./resources/users/user.router.js");
@@ -43,20 +44,38 @@ var board_router_js_1 = require("./resources/boards/board.router.js");
 var task_router_js_1 = require("./resources/tasks/task.router.js");
 var Logger_js_1 = require("../utils/Logger.js");
 require("reflect-metadata");
-var globals_js_1 = require("../node_modules/typeorm/globals.js");
 var task_js_1 = require("./entity/task.js");
 var user_js_1 = require("./entity/user.js");
 var board_js_1 = require("./entity/board.js");
 var columns_js_1 = require("./entity/columns.js");
 var options = {
-    type: "postgres",
-    host: "localhost",
+    type: 'postgres',
+    host: 'localhost',
     username: config_js_1.SUPER_USER,
     password: config_js_1.POSTGRES_PASSWORD,
     port: config_js_1.POSTGRESS_PORT,
     database: config_js_1.DB,
     entities: [task_js_1.TaskModel, user_js_1.UserModel, board_js_1.BoardModel, columns_js_1.ColumnsModel],
 };
+function startServer() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, app_js_1.server.start()];
+                case 1:
+                    _a.sent();
+                    process.on('uncaughtException', function () {
+                        Logger_js_1.default.log({ message: 'we have an uncaughtException', level: 0 });
+                    });
+                    process.on('unhandledRejection', function (error) {
+                        Logger_js_1.default.log({ level: 0, message: 'we have an unhandledRejection' });
+                    });
+                    Logger_js_1.default.log({ level: 2, message: "Server successfully started on port ".concat(config_js_1.PORT) });
+                    return [2];
+            }
+        });
+    });
+}
 function createDBConnection() {
     return __awaiter(this, void 0, void 0, function () {
         var e_1;
@@ -65,10 +84,10 @@ function createDBConnection() {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4, (0, globals_js_1.createConnection)(options).then(function (server) { return __awaiter(_this, void 0, void 0, function () {
+                    return [4, (0, typeorm_1.createConnection)(options).then(function (serverInstance) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4, server.runMigrations()];
+                                    case 0: return [4, serverInstance.runMigrations()];
                                     case 1:
                                         _a.sent();
                                         return [4, startServer()];
@@ -95,22 +114,3 @@ var userRoutes = user_router_js_1.default;
 var boardRoutes = board_router_js_1.default;
 var taskRoutes = task_router_js_1.default;
 createDBConnection();
-function startServer() {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4, app_js_1.server.start()];
-                case 1:
-                    _a.sent();
-                    process.on("uncaughtException", function () {
-                        Logger_js_1.default.log({ message: 'we have an uncaughtException', level: 0 });
-                    });
-                    process.on("unhandledRejection", function (error) {
-                        Logger_js_1.default.log({ level: 0, message: 'we have an unhandledRejection' });
-                    });
-                    Logger_js_1.default.log({ level: 2, message: "Server successfully started on port ".concat(config_js_1.PORT) });
-                    return [2];
-            }
-        });
-    });
-}

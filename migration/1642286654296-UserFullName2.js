@@ -36,113 +36,114 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Us1642247846939 = void 0;
+exports.UserFullName21642286654296 = void 0;
 var typeorm_1 = require("typeorm");
-var Us1642247846939 = (function () {
-    function Us1642247846939() {
+var UserFullName21642286654296 = (function () {
+    function UserFullName21642286654296() {
     }
-    Us1642247846939.prototype.up = function (queryRunner) {
+    UserFullName21642286654296.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, queryRunner.createTable(new typeorm_1.Table({
-                            name: "users",
+                            name: 'users',
                             columns: [
                                 {
-                                    name: "id",
-                                    type: "varchar",
-                                    isPrimary: true
+                                    name: 'id',
+                                    type: 'varchar',
+                                    isPrimary: true,
                                 },
                                 {
-                                    name: "name",
-                                    type: "varchar",
+                                    name: 'name',
+                                    type: 'varchar',
                                 },
                                 {
-                                    name: "login",
-                                    type: "varchar",
+                                    name: 'login',
+                                    type: 'varchar',
                                 },
                                 {
-                                    name: "password",
-                                    type: "varchar",
-                                }
-                            ]
+                                    name: 'password',
+                                    type: 'varchar',
+                                },
+                            ],
                         }), true)];
                     case 1:
                         _a.sent();
                         return [4, queryRunner.createTable(new typeorm_1.Table({
-                                name: "tasks",
+                                name: 'tasks',
                                 columns: [
                                     {
-                                        name: "id",
-                                        type: "varchar",
-                                        isPrimary: true
+                                        name: 'id',
+                                        type: 'varchar',
+                                        isPrimary: true,
                                     },
                                     {
-                                        name: "title",
-                                        type: "varchar",
+                                        name: 'title',
+                                        type: 'varchar',
                                     },
                                     {
-                                        name: "userId",
-                                        type: "varchar",
-                                        isNullable: true
+                                        name: 'userId',
+                                        type: 'varchar',
+                                        isNullable: true,
                                     },
                                     {
-                                        name: "boardId",
-                                        type: "varchar",
+                                        name: 'boardId',
+                                        type: 'varchar',
                                     },
                                     {
-                                        name: "columnId",
-                                        type: "varchar",
+                                        name: 'columnId',
+                                        type: 'varchar',
+                                        isNullable: true,
                                     },
                                     {
-                                        name: "description",
-                                        type: "varchar",
+                                        name: 'description',
+                                        type: 'varchar',
                                     },
                                     {
-                                        name: "order",
-                                        type: "int",
+                                        name: 'order',
+                                        type: 'int',
                                     },
-                                ]
+                                ],
                             }), true)];
                     case 2:
                         _a.sent();
                         return [4, queryRunner.createTable(new typeorm_1.Table({
-                                name: "boards",
+                                name: 'boards',
                                 columns: [
                                     {
-                                        name: "id",
-                                        type: "varchar",
-                                        isPrimary: true
+                                        name: 'id',
+                                        type: 'varchar',
+                                        isPrimary: true,
                                     },
                                     {
-                                        name: "title",
-                                        type: "varchar",
+                                        name: 'title',
+                                        type: 'varchar',
                                     },
                                     {
-                                        name: "columns",
-                                        type: "text[]",
-                                    }
-                                ]
+                                        name: 'columns',
+                                        type: 'text[]',
+                                    },
+                                ],
                             }), true)];
                     case 3:
                         _a.sent();
                         return [4, queryRunner.createTable(new typeorm_1.Table({
-                                name: "columns",
+                                name: 'columns',
                                 columns: [
                                     {
-                                        name: "id",
-                                        type: "varchar",
-                                        isPrimary: true
+                                        name: 'id',
+                                        type: 'varchar',
+                                        isPrimary: true,
                                     },
                                     {
-                                        name: "title",
-                                        type: "varchar",
+                                        name: 'title',
+                                        type: 'varchar',
                                     },
                                     {
-                                        name: "order",
-                                        type: "int",
-                                    }
-                                ]
+                                        name: 'order',
+                                        type: 'int',
+                                    },
+                                ],
                             }), true)];
                     case 4:
                         _a.sent();
@@ -151,13 +152,27 @@ var Us1642247846939 = (function () {
             });
         });
     };
-    Us1642247846939.prototype.down = function (queryRunner) {
+    UserFullName21642286654296.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2];
+                switch (_a.label) {
+                    case 0: return [4, queryRunner.dropTable('users')];
+                    case 1:
+                        _a.sent();
+                        return [4, queryRunner.dropTable('boards')];
+                    case 2:
+                        _a.sent();
+                        return [4, queryRunner.dropTable('tasks')];
+                    case 3:
+                        _a.sent();
+                        return [4, queryRunner.dropTable('columns')];
+                    case 4:
+                        _a.sent();
+                        return [2];
+                }
             });
         });
     };
-    return Us1642247846939;
+    return UserFullName21642286654296;
 }());
-exports.Us1642247846939 = Us1642247846939;
+exports.UserFullName21642286654296 = UserFullName21642286654296;

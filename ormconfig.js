@@ -39,21 +39,21 @@ var typeorm_1 = require("typeorm");
 var config_js_1 = require("./config.js");
 var config = {
     type: 'postgres',
-    host: "localhost",
+    host: 'localhost',
     username: config_js_1.SUPER_USER,
     password: config_js_1.POSTGRES_PASSWORD,
     port: config_js_1.POSTGRESS_PORT,
     database: config_js_1.DB,
     synchronize: false,
     logging: false,
-    entities: ["src/entity/*.js"],
+    entities: ['src/entity/*.js'],
     cli: {
-        migrationsDir: "src/migration",
-        entitiesDir: "src/entity",
-        subscribersDir: "src/subscriber"
+        migrationsDir: 'migration',
+        entitiesDir: 'src/entity',
+        subscribersDir: 'src/subscriber',
     },
     migrations: [
-        "src/migration/**/*.ts"
+        'migration/**/*.ts',
     ],
 };
 var dbCreater = function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -61,13 +61,13 @@ var dbCreater = function () { return __awaiter(void 0, void 0, void 0, function 
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4, (0, typeorm_1.createConnection)({
-                    name: "sdf",
+                    name: 'sdf',
                     type: 'postgres',
-                    host: "localhost",
+                    host: 'localhost',
                     username: config_js_1.SUPER_USER,
                     password: config_js_1.POSTGRES_PASSWORD,
                     port: config_js_1.POSTGRESS_PORT,
-                    database: "postgres"
+                    database: 'postgres',
                 })];
             case 1:
                 connection = _a.sent();

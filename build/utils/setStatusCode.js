@@ -1,4 +1,4 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setStatusCode = exports.codeStatuses = void 0;
 exports.codeStatuses = {
@@ -7,6 +7,6 @@ exports.codeStatuses = {
     PUT: 200,
     DELETE: 200
 };
-var setStatusCode = function (method) { return exports.codeStatuses[method]; };
+const setStatusCode = function (method) { return exports.codeStatuses[method]; };
 exports.setStatusCode = setStatusCode;
-//# sourceMappingURL=setStatusCode.js.map
+// # sourceMappingURL=setStatusCode.js.map

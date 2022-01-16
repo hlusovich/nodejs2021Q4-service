@@ -1,10 +1,11 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Task = void 0;
-var uuid_1 = require("uuid");
-var Task = (function () {
+const uuid_1 = require("uuid");
+
+const Task = (function () {
     function Task(_a) {
-        var title = _a.title, id = _a.id, description = _a.description, boardid = _a.boardid, userid = _a.userid, columnid = _a.columnid;
+        const {title} = _a; const {id} = _a; const {description} = _a; const {boardid} = _a; const {userid} = _a; const {columnid} = _a;
         this.id = id || (0, uuid_1.v4)();
         this.title = title;
         this.userid = userid;
@@ -15,4 +16,4 @@ var Task = (function () {
     return Task;
 }());
 exports.Task = Task;
-//# sourceMappingURL=task.model.js.map
+// # sourceMappingURL=task.model.js.map

@@ -10,22 +10,24 @@ interface ITask {
   description: string;
 }
 
-export class Task implements ITask{
+export class Task implements ITask {
   id: string;
 
   title: string;
 
   order: number;
 
-  userId: string| null ;
+  userId: string| null;
 
-  boardId: string ;
+  boardId: string;
 
   columnId: string;
 
   description: string;
 
-  constructor({ title, id,  description, boardId, userId, columnId,order }: ITask) {
+  constructor({
+    title, id, description, boardId, userId, columnId, order,
+  }: ITask) {
     this.id = id || v4();
     this.title = title;
     this.order = order;
@@ -34,7 +36,4 @@ export class Task implements ITask{
     this.columnId = columnId;
     this.description = description;
   }
-
 }
-
-

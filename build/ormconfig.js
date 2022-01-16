@@ -1,5 +1,5 @@
-"use strict";
-var config = {
+
+const config = {
     type: 'postgres',
     host: "localhost",
     port: 5432,
@@ -19,4 +19,4 @@ var config = {
     ],
 };
 module.exports = config;
-//# sourceMappingURL=ormconfig.cjs.map
+// # sourceMappingURL=ormconfig.cjs.map

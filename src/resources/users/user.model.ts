@@ -9,7 +9,9 @@ export class User {
 
   id: string;
 
-  constructor({ name, login, password, id }: User) {
+  constructor({
+    name, login, password, id,
+  }: User) {
     this.id = id || v4();
     this.name = name;
     this.login = login;
@@ -26,4 +28,3 @@ export class User {
     return { id, name, login };
   }
 }
-

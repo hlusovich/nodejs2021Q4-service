@@ -1,23 +1,22 @@
-import { BaseEntity, } from '../../node_modules/typeorm/repository/BaseEntity.js';
-import {PrimaryColumn} from '../../node_modules/typeorm/decorator/columns/PrimaryColumn.js';
-import {Entity} from '../../node_modules/typeorm/decorator/entity/Entity.js';
-import { Column, JoinTable, ManyToMany } from 'typeorm';
-import { ColumnsModel } from './columns';
-
+import {
+  Column, BaseEntity, PrimaryColumn, Entity,
+} from 'typeorm';
 
 @Entity('boards')
-export class BoardModel extends BaseEntity{
-  constructor(id:string, title:string,columns: number[]){
+export class BoardModel extends BaseEntity {
+  constructor(id:string, title:string, columns: string[]) {
     super();
     this.id = id;
     this.title = title;
     this.columns = columns;
   }
-  @PrimaryColumn()
-  id:string;
-  @Column()
-  title: string;
-  @Column({     type: "int",     array: true,     default: [] })
-  columns: number[];
 
+  @PrimaryColumn()
+    id:string;
+
+  @Column()
+    title: string;
+
+  @Column({ type: 'int', array: true, default: [] })
+    columns: string[];
 }

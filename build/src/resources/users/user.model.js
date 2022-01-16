@@ -1,20 +1,21 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-var uuid_1 = require("uuid");
-var User = (function () {
+const uuid_1 = require("uuid");
+
+const User = (function () {
     function User(_a) {
-        var name = _a.name, login = _a.login, password = _a.password, id = _a.id;
+        const {name} = _a; const {login} = _a; const {password} = _a; const {id} = _a;
         this.id = id || (0, uuid_1.v4)();
         this.name = name;
         this.login = login;
         this.password = password;
     }
     User.toResponse = function (user) {
-        var id = user.id, name = user.name, login = user.login;
-        return { id: id, name: name, login: login };
+        const {id} = user; const {name} = user; const {login} = user;
+        return { id, name, login };
     };
     return User;
 }());
 exports.User = User;
-//# sourceMappingURL=user.model.js.map
+// # sourceMappingURL=user.model.js.map
