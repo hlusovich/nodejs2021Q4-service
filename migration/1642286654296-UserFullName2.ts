@@ -97,6 +97,20 @@ export class UserFullName21642286654297 implements MigrationInterface {
         },
       ],
     }), true);
+    await queryRunner.createTable(new Table({
+      name: 'tokens',
+      columns: [
+        {
+          name: 'userId',
+          type: 'varchar',
+          isPrimary: true,
+        },
+        {
+          name: 'token',
+          type: 'varchar',
+        },
+      ],
+    }), true);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

@@ -13,6 +13,7 @@ import { TaskModel } from './entity/task.js';
 import { UserModel } from './entity/user.js';
 import { BoardModel } from './entity/board.js';
 import { ColumnsModel } from './entity/columns.js';
+import { TokensModel } from './entity/tokens';
 
 const options: ConnectionOptions = {
   type: 'postgres',
@@ -21,7 +22,7 @@ const options: ConnectionOptions = {
   password: POSTGRES_PASSWORD,
   port: POSTGRESS_PORT,
   database: DB,
-  entities: [TaskModel, UserModel, BoardModel, ColumnsModel],
+  entities: [TaskModel, UserModel, BoardModel, ColumnsModel, TokensModel],
 };
 /**
  * create server

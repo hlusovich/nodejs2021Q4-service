@@ -1,5 +1,7 @@
 import { User } from '../resources/users/user.model.js';
 import { UserModel } from '../entity/user.js';
+import {hash} from "bcrypt";
+import { TokenService } from '../resources/token/token.service';
 
 interface IUser {
     id: string;
@@ -40,9 +42,17 @@ export class UserControllerModel {
      * @returns User
      */
   static async createUser(data: IUser) {
-    const user = await UserModel.create(data);
-    await user.save();
-    return this.toResponse(user);
+    if(data.password){
+      const hashPassword = await hash(data.password, 3)
+      const user = await UserModel.create({...data, password:hashPassword});
+      await user.save();
+      if(data.login){
+        const token =  TokenService.generateToken({login:data.login, id :data.id });
+        await TokenService.saveToken(data.id,token);
+      }
+      return this.toResponse(user);
+    }
+
   }
 
   /**
