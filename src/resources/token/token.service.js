@@ -55,7 +55,7 @@ var TokenService = (function () {
     function TokenService() {
     }
     TokenService.generateToken = function (payload) {
-        var accessToken = (0, jsonwebtoken_1.sign)(__assign(__assign({}, payload), { userId: payload.id }), config_1.JWT_SECRET_KEY, { expiresIn: '30m' });
+        var accessToken = (0, jsonwebtoken_1.sign)(__assign(__assign({}, payload), { userId: payload.id }), config_1.JWT_SECRET_KEY);
         return accessToken;
     };
     TokenService.saveToken = function (userId, newToken) {
@@ -67,7 +67,7 @@ var TokenService = (function () {
                     case 1:
                         tokenData = _a.sent();
                         if (!tokenData) return [3, 3];
-                        tokenData.token = newToken;
+                        tokenData.token = "Bearer ".concat(newToken);
                         return [4, tokenData.save()];
                     case 2:
                         result_1 = _a.sent();
@@ -79,6 +79,19 @@ var TokenService = (function () {
                     case 5:
                         result = _a.sent();
                         return [2, result];
+                }
+            });
+        });
+    };
+    TokenService.getToken = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var token;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, tokens_1.TokensModel.findOne({ userId: id })];
+                    case 1:
+                        token = _a.sent();
+                        return [2, token];
                 }
             });
         });

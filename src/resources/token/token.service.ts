@@ -5,14 +5,14 @@ import { User } from '../users/user.model';
 
 export class TokenService {
   static generateToken(payload: Omit<User, 'password' | 'name'>): string {
-    const accessToken = sign({ ...payload, userId: payload.id }, JWT_SECRET_KEY, { expiresIn: '30m' });
+    const accessToken = sign({ ...payload, userId: payload.id }, JWT_SECRET_KEY);
     return accessToken;
   }
 
   static async saveToken(userId: string, newToken: string) {
     const tokenData = await TokensModel.findOne({ userId });
     if (tokenData) {
-      tokenData.token = 'Bearer ' + newToken;
+      tokenData.token = `Bearer ${newToken}`;
       const result = await tokenData.save();
       return result;
     }
@@ -25,5 +25,4 @@ export class TokenService {
     const token = await TokensModel.findOne({ userId: id });
     return token;
   }
-
 }

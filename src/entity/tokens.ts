@@ -11,8 +11,8 @@ export class TokensModel extends BaseEntity {
   }
 
   @PrimaryColumn()
-  userId:string;
+    userId:string;
 
   @Column()
-  token: string;
+    token: string;
 }

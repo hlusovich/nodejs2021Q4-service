@@ -8,5 +8,5 @@ export const POSTGRES_PASSWORD:string = process.env.POSTGRES_PASSWORD || '708137
 export const SUPER_USER:string = process.env.SUPER_USER || 'nikita3';
 export const POSTGRESS_PORT:number = process.env.POSTGRESS_PORT ? +process.env.POSTGRESS_PORT
   : 5432;
-export const DB:string = process.env.DB || 'task8psql';
+export const DB:string = process.env.DB || 'task9apsql';
 export const JWT_SECRET_KEY:string = process.env.JWT_SECRET_KEY || 'secret-key';

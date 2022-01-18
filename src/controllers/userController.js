@@ -48,8 +48,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserControllerModel = void 0;
-var user_js_1 = require("../entity/user.js");
 var bcrypt_1 = require("bcrypt");
+var user_js_1 = require("../entity/user.js");
 var token_service_1 = require("../resources/token/token.service");
 var UserControllerModel = (function () {
     function UserControllerModel() {
@@ -83,6 +83,19 @@ var UserControllerModel = (function () {
             });
         });
     };
+    UserControllerModel.getUserByLogin = function (login) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, user_js_1.UserModel.findOne({ login: login })];
+                    case 1:
+                        user = _a.sent();
+                        return [2, user];
+                }
+            });
+        });
+    };
     UserControllerModel.createUser = function (data) {
         return __awaiter(this, void 0, void 0, function () {
             var hashPassword, user, token;
@@ -106,7 +119,7 @@ var UserControllerModel = (function () {
                         _a.sent();
                         _a.label = 5;
                     case 5: return [2, this.toResponse(user)];
-                    case 6: return [2];
+                    case 6: return [2, undefined];
                 }
             });
         });

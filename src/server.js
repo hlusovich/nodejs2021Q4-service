@@ -41,6 +41,7 @@ var app_js_1 = require("./app.js");
 var config_js_1 = require("../config.js");
 var user_router_js_1 = require("./resources/users/user.router.js");
 var board_router_js_1 = require("./resources/boards/board.router.js");
+var login_router_js_1 = require("./resources/login/login.router.js");
 var task_router_js_1 = require("./resources/tasks/task.router.js");
 var Logger_js_1 = require("../utils/Logger.js");
 require("reflect-metadata");
@@ -114,4 +115,5 @@ function createDBConnection() {
 var userRoutes = user_router_js_1.default;
 var boardRoutes = board_router_js_1.default;
 var taskRoutes = task_router_js_1.default;
+var loginRoutes = login_router_js_1.default;
 createDBConnection();

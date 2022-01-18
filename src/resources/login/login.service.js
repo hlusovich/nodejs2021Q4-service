@@ -36,43 +36,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createRoute = void 0;
-var setStatusCode_js_1 = require("./setStatusCode.js");
-var errorHandler_js_1 = require("../handler/errorHandler.js");
-var Logger_js_1 = require("./Logger.js");
-var autharizationCheker_js_1 = require("./autharizationCheker.js");
-var createRoute = function (method, path, handler) { return ({
-    method: method,
-    path: path,
-    handler: function (req, h) {
-        return __awaiter(this, void 0, void 0, function () {
-            var query, message, response, _a, _b, e_1, moc;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0:
-                        _c.trys.push([0, 3, , 4]);
-                        (0, autharizationCheker_js_1.isAuth)(req);
-                        query = "".concat(req.url.searchParams);
-                        message = "full path with query ".concat(req.url.href, "\n      path origin ").concat(req.url.origin, "\n      status code ").concat((0, setStatusCode_js_1.setStatusCode)(method), "\n      ").concat(query.length ? "query params ".concat(req.url.searchParams) : '', "\n      ").concat(req.payload ? "body ".concat(JSON.stringify(req.payload)) : '', "\n     ");
-                        _b = (_a = h).response;
-                        return [4, handler(req)];
-                    case 1: return [4, _b.apply(_a, [_c.sent()])];
-                    case 2:
-                        response = _c.sent();
-                        Logger_js_1.default.log({ level: 2, message: message });
-                        response.headers['content-type'] = 'application/json';
-                        return [2, response.code((0, setStatusCode_js_1.setStatusCode)(method))];
-                    case 3:
-                        e_1 = _c.sent();
-                        moc = function (message) { return message; };
-                        if (e_1 instanceof Error) {
-                            return [2, (0, errorHandler_js_1.errorHandler)(e_1, h.response(moc(e_1.message)))];
-                        }
-                        return [2, (0, errorHandler_js_1.errorHandler)(new Error('System mistake'), h.response(moc('System mistake')))];
-                    case 4: return [2];
+exports.logIn = void 0;
+var bcrypt_1 = require("bcrypt");
+var userController_1 = require("../../controllers/userController");
+var _403error_1 = require("../../../Errors/403error");
+var token_service_1 = require("../token/token.service");
+var logIn = function (payload) { return __awaiter(void 0, void 0, void 0, function () {
+    var user, isPassEquals, token;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, userController_1.UserControllerModel.getUserByLogin(payload.login)];
+            case 1:
+                user = _a.sent();
+                if (!user) {
+                    throw new _403error_1.Error403('such user doesn\'t exist');
                 }
-            });
-        });
-    },
+                return [4, (0, bcrypt_1.compare)(payload.password, user.password)];
+            case 2:
+                isPassEquals = _a.sent();
+                if (!isPassEquals) {
+                    throw new _403error_1.Error403('such user doesn\'t exist');
+                }
+                return [4, token_service_1.TokenService.getToken(user.id)];
+            case 3:
+                token = _a.sent();
+                if (token) {
+                    return [2, token];
+                }
+                return [2, undefined];
+        }
+    });
 }); };
-exports.createRoute = createRoute;
+exports.logIn = logIn;

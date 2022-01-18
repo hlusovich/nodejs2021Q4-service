@@ -15,15 +15,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Error403 = void 0;
-var Error403 = (function (_super) {
-    __extends(Error403, _super);
-    function Error403(message) {
+exports.Error401 = void 0;
+var Error401 = (function (_super) {
+    __extends(Error401, _super);
+    function Error401(message) {
         var _this = _super.call(this) || this;
-        _this.myCode = 403;
+        _this.myCode = 401;
         _this.message = message;
         return _this;
     }
-    return Error403;
+    return Error401;
 }(Error));
-exports.Error403 = Error403;
+exports.Error401 = Error401;

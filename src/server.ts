@@ -5,6 +5,7 @@ import {
 } from '../config.js';
 import user from './resources/users/user.router.js';
 import board from './resources/boards/board.router.js';
+import login from './resources/login/login.router.js';
 import task from './resources/tasks/task.router.js';
 import Logger from '../utils/Logger.js';
 import 'reflect-metadata';
@@ -55,4 +56,5 @@ async function createDBConnection():Promise<void> {
 const userRoutes = user;
 const boardRoutes = board;
 const taskRoutes = task;
+const loginRoutes = login;
 createDBConnection();

@@ -7,6 +7,7 @@ import { createRoute } from '../../../utils/routeCreater.js';
 import { User } from './user.model';
 
 const routes: ServerRoute[] = [createRoute('GET', '/users', async () => {
+  console.log(12324);
   const response = await getAll();
   return response;
 }),

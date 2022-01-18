@@ -4,6 +4,7 @@ import {
 import { setStatusCode, codeStatuses } from './setStatusCode.js';
 import { errorHandler } from '../handler/errorHandler.js';
 import logger from './Logger.js';
+import { isAuth } from './autharizationCheker.js';
 
 type codeStatuses = typeof codeStatuses;
 type methodsEnum = keyof codeStatuses
@@ -25,6 +26,7 @@ export const createRoute = (
   path,
   async handler(req: Request, h: ResponseToolkit): Promise<ResponseObject | void> { //
     try {
+      isAuth(req);
       const query = `${req.url.searchParams}`;
       const message = `full path with query ${req.url.href}
       path origin ${req.url.origin}

@@ -43,7 +43,9 @@ var routes = [(0, routeCreater_js_1.createRoute)('GET', '/users', function () { 
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4, (0, user_service_js_1.getAll)()];
+                case 0:
+                    console.log(12324);
+                    return [4, (0, user_service_js_1.getAll)()];
                 case 1:
                     response = _a.sent();
                     return [2, response];
