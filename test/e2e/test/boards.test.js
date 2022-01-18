@@ -139,7 +139,6 @@ describe('Boards suite', () => {
     it('should delete board successfully', async () => {
       // Setup:
       let boardId;
-
       await request
         .post(routes.boards.create)
         .set('Accept', 'application/json')

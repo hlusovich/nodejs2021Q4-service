@@ -48,6 +48,7 @@ var task_js_1 = require("./entity/task.js");
 var user_js_1 = require("./entity/user.js");
 var board_js_1 = require("./entity/board.js");
 var columns_js_1 = require("./entity/columns.js");
+var tokens_1 = require("./entity/tokens");
 var options = {
     type: 'postgres',
     host: 'localhost',
@@ -55,7 +56,7 @@ var options = {
     password: config_js_1.POSTGRES_PASSWORD,
     port: config_js_1.POSTGRESS_PORT,
     database: config_js_1.DB,
-    entities: [task_js_1.TaskModel, user_js_1.UserModel, board_js_1.BoardModel, columns_js_1.ColumnsModel],
+    entities: [task_js_1.TaskModel, user_js_1.UserModel, board_js_1.BoardModel, columns_js_1.ColumnsModel, tokens_1.TokensModel],
 };
 function startServer() {
     return __awaiter(this, void 0, void 0, function () {

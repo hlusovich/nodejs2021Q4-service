@@ -58,46 +58,38 @@ var BoardsModelController = (function () {
     }
     BoardsModelController.getAll = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var boards, columnsList;
+            var boards, i, item, columns;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, board_js_1.BoardModel.query('SELECT * FROM boards')];
                     case 1:
                         boards = _a.sent();
-                        columnsList = boards.map(function (item) { return __awaiter(_this, void 0, void 0, function () {
-                            var _this = this;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0: return [4, new Promise(function (resolve) { return __awaiter(_this, void 0, void 0, function () {
-                                            var columns;
-                                            var _this = this;
-                                            return __generator(this, function (_a) {
-                                                switch (_a.label) {
-                                                    case 0: return [4, Promise.all(item.columns.map(function (colId) { return __awaiter(_this, void 0, void 0, function () {
-                                                            var result;
-                                                            return __generator(this, function (_a) {
-                                                                switch (_a.label) {
-                                                                    case 0: return [4, columnController_1.ColumnModelController.getColumn(colId)];
-                                                                    case 1:
-                                                                        result = _a.sent();
-                                                                        resolve(result);
-                                                                        return [2, result];
-                                                                }
-                                                            });
-                                                        }); }))];
-                                                    case 1:
-                                                        columns = _a.sent();
-                                                        return [2];
-                                                }
-                                            });
-                                        }); })];
-                                    case 1: return [2, _a.sent()];
-                                }
-                            });
-                        }); });
-                        console.log(columnsList);
-                        return [2, boards];
+                        i = 0;
+                        _a.label = 2;
+                    case 2:
+                        if (!(i < boards.length)) return [3, 5];
+                        item = boards[i];
+                        return [4, Promise.all(item.columns
+                                .map(function (colId) { return __awaiter(_this, void 0, void 0, function () {
+                                var result;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0: return [4, columnController_1.ColumnModelController.getColumn(colId)];
+                                        case 1:
+                                            result = _a.sent();
+                                            return [2, result];
+                                    }
+                                });
+                            }); }))];
+                    case 3:
+                        columns = _a.sent();
+                        item.columns = columns;
+                        _a.label = 4;
+                    case 4:
+                        i += 1;
+                        return [3, 2];
+                    case 5: return [2, boards];
                 }
             });
         });

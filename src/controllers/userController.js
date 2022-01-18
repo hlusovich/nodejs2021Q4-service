@@ -49,6 +49,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserControllerModel = void 0;
 var user_js_1 = require("../entity/user.js");
+var bcrypt_1 = require("bcrypt");
+var token_service_1 = require("../resources/token/token.service");
 var UserControllerModel = (function () {
     function UserControllerModel() {
     }
@@ -83,16 +85,28 @@ var UserControllerModel = (function () {
     };
     UserControllerModel.createUser = function (data) {
         return __awaiter(this, void 0, void 0, function () {
-            var user;
+            var hashPassword, user, token;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, user_js_1.UserModel.create(data)];
+                    case 0:
+                        if (!data.password) return [3, 6];
+                        return [4, (0, bcrypt_1.hash)(data.password, 3)];
                     case 1:
+                        hashPassword = _a.sent();
+                        return [4, user_js_1.UserModel.create(__assign(__assign({}, data), { password: hashPassword }))];
+                    case 2:
                         user = _a.sent();
                         return [4, user.save()];
-                    case 2:
+                    case 3:
                         _a.sent();
-                        return [2, this.toResponse(user)];
+                        if (!data.login) return [3, 5];
+                        token = token_service_1.TokenService.generateToken({ login: data.login, id: data.id });
+                        return [4, token_service_1.TokenService.saveToken(data.id, token)];
+                    case 4:
+                        _a.sent();
+                        _a.label = 5;
+                    case 5: return [2, this.toResponse(user)];
+                    case 6: return [2];
                 }
             });
         });

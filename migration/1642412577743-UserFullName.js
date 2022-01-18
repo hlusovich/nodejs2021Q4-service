@@ -36,12 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserFullName21642286654296 = void 0;
+exports.UserFullName1642412577743 = void 0;
 var typeorm_1 = require("typeorm");
-var UserFullName21642286654296 = (function () {
-    function UserFullName21642286654296() {
+var UserFullName1642412577743 = (function () {
+    function UserFullName1642412577743() {
     }
-    UserFullName21642286654296.prototype.up = function (queryRunner) {
+    UserFullName1642412577743.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -147,12 +147,28 @@ var UserFullName21642286654296 = (function () {
                             }), true)];
                     case 4:
                         _a.sent();
+                        return [4, queryRunner.createTable(new typeorm_1.Table({
+                                name: 'tokens',
+                                columns: [
+                                    {
+                                        name: 'userId',
+                                        type: 'varchar',
+                                        isPrimary: true,
+                                    },
+                                    {
+                                        name: 'token',
+                                        type: 'varchar',
+                                    },
+                                ],
+                            }), true)];
+                    case 5:
+                        _a.sent();
                         return [2];
                 }
             });
         });
     };
-    UserFullName21642286654296.prototype.down = function (queryRunner) {
+    UserFullName1642412577743.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -173,6 +189,6 @@ var UserFullName21642286654296 = (function () {
             });
         });
     };
-    return UserFullName21642286654296;
+    return UserFullName1642412577743;
 }());
-exports.UserFullName21642286654296 = UserFullName21642286654296;
+exports.UserFullName1642412577743 = UserFullName1642412577743;

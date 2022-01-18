@@ -35,6 +35,11 @@ export class UserControllerModel {
     return user;
   }
 
+  static async getUserByLogin(login: string) {
+    const user = await UserModel.findOne({login});
+    return user;
+  }
+
   /**
      * return  Fresh created User
      * @param payload object with  fields title, id, order, description, boardId, userId, columnId

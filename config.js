@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DB = exports.POSTGRESS_PORT = exports.SUPER_USER = exports.POSTGRES_PASSWORD = exports.PORT = void 0;
+exports.JWT_SECRET_KEY = exports.DB = exports.POSTGRESS_PORT = exports.SUPER_USER = exports.POSTGRES_PASSWORD = exports.PORT = void 0;
 var dotenv_1 = require("dotenv");
 (0, dotenv_1.config)({
     path: '.env',
@@ -11,3 +11,4 @@ exports.SUPER_USER = process.env.SUPER_USER || 'nikita3';
 exports.POSTGRESS_PORT = process.env.POSTGRESS_PORT ? +process.env.POSTGRESS_PORT
     : 5432;
 exports.DB = process.env.DB || 'task8psql';
+exports.JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'secret-key';
