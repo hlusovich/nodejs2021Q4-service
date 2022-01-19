@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 volumes:
   vol:
   postgresdatavol:
@@ -14,9 +14,9 @@ services:
       POSTGRES_HOST: localhost
       POSTGRES_PASSWORD : ${POSTGRES_PASSWORD}
       POSTGRES_HOST_AUTH_METHOD: "trust"
-      PGDATA: /var/lib/postgresql/data/some_name/
+      PGDATA: "/var/lib/postgresql/data//pgdata"
     volumes:
-      - postgresdatavol:/var/lib/postgresql/data/some_name/
+        - postgresdatavol:/var/lib/postgresql/data
   node:
     build: .
     networks:
