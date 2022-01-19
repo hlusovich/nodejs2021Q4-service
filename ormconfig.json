@@ -1,0 +1,18 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "nikita3",
+  "password": "7081379",
+  "database": "tester2",
+  "synchronize": true,
+  "entities": ["src/entity/*.js"],
+  "migrations": [
+    "migration/**/*.ts"
+  ],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "migration",
+    "subscribersDir": "subscriber"
+  }
+}

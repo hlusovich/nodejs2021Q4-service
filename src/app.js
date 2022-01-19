@@ -1,24 +1,13 @@
-const express = require('express');
-const swaggerUI = require('swagger-ui-express');
-const path = require('path');
-const YAML = require('yamljs');
-const userRouter = require('./resources/users/user.router');
-
-const app = express();
-const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
-
-app.use(express.json());
-
-app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-
-app.use('/', (req, res, next) => {
-  if (req.originalUrl === '/') {
-    res.send('Service is running!');
-    return;
-  }
-  next();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.server = void 0;
+var hapi_1 = require("@hapi/hapi");
+var config_js_1 = require("../config.js");
+var options = {};
+exports.server = new hapi_1.Server({
+    port: config_js_1.PORT,
+    host: '0.0.0.0',
+    routes: {
+        cors: true,
+    },
 });
-
-app.use('/users', userRouter);
-
-module.exports = app;

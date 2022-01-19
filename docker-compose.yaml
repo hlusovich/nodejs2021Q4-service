@@ -1,0 +1,37 @@
+version: "3"
+volumes:
+  applogs:
+    external: true
+  pstgdata:
+    external: true
+services:
+  postgres:
+    build: PostgressDocker
+    restart: always
+    ports:
+      - ${POSTGRESS_PORT}:${POSTGRESS_PORT}
+    environment:
+      POSTGRES_DB: ${DB}
+      POSTGRES_USER: ${SUPER_USER}
+      POSTGRES_HOST: localhost
+      POSTGRES_PASSWORD : ${POSTGRES_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      PGDATA: /var/lib/postgresql/data/some_name/
+    volumes:
+      - pstgdata:/var/lib/postgresql/data
+  node:
+    build: .
+    networks:
+      - db
+    volumes:
+      - applogs:/src/logs
+    ports:
+      - "${PORT}:${PORT}"
+    restart: always
+    depends_on:
+      - postgres
+networks:
+  db:
+    external:
+      name: my-bridge
+
