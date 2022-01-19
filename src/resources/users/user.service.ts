@@ -1,5 +1,5 @@
 import { DeleteResult } from 'typeorm';
-import {UserController} from './user.memory.repository.js';
+import { UserController } from './user.memory.repository.js';
 import { User } from './user.model';
 import { UserControllerModel } from '../../controllers/userController.js';
 import { TaskModelController } from '../../controllers/taskController';

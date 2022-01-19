@@ -6,7 +6,7 @@ import {
 @Entity('tasks')
 export class TaskModel extends BaseEntity {
   constructor(
-    id:number,
+    id:string,
     title:string,
     order:number,
     userId:string| null,
@@ -25,12 +25,12 @@ export class TaskModel extends BaseEntity {
   }
 
   @PrimaryColumn()
-    id:number;
+    id:string;
 
   @Column()
     title: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column({ type: 'text', nullable: true })
     userId?: string|null;
 
   @Column()

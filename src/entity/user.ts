@@ -12,7 +12,7 @@ export class UserModel extends BaseEntity {
     this.password = password;
   }
 
-  @PrimaryColumn()
+  @PrimaryColumn({ unique: true })
     id:string;
 
   @Column()

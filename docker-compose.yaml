@@ -14,8 +14,9 @@ services:
       POSTGRES_HOST: localhost
       POSTGRES_PASSWORD : ${POSTGRES_PASSWORD}
       POSTGRES_HOST_AUTH_METHOD: "trust"
+      PGDATA: /var/lib/postgresql/data/some_name/
     volumes:
-      - postgresdatavol:/var/lib/postgressql/data
+      - postgresdatavol:/var/lib/postgresql/data/some_name/
   node:
     build: .
     networks:

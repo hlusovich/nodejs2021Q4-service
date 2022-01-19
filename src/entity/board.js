@@ -36,7 +36,7 @@ var BoardModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, typeorm_1.PrimaryColumn)(),
+        (0, typeorm_1.PrimaryColumn)({ unique: true, type: 'text' }),
         __metadata("design:type", String)
     ], BoardModel.prototype, "id", void 0);
     __decorate([
@@ -44,7 +44,7 @@ var BoardModel = (function (_super) {
         __metadata("design:type", String)
     ], BoardModel.prototype, "title", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ type: 'int', array: true, default: [] }),
+        (0, typeorm_1.Column)({ type: 'text', array: true, default: [] }),
         __metadata("design:type", Array)
     ], BoardModel.prototype, "columns", void 0);
     BoardModel = __decorate([

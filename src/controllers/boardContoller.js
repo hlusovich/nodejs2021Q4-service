@@ -50,54 +50,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardsModelController = void 0;
 var board_js_1 = require("../entity/board.js");
 var board_model_1 = require("../resources/boards/board.model");
-var columns_1 = require("../entity/columns");
-var columnController_1 = require("./columnController");
 var _404error_1 = require("../../Errors/404error");
 var BoardsModelController = (function () {
     function BoardsModelController() {
     }
+    BoardsModelController.parseColumns = function (board) {
+        var columns = board.columns.map(function (item) { return JSON.parse(item); });
+        var parsedBoard = __assign(__assign({}, board), { columns: columns });
+        return parsedBoard;
+    };
     BoardsModelController.getAll = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var boards, i, item, columns;
+            var boards;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, board_js_1.BoardModel.query('SELECT * FROM boards')];
                     case 1:
                         boards = _a.sent();
-                        i = 0;
-                        _a.label = 2;
-                    case 2:
-                        if (!(i < boards.length)) return [3, 5];
-                        item = boards[i];
-                        return [4, Promise.all(item.columns
-                                .map(function (colId) { return __awaiter(_this, void 0, void 0, function () {
-                                var result;
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0: return [4, columnController_1.ColumnModelController.getColumn(colId)];
-                                        case 1:
-                                            result = _a.sent();
-                                            return [2, result];
-                                    }
-                                });
-                            }); }))];
-                    case 3:
-                        columns = _a.sent();
-                        item.columns = columns;
-                        _a.label = 4;
-                    case 4:
-                        i += 1;
-                        return [3, 2];
-                    case 5: return [2, boards];
+                        if (boards) {
+                            return [2, boards.map(function (board) { return _this.parseColumns(board); })];
+                        }
+                        return [2, undefined];
                 }
             });
         });
     };
     BoardsModelController.getBoardById = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var board, columns, boardToResponse;
-            var _this = this;
+            var board;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, board_js_1.BoardModel.findOne(id)];
@@ -106,23 +87,7 @@ var BoardsModelController = (function () {
                         if (!board) {
                             throw new _404error_1.Error404('no such board');
                         }
-                        if (!board) return [3, 3];
-                        return [4, Promise.all(board.columns.map(function (colId) { return __awaiter(_this, void 0, void 0, function () {
-                                var result;
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0: return [4, columnController_1.ColumnModelController.getColumn(colId)];
-                                        case 1:
-                                            result = _a.sent();
-                                            return [2, result];
-                                    }
-                                });
-                            }); }))];
-                    case 2:
-                        columns = _a.sent();
-                        boardToResponse = __assign(__assign({}, board), { columns: columns });
-                        return [2, boardToResponse];
-                    case 3: return [2, undefined];
+                        return [2, this.parseColumns(__assign({}, board))];
                 }
             });
         });
@@ -130,70 +95,36 @@ var BoardsModelController = (function () {
     BoardsModelController.createBoard = function (data) {
         return __awaiter(this, void 0, void 0, function () {
             var boardInstance, columns, board, result;
-            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         boardInstance = new board_model_1.Board(data).toResponse();
-                        columns = boardInstance.columns.map(function (item) { return item.id; });
+                        columns = data.columns.map(function (item) { return item.id; });
                         return [4, board_js_1.BoardModel
-                                .create({ id: boardInstance.id, title: boardInstance.title, columns: columns })];
+                                .create({ id: boardInstance.id, title: boardInstance.title, columns: boardInstance.columns })];
                     case 1:
                         board = _a.sent();
-                        boardInstance.columns.map(function (item) { return __awaiter(_this, void 0, void 0, function () {
-                            var col;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0: return [4, columnController_1.ColumnModelController.createColumn(item)];
-                                    case 1:
-                                        col = _a.sent();
-                                        return [2];
-                                }
-                            });
-                        }); });
                         return [4, board.save()];
                     case 2:
-                        _a.sent();
-                        return [4, this.getBoardById(boardInstance.id)];
-                    case 3:
                         result = _a.sent();
-                        return [2, result];
+                        return [2, boardInstance];
                 }
             });
         });
     };
     BoardsModelController.updateBoard = function (id, data) {
         return __awaiter(this, void 0, void 0, function () {
-            var board, columns, result;
-            var _this = this;
+            var board, result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4, this.getBoardById(id)];
                     case 1:
                         board = _a.sent();
                         if (!board) {
-                            throw new _404error_1.Error404("board with this id isn't exist");
+                            throw new _404error_1.Error404('board with this id isn\'t exist');
                         }
-                        columns = data.columns.map(function (item) { return item.id; });
-                        data.columns.map(function (item) { return __awaiter(_this, void 0, void 0, function () {
-                            var column;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0: return [4, columns_1.ColumnsModel.create(item)];
-                                    case 1:
-                                        column = _a.sent();
-                                        return [4, column.save()];
-                                    case 2:
-                                        _a.sent();
-                                        return [2];
-                                }
-                            });
-                        }); });
-                        return [4, board_js_1.BoardModel.update(id, { title: data.title, columns: columns })];
+                        return [4, board_js_1.BoardModel.update(id, { title: data.title, columns: data.columns })];
                     case 2:
-                        _a.sent();
-                        return [4, this.getBoardById(id)];
-                    case 3:
                         result = _a.sent();
                         return [2, result];
                 }

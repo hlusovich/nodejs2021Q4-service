@@ -51,6 +51,7 @@ var board_js_1 = require("./entity/board.js");
 var columns_js_1 = require("./entity/columns.js");
 var tokens_1 = require("./entity/tokens");
 var user_service_js_1 = require("./resources/users/user.service.js");
+var dbCreater_js_1 = require("../utils/dbCreater.js");
 var testUser = { login: 'admin', name: 'admin', password: 'admin' };
 var options = {
     type: 'postgres',
@@ -58,6 +59,7 @@ var options = {
     username: config_js_1.SUPER_USER,
     password: config_js_1.POSTGRES_PASSWORD,
     port: config_js_1.POSTGRESS_PORT,
+    synchronize: true,
     database: config_js_1.DB,
     entities: [task_js_1.TaskModel, user_js_1.UserModel, board_js_1.BoardModel, columns_js_1.ColumnsModel, tokens_1.TokensModel],
 };
@@ -87,7 +89,10 @@ function createDBConnection() {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
+                    _a.trys.push([0, 3, , 4]);
+                    return [4, (0, dbCreater_js_1.dbCreater)()];
+                case 1:
+                    _a.sent();
                     return [4, (0, typeorm_1.createConnection)(options).then(function (serverInstance) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
@@ -104,15 +109,15 @@ function createDBConnection() {
                                 }
                             });
                         }); })];
-                case 1:
-                    _a.sent();
-                    return [3, 3];
                 case 2:
+                    _a.sent();
+                    return [3, 4];
+                case 3:
                     e_1 = _a.sent();
                     console.log(e_1);
                     Logger_js_1.default.log({ message: 'we have an error when trying to connect ot db', level: 0 });
-                    return [3, 3];
-                case 3: return [2];
+                    return [3, 4];
+                case 4: return [2];
             }
         });
     });

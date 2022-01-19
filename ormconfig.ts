@@ -30,23 +30,4 @@ const config: ConnectionOptions = {
 // npm run typeorm:cli -- migration:run
 // npm run typeorm:cli -- migration:create -n UserFullName
 
-// @ManyToOne(() => User, (user) => user.tasks, { onDelete: 'SET NULL' })
-// @JoinColumn({ name: 'userId' })
-// user!: User;
-
-const dbCreater = async () => {
-  const connection:Connection = await createConnection({
-    name: 'sdf',
-    type: 'postgres',
-    host: 'localhost',
-    username: SUPER_USER,
-    password: POSTGRES_PASSWORD,
-    port: POSTGRESS_PORT,
-    database: 'postgres',
-  });
-  const queryRunner: QueryRunner = connection.createQueryRunner();
-  await queryRunner.createDatabase(DB, true);
-  setTimeout(() => process.exit(0), 1000);
-  return config;
-};
-export = dbCreater();
+export =config;

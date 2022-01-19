@@ -37,7 +37,7 @@ var UserModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, typeorm_1.PrimaryColumn)(),
+        (0, typeorm_1.PrimaryColumn)({ unique: true }),
         __metadata("design:type", String)
     ], UserModel.prototype, "id", void 0);
     __decorate([

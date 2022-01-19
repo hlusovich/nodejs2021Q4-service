@@ -71,6 +71,8 @@ describe('Boards suite', () => {
         .expect(200)
         .expect('Content-Type', /json/)
         .then(res => {
+          console.log(res.body)
+          console.log(expectedBoard)
           jestExpect(res.body).toEqual(expectedBoard);
         });
     });

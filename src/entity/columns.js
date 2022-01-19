@@ -26,6 +26,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ColumnsModel = void 0;
 var typeorm_1 = require("typeorm");
+var board_1 = require("./board");
 var ColumnsModel = (function (_super) {
     __extends(ColumnsModel, _super);
     function ColumnsModel(id, title, order) {
@@ -36,7 +37,8 @@ var ColumnsModel = (function (_super) {
         return _this;
     }
     __decorate([
-        (0, typeorm_1.PrimaryColumn)(),
+        (0, typeorm_1.ManyToOne)(function () { return board_1.BoardModel; }, function (boards) { return boards.columns; }),
+        (0, typeorm_1.PrimaryColumn)({ unique: true }),
         __metadata("design:type", String)
     ], ColumnsModel.prototype, "id", void 0);
     __decorate([

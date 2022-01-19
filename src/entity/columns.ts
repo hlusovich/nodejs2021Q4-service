@@ -1,6 +1,7 @@
 import {
-  BaseEntity, Column, PrimaryColumn, Entity,
+  BaseEntity, Column, PrimaryColumn, Entity, OneToMany, ManyToOne,
 } from 'typeorm';
+import { BoardModel } from './board';
 
 @Entity('columns')
 export class ColumnsModel extends BaseEntity {
@@ -11,7 +12,8 @@ export class ColumnsModel extends BaseEntity {
     this.order = order;
   }
 
-  @PrimaryColumn()
+  @ManyToOne(() => BoardModel, (boards) => boards.columns)
+  @PrimaryColumn({ unique: true })
     id:string;
 
   @Column()

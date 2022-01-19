@@ -41,14 +41,14 @@ var TaskModel = (function (_super) {
     }
     __decorate([
         (0, typeorm_1.PrimaryColumn)(),
-        __metadata("design:type", Number)
+        __metadata("design:type", String)
     ], TaskModel.prototype, "id", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], TaskModel.prototype, "title", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
+        (0, typeorm_1.Column)({ type: 'text', nullable: true }),
         __metadata("design:type", Object)
     ], TaskModel.prototype, "userId", void 0);
     __decorate([
@@ -69,7 +69,7 @@ var TaskModel = (function (_super) {
     ], TaskModel.prototype, "description", void 0);
     TaskModel = __decorate([
         (0, typeorm_1.Entity)('tasks'),
-        __metadata("design:paramtypes", [Number, String, Number, Object, String, String, String])
+        __metadata("design:paramtypes", [String, String, Number, Object, String, String, String])
     ], TaskModel);
     return TaskModel;
 }(typeorm_1.BaseEntity));

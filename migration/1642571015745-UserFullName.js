@@ -36,12 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserFullName1642412577743 = void 0;
+exports.UserFullName1642412577744 = void 0;
 var typeorm_1 = require("typeorm");
-var UserFullName1642412577743 = (function () {
-    function UserFullName1642412577743() {
+var UserFullName1642412577744 = (function () {
+    function UserFullName1642412577744() {
     }
-    UserFullName1642412577743.prototype.up = function (queryRunner) {
+    UserFullName1642412577744.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -168,7 +168,7 @@ var UserFullName1642412577743 = (function () {
             });
         });
     };
-    UserFullName1642412577743.prototype.down = function (queryRunner) {
+    UserFullName1642412577744.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -189,6 +189,6 @@ var UserFullName1642412577743 = (function () {
             });
         });
     };
-    return UserFullName1642412577743;
+    return UserFullName1642412577744;
 }());
-exports.UserFullName1642412577743 = UserFullName1642412577743;
+exports.UserFullName1642412577744 = UserFullName1642412577744;

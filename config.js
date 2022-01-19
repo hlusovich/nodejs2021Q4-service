@@ -10,5 +10,5 @@ exports.POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || '7081379';
 exports.SUPER_USER = process.env.SUPER_USER || 'nikita3';
 exports.POSTGRESS_PORT = process.env.POSTGRESS_PORT ? +process.env.POSTGRESS_PORT
     : 5432;
-exports.DB = process.env.DB || 'task9apsql';
+exports.DB = process.env.DB || 'task23apsql';
 exports.JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'secret-key';
