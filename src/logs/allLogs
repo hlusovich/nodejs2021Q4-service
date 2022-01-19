@@ -1,0 +1,443 @@
+Info:
+                Server successfully started on port 4000
+Info:
+                full path with query http://localhost:4000/login
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"login":"admin","password":"admin"}
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/6e61525d-6fa1-47fe-8883-cd6fd67ffa3a
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users/6e61525d-6fa1-47fe-8883-cd6fd67ffa3a
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/9be8802c-4aab-4bd2-b917-13383160e12d
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/1df1c95a-f3fd-4e9e-97c6-7fb5629c60a2
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"1df1c95a-f3fd-4e9e-97c6-7fb5629c60a2"}
+     
+Info:
+                full path with query http://localhost:4000/users/1df1c95a-f3fd-4e9e-97c6-7fb5629c60a2
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users/1df1c95a-f3fd-4e9e-97c6-7fb5629c60a2
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/users/fb9a5192-2eff-4920-92fe-3e633f2378b1
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/users
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"6851441d-2138-4bc7-b841-171c34fd1927","boardId":"b6734bcb-a468-467e-bac3-e6c1f5a372b0"}
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"6851441d-2138-4bc7-b841-171c34fd1927","boardId":"b6734bcb-a468-467e-bac3-e6c1f5a372b0"}
+     
+Info:
+                full path with query http://localhost:4000/users/6851441d-2138-4bc7-b841-171c34fd1927
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0/tasks/c93dcdb2-f856-4e0c-bc5b-4c905ba70649
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0/tasks/3f9d6bda-f5cb-4714-95c1-d2647402de95
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0/tasks/c93dcdb2-f856-4e0c-bc5b-4c905ba70649
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0/tasks/3f9d6bda-f5cb-4714-95c1-d2647402de95
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/b6734bcb-a468-467e-bac3-e6c1f5a372b0
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/login
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"login":"admin","password":"admin"}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/900506cc-8cc4-4ae5-95a3-a7f891622da0
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/29fb2729-c2ba-4b63-bdfa-8aa9895cd2fb
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/dfecd920-d1ed-4b6a-a7d6-0453a4bac036
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"id":"dfecd920-d1ed-4b6a-a7d6-0453a4bac036","title":"Autotest updated board","columns":[{"title":"Backlog","order":1,"id":"2a7b0701-fd96-4183-b292-c0dd841028a0"},{"title":"Sprint","order":2,"id":"a23c6b04-a128-4581-995b-90d2832af9ad"}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/dfecd920-d1ed-4b6a-a7d6-0453a4bac036
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/dfecd920-d1ed-4b6a-a7d6-0453a4bac036
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/c9186426-2b72-4afe-ae53-d1144dcd3bfd
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"dd9e4b5d-6685-493d-998f-fb9337a26d32","userId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"dd9e4b5d-6685-493d-998f-fb9337a26d32","userId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"dd9e4b5d-6685-493d-998f-fb9337a26d32","userId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"dd9e4b5d-6685-493d-998f-fb9337a26d32","userId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"dd9e4b5d-6685-493d-998f-fb9337a26d32","userId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks/fa2ad494-59e6-4827-823d-e9a62e5f8fa6
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks/23ce2c0c-67e4-4045-94b2-30b8454154eb
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks/10e43e56-c9ee-41b5-90c1-e2307c3700eb
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks/c9a02af3-7389-4b39-848b-83459a2c668c
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32/tasks/8302e7a6-7344-4985-8010-3205f48632ca
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/dd9e4b5d-6685-493d-998f-fb9337a26d32
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/900506cc-8cc4-4ae5-95a3-a7f891622da0
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/login
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"login":"admin","password":"admin"}
+     
+Info:
+                full path with query http://localhost:4000/boards
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks/b1197d0e-cd9b-45ff-8219-f719814d70f0
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks/47cf7073-b591-4aa7-97ba-b2c07b915e9e
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks
+      path origin http://localhost:4000
+      status code 201
+      
+      body {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks/cafa5f62-2718-4f22-ab4c-6ad3e2998e42
+      path origin http://localhost:4000
+      status code 200
+      
+      body {"id":"cafa5f62-2718-4f22-ab4c-6ad3e2998e42","title":"Autotest updated task","userId":null,"boardId":"0620b401-0c83-447a-a625-f4da412a3f18","columnId":null,"description":"Lorem ipsum","order":0}
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks/cafa5f62-2718-4f22-ab4c-6ad3e2998e42
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks/b1197d0e-cd9b-45ff-8219-f719814d70f0
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18/tasks/b1197d0e-cd9b-45ff-8219-f719814d70f0
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
+Info:
+                full path with query http://localhost:4000/boards/0620b401-0c83-447a-a625-f4da412a3f18
+      path origin http://localhost:4000
+      status code 200
+      
+      
+     
