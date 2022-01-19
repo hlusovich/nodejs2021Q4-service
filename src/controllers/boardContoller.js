@@ -164,11 +164,16 @@ var BoardsModelController = (function () {
     };
     BoardsModelController.updateBoard = function (id, data) {
         return __awaiter(this, void 0, void 0, function () {
-            var columns, result;
+            var board, columns, result;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
+                    case 0: return [4, this.getBoardById(id)];
+                    case 1:
+                        board = _a.sent();
+                        if (!board) {
+                            throw new _404error_1.Error404("board with this id isn't exist");
+                        }
                         columns = data.columns.map(function (item) { return item.id; });
                         data.columns.map(function (item) { return __awaiter(_this, void 0, void 0, function () {
                             var column;
@@ -185,10 +190,10 @@ var BoardsModelController = (function () {
                             });
                         }); });
                         return [4, board_js_1.BoardModel.update(id, { title: data.title, columns: columns })];
-                    case 1:
+                    case 2:
                         _a.sent();
                         return [4, this.getBoardById(id)];
-                    case 2:
+                    case 3:
                         result = _a.sent();
                         return [2, result];
                 }
@@ -204,7 +209,7 @@ var BoardsModelController = (function () {
                     case 1:
                         result = _a.sent();
                         if (result.affected === 0) {
-                            throw Error('no such board');
+                            throw new _404error_1.Error404('no such board');
                         }
                         return [2, result];
                 }

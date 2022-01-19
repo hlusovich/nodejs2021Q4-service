@@ -68,7 +68,7 @@ var createUser = function (data) { return __awaiter(void 0, void 0, void 0, func
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4, userController_js_1.UserControllerModel.createUser(user_memory_repository_js_1.default.createUser(data))];
+            case 0: return [4, userController_js_1.UserControllerModel.createUser(user_memory_repository_js_1.UserController.createUser(data))];
             case 1:
                 result = _a.sent();
                 return [2, result];

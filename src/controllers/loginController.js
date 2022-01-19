@@ -36,16 +36,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.logIn = void 0;
-var loginController_1 = require("../../controllers/loginController");
-var logIn = function (payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var token;
-    return __generator(this, function (_a) {
-        token = loginController_1.LoginController.login(payload);
-        if (token) {
-            return [2, token];
-        }
-        return [2, undefined];
-    });
-}); };
-exports.logIn = logIn;
+exports.LoginController = void 0;
+var bcrypt_1 = require("bcrypt");
+var userController_1 = require("./userController");
+var _403error_1 = require("../../Errors/403error");
+var token_service_1 = require("../resources/token/token.service");
+var LoginController = (function () {
+    function LoginController() {
+    }
+    LoginController.login = function (payload) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user, isPassEquals, token;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, userController_1.UserControllerModel.getUserByLogin(payload.login)];
+                    case 1:
+                        user = _a.sent();
+                        if (!user) {
+                            throw new _403error_1.Error403('such user doesn\'t exist');
+                        }
+                        return [4, (0, bcrypt_1.compare)(payload.password, user.password)];
+                    case 2:
+                        isPassEquals = _a.sent();
+                        if (!isPassEquals) {
+                            throw new _403error_1.Error403('such user doesn\'t exist');
+                        }
+                        return [4, token_service_1.TokenService.getToken(user.id)];
+                    case 3:
+                        token = _a.sent();
+                        return [2, token];
+                }
+            });
+        });
+    };
+    return LoginController;
+}());
+exports.LoginController = LoginController;

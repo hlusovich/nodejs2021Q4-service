@@ -9,7 +9,7 @@ export class TokenService {
     return accessToken;
   }
 
-  static async saveToken(userId: string, newToken: string) {
+  static async saveToken(userId: string| undefined, newToken: string) {
     const tokenData = await TokensModel.findOne({ userId });
     if (tokenData) {
       tokenData.token = `Bearer ${newToken}`;

@@ -15,7 +15,9 @@ import { UserModel } from './entity/user.js';
 import { BoardModel } from './entity/board.js';
 import { ColumnsModel } from './entity/columns.js';
 import { TokensModel } from './entity/tokens';
+import { createUser } from './resources/users/user.service.js';
 
+const testUser = { login: 'admin', name: 'admin', password: 'admin' };
 const options: ConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
@@ -44,6 +46,7 @@ async function startServer(): Promise<void> {
 async function createDBConnection():Promise<void> {
   try {
     await createConnection(options).then(async (serverInstance) => {
+      await createUser(testUser);
       await serverInstance.runMigrations();
       await startServer();
     });

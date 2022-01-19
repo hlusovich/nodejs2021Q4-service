@@ -1,6 +1,5 @@
 import { DeleteResult } from 'typeorm';
-import usersController from './user.memory.repository.js';
-import taskController from '../tasks/task.memory.repository.js';
+import {UserController} from './user.memory.repository.js';
 import { User } from './user.model';
 import { UserControllerModel } from '../../controllers/userController.js';
 import { TaskModelController } from '../../controllers/taskController';
@@ -32,7 +31,7 @@ const getUserById = async (id: string) => {
  * @returns Omit<User, 'password'>
  */
 const createUser = async (data: User) => {
-  const result = await UserControllerModel.createUser(usersController.createUser(data));
+  const result = await UserControllerModel.createUser(UserController.createUser(data));
   return result;
 };
 /**

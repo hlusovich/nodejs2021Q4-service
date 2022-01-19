@@ -7,7 +7,7 @@ export class User {
 
   password: string;
 
-  id: string;
+  id?: string;
 
   constructor({
     name, login, password, id,

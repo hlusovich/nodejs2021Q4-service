@@ -50,6 +50,8 @@ var user_js_1 = require("./entity/user.js");
 var board_js_1 = require("./entity/board.js");
 var columns_js_1 = require("./entity/columns.js");
 var tokens_1 = require("./entity/tokens");
+var user_service_js_1 = require("./resources/users/user.service.js");
+var testUser = { login: 'admin', name: 'admin', password: 'admin' };
 var options = {
     type: 'postgres',
     host: 'localhost',
@@ -89,11 +91,14 @@ function createDBConnection() {
                     return [4, (0, typeorm_1.createConnection)(options).then(function (serverInstance) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4, serverInstance.runMigrations()];
+                                    case 0: return [4, (0, user_service_js_1.createUser)(testUser)];
                                     case 1:
                                         _a.sent();
-                                        return [4, startServer()];
+                                        return [4, serverInstance.runMigrations()];
                                     case 2:
+                                        _a.sent();
+                                        return [4, startServer()];
+                                    case 3:
                                         _a.sent();
                                         return [2];
                                 }

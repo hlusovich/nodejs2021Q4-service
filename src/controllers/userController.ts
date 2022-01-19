@@ -3,15 +3,8 @@ import { User } from '../resources/users/user.model.js';
 import { UserModel } from '../entity/user.js';
 import { TokenService } from '../resources/token/token.service';
 
-interface IUser {
-    id: string;
-    name?: string;
-    login?: string;
-    password?: string;
-}
-
 export class UserControllerModel {
-  static toResponse(user:IUser) {
+  static toResponse(user:User) {
     return { id: user.id, login: user.login, name: user.name };
   }
 
@@ -46,7 +39,7 @@ export class UserControllerModel {
      * @param boardId:string
      * @returns User
      */
-  static async createUser(data: IUser) {
+  static async createUser(data: User) {
     if (data.password) {
       const hashPassword = await hash(data.password, 3);
       const user = await UserModel.create({ ...data, password: hashPassword });
@@ -66,7 +59,7 @@ export class UserControllerModel {
      * @param payload object with  fields title, id, order, description, boardId, userId, columnId
      * @returns User
      */
-  static async updateUser(id: string, data: Omit<IUser, 'id' | 'password'>) {
+  static async updateUser(id: string, data: Omit<User, 'id' | 'password'>) {
     const response = await UserModel.update(id, { ...data });
     return response;
   }

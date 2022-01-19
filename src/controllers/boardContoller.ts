@@ -14,11 +14,10 @@ interface IBoard {
 
 export class BoardsModelController {
   /**
-   * return  Array of Boards  without methods
    * @param there is no param
-   * @returns Array of Board without methods
+   * @returns Promise<BoardModel[]> with ColumnModels instead of id
    */
-  static async getAll() {
+  static async getAll():Promise<BoardModel[]> {
     const boards = await BoardModel.query('SELECT * FROM boards');
     /* eslint-disable no-await-in-loop */
     for (let i = 0; i < boards.length; i += 1) {
@@ -35,9 +34,9 @@ export class BoardsModelController {
   }
 
   /**
-   * return  Board by id
+   * return  BoardModel by id
    * @param id:string
-   * @returns Board without methods or if
+   * @returns Promise <IBoard> BoardModel with ColumnModels instead of id
    * no board with such id throw custom error (instance of Error404)
    */
   static async getBoardById(id: string): Promise<IBoard | undefined> {
@@ -57,11 +56,11 @@ export class BoardsModelController {
   }
 
   /**
-   * return  Fresh created Board
+   * return  Fresh created BoardModel
    * @param payload object with  fields title,id,columns
-   * @returns Board without methods
+   * @returns Promise<IBoard>
    */
-  static async createBoard(data: Omit<Board, 'toResponse'>) {
+  static async createBoard(data: Omit<Board, 'toResponse'>):Promise<IBoard|undefined> {
     const boardInstance = new Board(data).toResponse();
     const columns = boardInstance.columns.map((item) => item.id);
     const board = await BoardModel
@@ -77,11 +76,15 @@ export class BoardsModelController {
   /**
    * return  Fresh updated Board
    * @param id:string
-   * @param payload object with unnecessary fields title,id,columns
-   * @returns Board without methods or
+   * @param payload object with  fields title,id,columns
+   * @returns Promise<IBoard> or
    * if no board with such id throw custom error (instance of Error404)
    */
-  static async updateBoard(id: string, data: Board) {
+  static async updateBoard(id: string, data: Board): Promise<IBoard|undefined> {
+    const board = await this.getBoardById(id);
+    if(!board){
+      throw new Error404("board with this id isn't exist")
+    }
     const columns = data.columns.map((item) => item.id);
     data.columns.map(async (item) => {
       const column = await ColumnsModel.create(item);
@@ -93,14 +96,14 @@ export class BoardsModelController {
   }
 
   /**
-   * Delete task by id
+   * Delete board by id
    * @param id:string
-   * @returns string with deleted board id
+   * @returns string with delete result (instance of DeleteResult)  or if this board doesn't exist throw Error404
    */
   static async deleteBoard(id: string): Promise<DeleteResult> {
     const result = await BoardModel.delete(id);
     if (result.affected === 0) {
-      throw Error('no such board');
+      throw new Error404('no such board');
     }
     return result;
   }
