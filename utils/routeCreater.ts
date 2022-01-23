@@ -1,10 +1,10 @@
 import {
   ServerRoute, ResponseToolkit, Request, ResponseObject, ResponseValue,
 } from '@hapi/hapi';
-import { setStatusCode, codeStatuses } from './setStatusCode.js';
-import { errorHandler } from '../handler/errorHandler.js';
-import logger from './Logger.js';
-import { isAuth } from './autharizationCheker.js';
+import { setStatusCode, codeStatuses } from './setStatusCode';
+import { errorHandler } from '../handler/errorHandler';
+import logger from './Logger';
+import { isAuth } from './autharizationCheker';
 
 type codeStatuses = typeof codeStatuses;
 type methodsEnum = keyof codeStatuses

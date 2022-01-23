@@ -1,8 +1,5 @@
 import { ResponseObject } from '@hapi/hapi';
-import { Error404 } from '../Errors/404error.js';
-import logger from '../utils/Logger.js';
-import { Error403 } from '../Errors/403error';
-import { Error401 } from '../Errors/401error';
+import logger from '../utils/Logger';
 
 type Errors = { message: string, myCode?: number };
 /**

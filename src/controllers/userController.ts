@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt';
-import { User } from '../resources/users/user.model.js';
-import { UserModel } from '../entity/user.js';
+import { User } from '../resources/users/user.model';
+import { UserModel } from '../entity/user';
 import { TokenService } from '../resources/token/token.service';
 
 export class UserControllerModel {

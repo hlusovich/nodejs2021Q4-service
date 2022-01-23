@@ -1,16 +1,10 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { Task } from '../resources/tasks/task.model';
-import { TaskModel } from '../entity/task.js';
+import { TaskModel } from '../entity/task';
 import { Error404 } from '../../Errors/404error';
-
-interface ITask {
-  title?: string;
-  order: number;
-  userid?: string;
-  boardid?: string;
-  columnid?: string;
-  description?: string;
-}
+import { UserControllerModel } from './userController';
+import { ITask } from '../resources/tasks/interfaces';
+import { BoardsModelController } from './boardContoller';
 
 export class TaskModelController {
   /**
@@ -18,7 +12,7 @@ export class TaskModelController {
    * @param there is no param
    * @returns Task[]
    */
-  static async getAll() {
+  static async getAll(): Promise<TaskModel[]> {
     const result = await TaskModel.query('SELECT * FROM tasks');
     return result;
   }
@@ -28,10 +22,11 @@ export class TaskModelController {
    * @param id:string
    * @returns Task or if no Task with such id throw error
    */
-  static async getTaskById(id: string) {
-    const task = await TaskModel.findOne(id);
+  static async getTaskById(id: string):Promise<TaskModel> {
+    const tasks = await this.getAll();
+    const task = tasks.find((item) => item.id === id);
     if (!task) {
-      throw new Error404("suck tusk doesn't exists");
+      throw new Error404('suck tusk doesn\'t exists');
     }
     return task;
   }
@@ -42,12 +37,17 @@ export class TaskModelController {
    * @param boardId:string
    * @returns Task
    */
-  static async createTask(data: ITask):Promise<TaskModel> {
+  static async createTask(data: ITask): Promise<TaskModel> {
+    let user = null;
+    if (data.userId) {
+      user = await UserControllerModel.getUserById(data.userId);
+    }
     const task = await TaskModel.create({
-      ...data,
+      ...data, userId: user,
     });
     await task.save();
-    return task;
+    const result = await this.getTaskById(task.id);
+    return result;
   }
 
   /**
@@ -56,8 +56,15 @@ export class TaskModelController {
    * @param payload object with  fields title, id, order, description, boardId, userId, columnId
    * @returns Task
    */
-  static async updateTask(id: string, data: ITask):Promise<UpdateResult> {
-    const result = await TaskModel.update(id, { ...data });
+  static async updateTask(id: string, data: ITask): Promise<TaskModel> {
+    if (data.userId) {
+      const user = await UserControllerModel.getUserById(data.userId);
+      await TaskModel.update(id, { ...data, userId: user });
+    } else {
+      const oldTask = await this.getTaskById(id);
+      await TaskModel.update(id, { ...data, userId: oldTask.userId });
+    }
+    const result = await this.getTaskById(id);
     return result;
   }
 
@@ -66,18 +73,13 @@ export class TaskModelController {
    * @param id:string
    * @returns string with deleted board id
    */
-  static async deleteTask(id: string):Promise<DeleteResult> {
+  static async deleteTask(id: string): Promise<DeleteResult> {
     const result = await TaskModel.delete(id);
     return result;
   }
 
-  static async unsubcribeBoard(boardId: string):Promise<DeleteResult> {
+  static async unsubcribeBoard(boardId: string): Promise<DeleteResult> {
     const result = await TaskModel.delete({ boardId });
-    return result;
-  }
-
-  static async unsubscribeUser(userId: string):Promise<DeleteResult> {
-    const result = await TaskModel.update({ userId }, { userId: null });
     return result;
   }
 }

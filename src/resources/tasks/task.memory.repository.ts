@@ -1,5 +1,6 @@
-import { Task } from './task.model.js';
-import { Error404 } from '../../../Errors/404error.js';
+import { Task } from './task.model';
+import { Error404 } from '../../../Errors/404error';
+import { ITask } from './interfaces';
 
 class TasksController {
   tasks: Task[];
@@ -37,7 +38,7 @@ class TasksController {
    * @param boardId:string
    * @returns Task
    */
-  createTask(payload: Task, boardId: string): Task {
+  createTask(payload: ITask, boardId: string): Task {
     const newTask = new Task({ ...payload, boardId });
     this.tasks.push(newTask);
     return newTask;
@@ -67,14 +68,6 @@ class TasksController {
    * @param id:string
    * @returns void
    */
-  unsubscribeUser(id: string): void {
-    this.tasks = this.tasks.map((item) => {
-      if (item.userId === id) {
-        return { ...item, userId: null };
-      }
-      return item;
-    });
-  }
 
   /**
    * Change boardID to null, if board with this id is deleted

@@ -1,9 +1,9 @@
 import { Request, ServerRoute } from '@hapi/hapi';
-import { server } from '../../app.js';
+import { server } from '../../app';
 import {
   getAll, getBoardById, createBoard, updateBoard, deleteBoard,
-} from './board.service.js';
-import { createRoute } from '../../../utils/routeCreater.js';
+} from './board.service';
+import { createRoute } from '../../../utils/routeCreater';
 import { Board } from './board.model';
 
 const routes: ServerRoute[] = [createRoute('GET', '/boards', () => getAll()),

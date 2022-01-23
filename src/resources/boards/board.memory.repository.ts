@@ -1,5 +1,5 @@
-import { Board } from './board.model.js';
-import { Error404 } from '../../../Errors/404error.js';
+import { Board } from './board.model';
+import { Error404 } from '../../../Errors/404error';
 
 class BoardsController {
   boards: Board[];

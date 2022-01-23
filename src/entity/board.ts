@@ -1,7 +1,7 @@
 import {
   Column, BaseEntity, PrimaryColumn, Entity, ManyToOne, JoinTable, OneToMany,
 } from 'typeorm';
-import { ColumnsModel } from './columns.js';
+import { ColumnsModel } from './columns';
 
 @Entity('boards')
 export class BoardModel extends BaseEntity {
@@ -18,10 +18,6 @@ export class BoardModel extends BaseEntity {
   @Column()
     title: string;
 
-  // @OneToMany(()=>ColumnsModel, column => column.id)
-  // columns: ColumnsModel[];
-  //
-  //
   @Column({ type: 'text', array: true, default: [] })
     columns: ColumnsModel[];
 }

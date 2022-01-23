@@ -1,5 +1,5 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
-import { BoardModel } from '../entity/board.js';
+import { BoardModel } from '../entity/board';
 import { Board } from '../resources/boards/board.model';
 import { ColumnsModel } from '../entity/columns';
 import { Error404 } from '../../Errors/404error';

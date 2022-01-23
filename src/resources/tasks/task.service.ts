@@ -1,9 +1,10 @@
 import { awaitExpression } from '@babel/types';
 import { DeleteResult, UpdateResult } from 'typeorm';
-import taskController from './task.memory.repository.js';
+import taskController from './task.memory.repository';
 import { Task } from './task.model';
-import { TaskModelController } from '../../controllers/taskController.js';
+import { TaskModelController } from '../../controllers/taskController';
 import { TaskModel } from '../../entity/task';
+import { ITask } from './interfaces';
 
 /**
  * return  Array of Tasks
@@ -29,7 +30,7 @@ const getTaskById = async (id: string) => {
  * @param boardId:string
  * @returns Task
  */
-const createTask = async (data: Task, id: string): Promise<TaskModel> => {
+const createTask = async (data: ITask, id: string): Promise<TaskModel> => {
   const result = await TaskModelController.createTask(taskController.createTask(data, id));
   return result;
 };
@@ -39,7 +40,7 @@ const createTask = async (data: Task, id: string): Promise<TaskModel> => {
  * @param payload object with  fields title, id, order, description, boardId, userId, columnId
  * @returns Task
  */
-const updateTask = async (id: string, data: Task): Promise<UpdateResult> => {
+const updateTask = async (id: string, data: ITask): Promise<TaskModel> => {
   const result = await TaskModelController.updateTask(id, data);
   return result;
 };

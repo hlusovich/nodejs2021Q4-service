@@ -1,6 +1,6 @@
 import { DeleteResult } from 'typeorm';
 import { Board } from './board.model';
-import { BoardsModelController } from '../../controllers/boardContoller.js';
+import { BoardsModelController } from '../../controllers/boardContoller';
 import { TaskModelController } from '../../controllers/taskController';
 import { Error404 } from '../../../Errors/404error';
 
@@ -38,7 +38,7 @@ const createBoard = async (data: Omit<Board, 'toResponse'>) => {
 /**
  * return  Fresh updated Board
  * @param id:string
- * @param payload object with unnecessary fields title,id,columns
+ * @param payload object with  fields title,id,columns
  * @returns Board without methods
  */
 const updateBoard = async (id: string, data: Board) => {

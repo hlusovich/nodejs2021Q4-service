@@ -1,16 +1,13 @@
 import {
-  Connection,
   ConnectionOptions,
-  createConnection,
-  QueryRunner,
 } from 'typeorm';
 import {
-  DB, POSTGRES_PASSWORD, PORT, POSTGRESS_PORT, SUPER_USER,
-} from './config.js';
+  DB, POSTGRES_PASSWORD, POSTGRESS_PORT, SUPER_USER, POSTGRES_HOST,
+} from './config';
 
 const config: ConnectionOptions = {
   type: 'postgres',
-  host: 'localhost',
+  host: POSTGRES_HOST,
   username: SUPER_USER,
   password: POSTGRES_PASSWORD,
   port: POSTGRESS_PORT,
@@ -29,5 +26,8 @@ const config: ConnectionOptions = {
 };
 // npm run typeorm:cli -- migration:run
 // npm run typeorm:cli -- migration:create -n UserFullName
+// @ManyToOne(() => User, (user) => user.tasks, { onDelete: 'SET NULL' })
+// @JoinColumn({ name: 'userId' })
+// user!: User;
 
 export =config;

@@ -1,6 +1,6 @@
 import { Request, ServerRoute } from '@hapi/hapi';
-import { server } from '../../app.js';
-import { createRoute } from '../../../utils/routeCreater.js';
+import { server } from '../../app';
+import { createRoute } from '../../../utils/routeCreater';
 import { logIn } from './login.service';
 import { UserModel } from '../../entity/user';
 import { TokensModel } from '../../entity/tokens';

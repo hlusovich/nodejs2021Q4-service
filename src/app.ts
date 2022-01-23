@@ -1,5 +1,5 @@
 import { Server } from '@hapi/hapi';
-import { PORT } from '../config.js';
+import { PORT } from '../config';
 
 const options = {
 

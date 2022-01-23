@@ -6,5 +6,12 @@
     "no-console": false,
     "no-explicit-any":true
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 }

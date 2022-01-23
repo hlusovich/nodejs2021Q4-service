@@ -1,9 +1,9 @@
 import { Request, ServerRoute } from '@hapi/hapi';
-import { server } from '../../app.js';
+import { server } from '../../app';
 import {
   getAll, getUserById, createUser, deleteUser, updateUser,
-} from './user.service.js';
-import { createRoute } from '../../../utils/routeCreater.js';
+} from './user.service';
+import { createRoute } from '../../../utils/routeCreater';
 import { User } from './user.model';
 
 const routes: ServerRoute[] = [createRoute('GET', '/users', async () => {

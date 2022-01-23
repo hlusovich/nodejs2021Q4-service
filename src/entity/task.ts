@@ -1,18 +1,19 @@
 import {
-  BaseEntity, Column, PrimaryColumn, Entity,
+  BaseEntity, Column, PrimaryColumn, Entity, ManyToOne, JoinColumn,
 } from 'typeorm';
+import { UserModel } from './user';
 
 // @ManyToOne(type=>UserModel,{onDelete:"SET NULL"})
 @Entity('tasks')
 export class TaskModel extends BaseEntity {
   constructor(
-    id:string,
-    title:string,
-    order:number,
-    userId:string| null,
-    boardId:string,
-    columnId:string,
-    description:string,
+    id: string,
+    title: string,
+    order: number,
+    userId: UserModel | null,
+    boardId: string,
+    columnId: string,
+    description: string,
   ) {
     super();
     this.id = id;
@@ -25,13 +26,14 @@ export class TaskModel extends BaseEntity {
   }
 
   @PrimaryColumn()
-    id:string;
+    id: string;
 
   @Column()
     title: string;
 
-  @Column({ type: 'text', nullable: true })
-    userId?: string|null;
+  @ManyToOne(() => UserModel, (user) => user.id, { onDelete: 'SET NULL', nullable: true })
+  @JoinColumn({ name: 'userId' })
+    userId!: UserModel | null;
 
   @Column()
     boardId: string;
