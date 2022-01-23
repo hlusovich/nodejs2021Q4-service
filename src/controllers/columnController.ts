@@ -1,5 +1,4 @@
 import { ColumnsModel } from '../entity/columns';
-import { Column } from '../resources/boards/Column';
 
 export class ColumnModelController {
   static async getColumn(id: string): Promise<ColumnsModel | undefined> {
