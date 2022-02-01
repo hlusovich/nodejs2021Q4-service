@@ -14,11 +14,11 @@ const config: ConnectionOptions = {
   database: DB,
   synchronize: false,
   logging: false,
-  entities: ['src/entity/*.js'],
+  entities: ['srcOld/entity/*.js'],
   cli: {
     migrationsDir: 'migration',
-    entitiesDir: 'src/entity',
-    subscribersDir: 'src/subscriber',
+    entitiesDir: 'srcOld/entity',
+    subscribersDir: 'srcOld/subscriber',
   },
   migrations: [
     'migration/**/*.ts',

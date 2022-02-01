@@ -28,7 +28,7 @@ services:
     networks:
       - db
     volumes:
-      - applogs:/src/logs
+      - applogs:/srcOld/logs
     ports:
       - "${PORT}:${PORT}"
     restart: always
