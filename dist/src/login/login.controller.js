@@ -16,14 +16,19 @@ exports.LoginController = void 0;
 const common_1 = require("@nestjs/common");
 const login_service_1 = require("./login.service");
 const loginDto_1 = require("./loginDto");
+const logger_guard_guard_1 = require("../guards/logger-guard.guard");
 let LoginController = class LoginController {
+    constructor(loginService) {
+        this.loginService = loginService;
+    }
     async create(loginDto, boardId) {
-        const result = await (0, login_service_1.logIn)(loginDto);
+        const result = await this.loginService.logIn(loginDto);
         return result;
     }
 };
 __decorate([
     (0, common_1.Post)(),
+    (0, common_1.UseGuards)(logger_guard_guard_1.LoggerGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('boardId')),
@@ -32,7 +37,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], LoginController.prototype, "create", null);
 LoginController = __decorate([
-    (0, common_1.Controller)('login')
+    (0, common_1.Controller)('login'),
+    __metadata("design:paramtypes", [login_service_1.LoginService])
 ], LoginController);
 exports.LoginController = LoginController;
 //# sourceMappingURL=login.controller.js.map

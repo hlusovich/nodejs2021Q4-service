@@ -9,6 +9,7 @@ import { TaskModel } from './entity/task';
 import { UserModel } from './entity/user';
 import { BoardModel } from './entity/board';
 import { dbCreater } from '../utils/dbCreater';
+import { logger } from './users/MyLogger';
 
 const testUser = { login: 'admin', name: 'admin', password: 'admin' };
 const options: ConnectionOptions = {
@@ -28,12 +29,12 @@ const options: ConnectionOptions = {
  */
 async function startServer(): Promise<void> {
   process.on('uncaughtException', () => {
-    console.log({ message: 'we have an uncaughtException', level: 0 });
+    logger.error('we have an uncaughtException');
   });
   process.on('unhandledRejection', (error) => {
-    console.log({ level: 0, message: 'we have an unhandledRejection' });
+    logger.error('we have an unhandledRejection');
   });
-  console.log({ level: 2, message: `Server successfully started on port ${PORT}` });
+  logger.log(`Server successfully started on port ${PORT}`);
 }
 
 async function createDBConnection():Promise<void> {
@@ -45,14 +46,14 @@ async function createDBConnection():Promise<void> {
       await startServer();
     });
   } catch (e) {
-    console.log(e);
-    console.log({ message: 'we have an error when trying to connect ot db', level: 0 });
+    logger.error(e);
+    logger.error({ message: 'we have an error when trying to connect ot db', level: 0 });
   }
 }
 
 async function bootstrap() {
   await createDBConnection();
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
   await app.listen(PORT);
 }
 

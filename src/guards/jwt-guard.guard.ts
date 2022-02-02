@@ -1,6 +1,8 @@
-import {CanActivate, ExecutionContext, Injectable, UnauthorizedException} from '@nestjs/common';
+import {
+  CanActivate, ExecutionContext, Injectable, UnauthorizedException,
+} from '@nestjs/common';
 import { Observable } from 'rxjs';
-import {isAuth} from "../../utils/autharizationCheker";
+import { isAuth } from '../../utils/autharizationCheker';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
@@ -10,7 +12,7 @@ export class JwtAuthGuard implements CanActivate {
     const req = context.switchToHttp().getRequest();
     const res = context.switchToHttp().getResponse();
     const isAllowed = isAuth(req.headers.authorization);
-    if(!isAllowed){
+    if (!isAllowed) {
       throw new UnauthorizedException();
     }
     return isAllowed;

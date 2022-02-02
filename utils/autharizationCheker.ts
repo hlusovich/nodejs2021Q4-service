@@ -1,5 +1,5 @@
-import {verify} from 'jsonwebtoken';
-import {JWT_SECRET_KEY} from "../config";
+import { verify } from 'jsonwebtoken';
+import { JWT_SECRET_KEY } from '../config';
 
 // const allowedUrls = ['/login', '/doc', '/'];
 /**
@@ -10,14 +10,13 @@ import {JWT_SECRET_KEY} from "../config";
  * header  includes  authorization with invalid JWT token or no JWT
  */
 export function isAuth(token: string): boolean {
-    try {
-        if (!token) {
-            return false;
-        }
-        verify(token.split(' ')[1], JWT_SECRET_KEY);
-        return true;
-
-    } catch (e) {
-        return false;
+  try {
+    if (!token) {
+      return false;
     }
+    verify(token.split(' ')[1], JWT_SECRET_KEY);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }

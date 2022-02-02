@@ -8,11 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JwtAuthGuard = void 0;
 const common_1 = require("@nestjs/common");
-const autharizationCheker_1 = require("../utils/autharizationCheker");
+const autharizationCheker_1 = require("../../utils/autharizationCheker");
 let JwtAuthGuard = class JwtAuthGuard {
     canActivate(context) {
         const req = context.switchToHttp().getRequest();
+        const res = context.switchToHttp().getResponse();
         const isAllowed = (0, autharizationCheker_1.isAuth)(req.headers.authorization);
+        if (!isAllowed) {
+            throw new common_1.UnauthorizedException();
+        }
         return isAllowed;
     }
 };
@@ -20,4 +24,4 @@ JwtAuthGuard = __decorate([
     (0, common_1.Injectable)()
 ], JwtAuthGuard);
 exports.JwtAuthGuard = JwtAuthGuard;
-//# sourceMappingURL=jwt-guards.guards.js.map
+//# sourceMappingURL=jwt-guard.guard.js.map

@@ -1,4 +1,5 @@
 export declare const PORT: string;
+export declare const LEVEL: string;
 export declare const POSTGRES_HOST: string;
 export declare const POSTGRES_PASSWORD: string;
 export declare const SUPER_USER: string;

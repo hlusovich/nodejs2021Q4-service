@@ -15,7 +15,8 @@ import { Response } from 'express';
 import { TaskModel } from '../entity/task';
 import { ITask, TaskDto } from './dto/task';
 import { TaskService } from './task.service';
-import {JwtAuthGuard} from "../guard/jwt-guard.guard";
+import { JwtAuthGuard } from '../guards/jwt-guard.guard';
+import { LoggerGuard } from '../guards/logger-guard.guard';
 
 @Controller('boards/:boardId/tasks')
 export class TasksController {
@@ -24,21 +25,21 @@ export class TasksController {
   }
 
     @Get()
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(JwtAuthGuard, LoggerGuard)
   async getAll(): Promise<ITask[]> {
     const result = await this.taskService.getAll();
     return result;
   }
 
     @Get(':id')
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(JwtAuthGuard, LoggerGuard)
     async getOne(@Param('id') id: string, @Res({ passthrough: true }) res: Response):Promise<ITask> {
       const result = await this.taskService.getOne(id, res);
       return result;
     }
 
     @Post()
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(JwtAuthGuard, LoggerGuard)
     @HttpCode(HttpStatus.CREATED)
     async create(@Body(new ValidationPipe({ transform: true })) taskDto: TaskDto, @Param('boardId') boardId: string): Promise<TaskModel | undefined> {
       const result = await this.taskService.create(taskDto, boardId);
@@ -46,7 +47,7 @@ export class TasksController {
     }
 
     @Put(':id')
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(JwtAuthGuard, LoggerGuard)
     @HttpCode(HttpStatus.OK)
     async update(@Body(new ValidationPipe({ transform: true })) taskDto: TaskDto, @Param('id') id: string): Promise<TaskModel | undefined> {
       const result = await this.taskService.update(taskDto, id);
@@ -54,7 +55,7 @@ export class TasksController {
     }
 
     @Delete(':id')
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(JwtAuthGuard, LoggerGuard)
     @HttpCode(HttpStatus.NO_CONTENT)
     async delete(@Param('id') id: string, @Res({ passthrough: true }) res: Response): Promise<DeleteResult | undefined> {
       const result = await this.taskService.delete(id, res);

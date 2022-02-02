@@ -9,6 +9,7 @@ const task_1 = require("./entity/task");
 const user_1 = require("./entity/user");
 const board_1 = require("./entity/board");
 const dbCreater_1 = require("../utils/dbCreater");
+const MyLogger_1 = require("./users/MyLogger");
 const testUser = { login: 'admin', name: 'admin', password: 'admin' };
 const options = {
     type: 'postgres',
@@ -22,12 +23,12 @@ const options = {
 };
 async function startServer() {
     process.on('uncaughtException', () => {
-        console.log({ message: 'we have an uncaughtException', level: 0 });
+        MyLogger_1.logger.error('we have an uncaughtException');
     });
     process.on('unhandledRejection', (error) => {
-        console.log({ level: 0, message: 'we have an unhandledRejection' });
+        MyLogger_1.logger.error('we have an unhandledRejection');
     });
-    console.log({ level: 2, message: `Server successfully started on port ${config_1.PORT}` });
+    MyLogger_1.logger.log(`Server successfully started on port ${config_1.PORT}`);
 }
 async function createDBConnection() {
     try {
@@ -39,13 +40,13 @@ async function createDBConnection() {
         });
     }
     catch (e) {
-        console.log(e);
-        console.log({ message: 'we have an error when trying to connect ot db', level: 0 });
+        MyLogger_1.logger.error(e);
+        MyLogger_1.logger.error({ message: 'we have an error when trying to connect ot db', level: 0 });
     }
 }
 async function bootstrap() {
     await createDBConnection();
-    const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const app = await core_1.NestFactory.create(app_module_1.AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
     await app.listen(config_1.PORT);
 }
 bootstrap();

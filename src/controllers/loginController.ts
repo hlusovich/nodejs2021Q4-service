@@ -4,6 +4,7 @@ import { UserControllerModel } from './userController';
 import { Error403 } from '../../Errors/403error';
 import { TokenService } from '../token/token.service';
 import { TokensModel } from '../entity/tokens';
+import { LoginDto } from '../login/loginDto';
 
 export class LoginController {
   static async login(payload: LoginDto):Promise<TokensModel| undefined> {
