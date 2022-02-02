@@ -71,8 +71,6 @@ describe('Boards suite', () => {
         .expect(200)
         .expect('Content-Type', /json/)
         .then(res => {
-          console.log(res.body)
-          console.log(expectedBoard)
           jestExpect(res.body).toEqual(expectedBoard);
         });
     });
@@ -81,7 +79,6 @@ describe('Boards suite', () => {
   describe('POST', () => {
     it('should create board successfully', async () => {
       let boardId;
-
       await request
         .post(routes.boards.create)
         .set('Accept', 'application/json')
@@ -96,6 +93,7 @@ describe('Boards suite', () => {
 
       // Teardown
       await request.delete(routes.boards.delete(boardId));
+
     });
   });
 

@@ -5,7 +5,7 @@ config({
 });
 
 export const PORT: string = process.env.PORT || '4000';
-export const POSTGRES_HOST: string = process.env.POSTGRES_HOST || 'postgres';
+export const POSTGRES_HOST: string = process.env.POSTGRES_HOST || 'localhost';
 export const POSTGRES_PASSWORD:string = process.env.POSTGRES_PASSWORD || '7081379';
 export const SUPER_USER:string = process.env.SUPER_USER || 'nikita3';
 export const POSTGRESS_PORT:number = process.env.POSTGRESS_PORT ? +process.env.POSTGRESS_PORT

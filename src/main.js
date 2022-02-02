@@ -38,16 +38,93 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@nestjs/core");
 var app_module_1 = require("./app.module");
+var config_1 = require("../config");
+var typeorm_1 = require("typeorm");
+var tokens_1 = require("./entity/tokens");
+var task_1 = require("./entity/task");
+var user_1 = require("./entity/user");
+var board_1 = require("./entity/board");
+var dbCreater_1 = require("../utils/dbCreater");
+var testUser = { login: 'admin', name: 'admin', password: 'admin' };
+var options = {
+    type: 'postgres',
+    host: config_1.POSTGRES_HOST,
+    username: config_1.SUPER_USER,
+    password: config_1.POSTGRES_PASSWORD,
+    port: config_1.POSTGRESS_PORT,
+    synchronize: true,
+    database: config_1.DB,
+    entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel],
+};
+function startServer() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            process.on('uncaughtException', function () {
+                console.log({ message: 'we have an uncaughtException', level: 0 });
+            });
+            process.on('unhandledRejection', function (error) {
+                console.log({ level: 0, message: 'we have an unhandledRejection' });
+            });
+            console.log({ level: 2, message: "Server successfully started on port ".concat(config_1.PORT) });
+            return [2];
+        });
+    });
+}
+function createDBConnection() {
+    return __awaiter(this, void 0, void 0, function () {
+        var e_1;
+        var _this = this;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4, (0, dbCreater_1.dbCreater)()];
+                case 1:
+                    _a.sent();
+                    return [4, (0, typeorm_1.createConnection)(options).then(function (serverInstance) { return __awaiter(_this, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4, user_1.UserModel.create(testUser)];
+                                    case 1:
+                                        _a.sent();
+                                        return [4, serverInstance.runMigrations()];
+                                    case 2:
+                                        _a.sent();
+                                        return [4, startServer()];
+                                    case 3:
+                                        _a.sent();
+                                        return [2];
+                                }
+                            });
+                        }); })];
+                case 2:
+                    _a.sent();
+                    return [3, 4];
+                case 3:
+                    e_1 = _a.sent();
+                    console.log(e_1);
+                    console.log({ message: 'we have an error when trying to connect ot db', level: 0 });
+                    return [3, 4];
+                case 4: return [2];
+            }
+        });
+    });
+}
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function () {
         var app;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4, core_1.NestFactory.create(app_module_1.AppModule)];
+                case 0:
+                    console.log("start");
+                    return [4, createDBConnection()];
                 case 1:
-                    app = _a.sent();
-                    return [4, app.listen(3000)];
+                    _a.sent();
+                    return [4, core_1.NestFactory.create(app_module_1.AppModule)];
                 case 2:
+                    app = _a.sent();
+                    return [4, app.listen(config_1.PORT)];
+                case 3:
                     _a.sent();
                     return [2];
             }

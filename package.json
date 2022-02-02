@@ -8,7 +8,10 @@
   "description": "REST service starter for RS School",
   "main": "srcOld/server.js",
   "scripts": {
-    "start": "cross-env POSTGRES_HOST='localhost' nodemon  srcOld/server.ts",
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
     "lint": "eslint --ext .ts --fix ./",
     "docker": "cross-env POSTGRES_HOST='postgres' ts-node   srcOld/server.ts",
     "start:dev": "nest start --watch",
