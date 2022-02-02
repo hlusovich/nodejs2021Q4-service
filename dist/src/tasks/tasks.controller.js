@@ -14,40 +14,30 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TasksController = void 0;
 const common_1 = require("@nestjs/common");
-const task_1 = require("../entity/task");
-const _404error_1 = require("../../Errors/404error");
-const task_2 = require("./dto/task");
-const taskController_1 = require("../controllers/taskController");
-const errorHandler_1 = require("../../utils/errorHandler");
+const task_1 = require("./dto/task");
+const task_service_1 = require("./task.service");
 let TasksController = class TasksController {
+    constructor(taskService) {
+        this.taskService = taskService;
+    }
     async getAll() {
-        const result = await task_1.TaskModel.query('SELECT * FROM tasks');
+        const result = await this.taskService.getAll();
         return result;
     }
     async getOne(id, res) {
-        try {
-            const tasks = await this.getAll();
-            const task = tasks.find((item) => item.id === id);
-            if (!task) {
-                throw new _404error_1.Error404('no such task');
-            }
-            return task;
-        }
-        catch (e) {
-            res.status((0, errorHandler_1.errorHandler)(e));
-            return undefined;
-        }
+        const result = await this.taskService.getOne(id, res);
+        return result;
     }
     async create(taskDto, boardId) {
-        const result = await taskController_1.TaskModelController.createTask(Object.assign(Object.assign({}, taskDto), { boardId }));
+        const result = await this.taskService.create(taskDto, boardId);
         return result;
     }
     async update(taskDto, id) {
-        const result = await taskController_1.TaskModelController.updateTask(id, taskDto);
+        const result = await this.taskService.update(taskDto, id);
         return result;
     }
     async delete(id, res) {
-        const result = await taskController_1.TaskModelController.deleteTask(id);
+        const result = await this.taskService.delete(id, res);
         return result;
     }
 };
@@ -71,7 +61,7 @@ __decorate([
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('boardId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [task_2.TaskDto, String]),
+    __metadata("design:paramtypes", [task_1.TaskDto, String]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "create", null);
 __decorate([
@@ -80,7 +70,7 @@ __decorate([
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [task_2.TaskDto, String]),
+    __metadata("design:paramtypes", [task_1.TaskDto, String]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "update", null);
 __decorate([
@@ -93,7 +83,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "delete", null);
 TasksController = __decorate([
-    (0, common_1.Controller)('boards/:boardId/tasks')
+    (0, common_1.Controller)('boards/:boardId/tasks'),
+    __metadata("design:paramtypes", [task_service_1.TaskService])
 ], TasksController);
 exports.TasksController = TasksController;
 //# sourceMappingURL=tasks.controller.js.map
