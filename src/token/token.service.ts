@@ -1,7 +1,7 @@
 import { sign } from 'jsonwebtoken';
 import { JWT_SECRET_KEY } from '../../config';
-import { TokensModel } from '..//entity/tokens';
-import {UserDto} from "../users/dto/user-dto";
+import { TokensModel } from '../entity/tokens';
+import { UserDto } from '../users/dto/user-dto';
 
 export class TokenService {
   static generateToken(payload: Omit<UserDto, 'password' | 'name'>): string {

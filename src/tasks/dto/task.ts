@@ -1,4 +1,3 @@
-
 export interface ITask {
     title: string;
     order: number;
@@ -9,18 +8,16 @@ export interface ITask {
     id:string;
 }
 
-export class TaskDto{
+export class TaskDto {
+  title: string;
 
-    title: string;
+  order: number;
 
-    order: number;
+  userId: string;
 
-    userId: string;
+  boardId: string;
 
-    boardId: string;
+  columnId: string;
 
-    columnId: string;
-
-    description: string;
-
+  description: string;
 }

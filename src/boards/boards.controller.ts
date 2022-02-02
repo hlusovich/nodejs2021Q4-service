@@ -10,55 +10,52 @@ import {
     Put, Res,
     ValidationPipe,
 } from '@nestjs/common';
-import {BoardsModelController, IBoard} from "../controllers/boardContoller";
-import {BoardDto} from "./boardDto/boardDto";
-import {DeleteResult, UpdateResult} from "typeorm";
-import {TaskModelController} from "../controllers/taskController";
-import { Response } from 'express';
-import {errorHandler} from "../../utils/errorHandler";
-
+import {DeleteResult, UpdateResult} from 'typeorm';
+import {Response} from 'express';
+import {BoardsModelController, IBoard} from '../controllers/boardContoller';
+import {BoardDto} from './boardDto/boardDto';
+import {TaskModelController} from '../controllers/taskController';
+import {errorHandler} from '../../utils/errorHandler';
+import {BoardService} from "./board.service";
 
 @Controller('boards')
 export class BoardsController {
+    constructor(private boardsService: BoardService) {
+
+    }
+
     @Get()
     async getAll() {
-        const result = await BoardsModelController.getAll();
+        const result = await this.boardsService.getAll();
         return result;
     }
 
     @Get(':id')
-    async getOne(@Param('id') id: string,  @Res({ passthrough: true }) res: Response): Promise<IBoard | undefined> {
-        try{
-            const result = await BoardsModelController.getBoardById(id);
-            return result;
-        }
-        catch (e) {
-            res.status(errorHandler(e))
-        }
+    async getOne(@Param('id') id: string, @Res({passthrough: true}) res: Response): Promise<IBoard | undefined> {
+        const result = await this.boardsService.getOne(id,res);
+        return result;
+
     }
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    async create(@Body(new ValidationPipe({transform: true})) boardDto: BoardDto): Promise<BoardDto | undefined> {
-        const result = await BoardsModelController.createBoard(boardDto);
+    async create(@Body(new ValidationPipe({transform: true})) boardDto: BoardDto)
+        : Promise<BoardDto | undefined> {
+        const result = await this.boardsService.create(boardDto);
         return result;
     }
 
-    @Put(":id")
+    @Put(':id')
     @HttpCode(HttpStatus.OK)
     async update(@Body(new ValidationPipe({transform: true})) boardDto: BoardDto, @Param('id') id: string): Promise<UpdateResult | undefined> {
-        const result = await BoardsModelController.updateBoard(id, boardDto);
+        const result = await this.boardsService.update(boardDto, id);
         return result;
     }
 
-    @Delete(":id")
+    @Delete(':id')
     @HttpCode(HttpStatus.NO_CONTENT)
-    async delete(@Param('id') id: string, @Res({ passthrough: true }) res: Response): Promise<DeleteResult | undefined> {
-        const deleteResult = await BoardsModelController.deleteBoard(id);
-        await TaskModelController.unsubcribeBoard(id);
-        if(deleteResult.affected===0) {
-            res.status(HttpStatus.NOT_FOUND);
-        }
-        return deleteResult;
+    async delete(@Param('id') id: string, @Res({passthrough: true}) res: Response): Promise<DeleteResult | undefined> {
+        const deleteResult = await this.boardsService.delete(id,res);
+        return  deleteResult;
     }
 }

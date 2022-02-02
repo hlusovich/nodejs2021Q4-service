@@ -29,12 +29,13 @@ let TasksController = class TasksController {
             const tasks = await this.getAll();
             const task = tasks.find((item) => item.id === id);
             if (!task) {
-                throw new _404error_1.Error404("no such task");
+                throw new _404error_1.Error404('no such task');
             }
             return task;
         }
         catch (e) {
             res.status((0, errorHandler_1.errorHandler)(e));
+            return undefined;
         }
     }
     async create(taskDto, boardId) {
@@ -58,7 +59,7 @@ __decorate([
 ], TasksController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)("id")),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)({ passthrough: true })),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, Object]),
@@ -68,13 +69,13 @@ __decorate([
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
-    __param(1, (0, common_1.Param)("boardId")),
+    __param(1, (0, common_1.Param)('boardId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [task_2.TaskDto, String]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "create", null);
 __decorate([
-    (0, common_1.Put)(":id"),
+    (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('id')),
@@ -83,7 +84,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
+    (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)({ passthrough: true })),

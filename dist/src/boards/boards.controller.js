@@ -14,38 +14,30 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardsController = void 0;
 const common_1 = require("@nestjs/common");
-const boardContoller_1 = require("../controllers/boardContoller");
 const boardDto_1 = require("./boardDto/boardDto");
-const taskController_1 = require("../controllers/taskController");
-const errorHandler_1 = require("../../utils/errorHandler");
+const board_service_1 = require("./board.service");
 let BoardsController = class BoardsController {
+    constructor(boardsService) {
+        this.boardsService = boardsService;
+    }
     async getAll() {
-        const result = await boardContoller_1.BoardsModelController.getAll();
+        const result = await this.boardsService.getAll();
         return result;
     }
     async getOne(id, res) {
-        try {
-            const result = await boardContoller_1.BoardsModelController.getBoardById(id);
-            return result;
-        }
-        catch (e) {
-            res.status((0, errorHandler_1.errorHandler)(e));
-        }
+        const result = await this.boardsService.getOne(id, res);
+        return result;
     }
     async create(boardDto) {
-        const result = await boardContoller_1.BoardsModelController.createBoard(boardDto);
+        const result = await this.boardsService.create(boardDto);
         return result;
     }
     async update(boardDto, id) {
-        const result = await boardContoller_1.BoardsModelController.updateBoard(id, boardDto);
+        const result = await this.boardsService.update(boardDto, id);
         return result;
     }
     async delete(id, res) {
-        const deleteResult = await boardContoller_1.BoardsModelController.deleteBoard(id);
-        await taskController_1.TaskModelController.unsubcribeBoard(id);
-        if (deleteResult.affected === 0) {
-            res.status(common_1.HttpStatus.NOT_FOUND);
-        }
+        const deleteResult = await this.boardsService.delete(id, res);
         return deleteResult;
     }
 };
@@ -72,7 +64,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "create", null);
 __decorate([
-    (0, common_1.Put)(":id"),
+    (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('id')),
@@ -81,7 +73,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
+    (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)({ passthrough: true })),
@@ -90,7 +82,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "delete", null);
 BoardsController = __decorate([
-    (0, common_1.Controller)('boards')
+    (0, common_1.Controller)('boards'),
+    __metadata("design:paramtypes", [board_service_1.BoardService])
 ], BoardsController);
 exports.BoardsController = BoardsController;
 //# sourceMappingURL=boards.controller.js.map

@@ -3,7 +3,6 @@ import {
 } from 'typeorm';
 import { UserModel } from './user';
 
-// @ManyToOne(type=>UserModel,{onDelete:"SET NULL"})
 @Entity('tasks')
 export class TaskModel extends BaseEntity {
   constructor(

@@ -1,10 +1,6 @@
-import {UserModel} from "../entity/user";
-
-
+import { UserModel } from '../entity/user';
 
 export class UserControllerModel {
-
-
   /**
      * return  Array of Users
      * @param there is no param
@@ -37,7 +33,6 @@ export class UserControllerModel {
      * @returns User
      */
 
-
   /**
      * return  Fresh updated User
      * @param id:string
@@ -45,11 +40,9 @@ export class UserControllerModel {
      * @returns User
      */
 
-
   /**
      * Delete user by id
      * @param id:string
      * @returns string with deleted board id
      */
-
 }

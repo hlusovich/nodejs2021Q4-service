@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskModelController = void 0;
+const uuid_1 = require("uuid");
 const task_1 = require("../entity/task");
 const _404error_1 = require("../../Errors/404error");
 const userController_1 = require("./userController");
-const uuid_1 = require("uuid");
 class TaskModelController {
     static async getAll() {
         const result = await task_1.TaskModel.query('SELECT * FROM tasks');

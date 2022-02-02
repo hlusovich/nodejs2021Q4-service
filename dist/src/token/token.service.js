@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TokenService = void 0;
 const jsonwebtoken_1 = require("jsonwebtoken");
 const config_1 = require("../../config");
-const tokens_1 = require("..//entity/tokens");
+const tokens_1 = require("../entity/tokens");
 class TokenService {
     static generateToken(payload) {
         const accessToken = (0, jsonwebtoken_1.sign)(Object.assign(Object.assign({}, payload), { userId: payload.id }), config_1.JWT_SECRET_KEY);

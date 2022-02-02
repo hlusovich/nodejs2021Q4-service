@@ -14,11 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
+const bcrypt_1 = require("bcrypt");
+const uuid_1 = require("uuid");
 const user_dto_1 = require("./dto/user-dto");
 const user_1 = require("../entity/user");
-const bcrypt_1 = require("bcrypt");
 const token_service_1 = require("../token/token.service");
-const uuid_1 = require("uuid");
 let UsersController = class UsersController {
     async getAll() {
         const result = await user_1.UserModel.query('SELECT * FROM users');
@@ -56,7 +56,7 @@ __decorate([
 ], UsersController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)("id")),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
@@ -70,7 +70,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "create", null);
 __decorate([
-    (0, common_1.Put)(":id"),
+    (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('id')),
@@ -79,7 +79,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
+    (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),

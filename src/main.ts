@@ -1,12 +1,14 @@
 import { NestFactory } from '@nestjs/core';
+import { ConnectionOptions, createConnection } from 'typeorm';
 import { AppModule } from './app.module';
-import {DB, PORT, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRESS_PORT, SUPER_USER} from "../config";
-import {ConnectionOptions, createConnection} from "typeorm";
-import {TokensModel} from "./entity/tokens";
-import {TaskModel} from "./entity/task";
-import {UserModel} from "./entity/user";
-import {BoardModel} from "./entity/board";
-import {dbCreater} from "../utils/dbCreater";
+import {
+  DB, PORT, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRESS_PORT, SUPER_USER,
+} from '../config';
+import { TokensModel } from './entity/tokens';
+import { TaskModel } from './entity/task';
+import { UserModel } from './entity/user';
+import { BoardModel } from './entity/board';
+import { dbCreater } from '../utils/dbCreater';
 
 const testUser = { login: 'admin', name: 'admin', password: 'admin' };
 const options: ConnectionOptions = {
@@ -47,7 +49,6 @@ async function createDBConnection():Promise<void> {
     console.log({ message: 'we have an error when trying to connect ot db', level: 0 });
   }
 }
-
 
 async function bootstrap() {
   await createDBConnection();

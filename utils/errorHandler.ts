@@ -1,6 +1,5 @@
-import {HttpStatus} from "@nestjs/common";
+import { HttpStatus } from '@nestjs/common';
 
-export {Response} from "express";
 type Errors = { message: string, myCode?: number };
 /**
  * add responses objects:ResponseObject header status
@@ -12,7 +11,7 @@ type Errors = { message: string, myCode?: number };
  */
 export const errorHandler = (error: Errors): number => {
   if (error.myCode) {
-    return  error.myCode
+    return error.myCode;
   }
   return HttpStatus.INTERNAL_SERVER_ERROR;
 };

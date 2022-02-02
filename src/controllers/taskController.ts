@@ -1,9 +1,9 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { v4 } from 'uuid';
 import { TaskModel } from '../entity/task';
 import { Error404 } from '../../Errors/404error';
-import {ITask, TaskDto} from "../tasks/dto/task";
-import {UserControllerModel} from "./userController";
-import {v4} from "uuid";
+import { ITask, TaskDto } from '../tasks/dto/task';
+import { UserControllerModel } from './userController';
 
 export class TaskModelController {
   /**
@@ -42,7 +42,7 @@ export class TaskModelController {
       user = await UserControllerModel.getUserById(data.userId);
     }
     const task = await TaskModel.create({
-      ...data, userId: user, id:v4()
+      ...data, userId: user, id: v4(),
     });
     await task.save();
     const result = await this.getTaskById(task.id);

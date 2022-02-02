@@ -1,9 +1,9 @@
-import {IColumn} from "../../controllers/board.model";
+import { IColumn } from '../../controllers/board.model';
 
 export class BoardDto {
-    id!: string;
+  id!: string;
 
-    title!: string;
+  title!: string;
 
-    columns!: Array<IColumn>;
+  columns!: Array<IColumn>;
 }

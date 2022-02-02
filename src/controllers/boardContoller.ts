@@ -3,7 +3,7 @@ import { BoardModel } from '../entity/board';
 import { Board } from './board.model';
 import { ColumnsModel } from '../entity/columns';
 import { Error404 } from '../../Errors/404error';
-import {BoardDto} from "../boards/boardDto/boardDto";
+import { BoardDto } from '../boards/boardDto/boardDto';
 
 export interface IBoard {
   columns: ColumnsModel[],

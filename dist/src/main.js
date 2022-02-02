@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
+const typeorm_1 = require("typeorm");
 const app_module_1 = require("./app.module");
 const config_1 = require("../config");
-const typeorm_1 = require("typeorm");
 const tokens_1 = require("./entity/tokens");
 const task_1 = require("./entity/task");
 const user_1 = require("./entity/user");

@@ -9,10 +9,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardsModule = void 0;
 const common_1 = require("@nestjs/common");
 const boards_controller_1 = require("./boards.controller");
+const board_service_1 = require("./board.service");
 let BoardsModule = class BoardsModule {
 };
 BoardsModule = __decorate([
-    (0, common_1.Module)({ controllers: [boards_controller_1.BoardsController] })
+    (0, common_1.Module)({ controllers: [boards_controller_1.BoardsController], providers: [board_service_1.BoardService] })
 ], BoardsModule);
 exports.BoardsModule = BoardsModule;
 //# sourceMappingURL=boards.module.js.map
