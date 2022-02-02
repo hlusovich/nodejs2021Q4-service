@@ -1,7 +1,7 @@
-import { IBoard } from "../controllers/boardContoller";
-import { Response } from "express";
-import { BoardDto } from "./boardDto/boardDto";
-import { DeleteResult, UpdateResult } from "typeorm";
+import { Response } from 'express';
+import { DeleteResult, UpdateResult } from 'typeorm';
+import { IBoard } from '../controllers/boardContoller';
+import { BoardDto } from './boardDto/boardDto';
 export declare class BoardService {
     getAll(): Promise<import("../entity/board").BoardModel[]>;
     getOne(id: string, res: Response): Promise<IBoard | undefined>;

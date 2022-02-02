@@ -2,7 +2,7 @@ import { DeleteResult, UpdateResult } from 'typeorm';
 import { Response } from 'express';
 import { IBoard } from '../controllers/boardContoller';
 import { BoardDto } from './boardDto/boardDto';
-import { BoardService } from "./board.service";
+import { BoardService } from './board.service';
 export declare class BoardsController {
     private boardsService;
     constructor(boardsService: BoardService);

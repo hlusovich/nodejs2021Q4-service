@@ -1,7 +1,7 @@
-import { Response } from 'express';
-import { DeleteResult } from 'typeorm';
-import { ITask, TaskDto } from './dto/task';
-import { TaskModel } from '../entity/task';
+import { ITask, TaskDto } from "./dto/task";
+import { TaskModel } from "../entity/task";
+import { Response } from "express";
+import { DeleteResult } from "typeorm";
 export declare class TaskService {
     getAll(): Promise<ITask[]>;
     getOne(id: string, res: Response): Promise<ITask>;

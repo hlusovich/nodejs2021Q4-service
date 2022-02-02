@@ -15,7 +15,7 @@ let TasksModule = class TasksModule {
 TasksModule = __decorate([
     (0, common_1.Module)({
         controllers: [tasks_controller_1.TasksController],
-        providers: [task_service_1.TaskService]
+        providers: [task_service_1.TaskService],
     })
 ], TasksModule);
 exports.TasksModule = TasksModule;

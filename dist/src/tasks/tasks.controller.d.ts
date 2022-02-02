@@ -2,7 +2,7 @@ import { DeleteResult } from 'typeorm';
 import { Response } from 'express';
 import { TaskModel } from '../entity/task';
 import { ITask, TaskDto } from './dto/task';
-import { TaskService } from "./task.service";
+import { TaskService } from './task.service';
 export declare class TasksController {
     private taskService;
     constructor(taskService: TaskService);
