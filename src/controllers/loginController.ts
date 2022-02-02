@@ -6,7 +6,7 @@ import { TokenService } from '../token/token.service';
 import { TokensModel } from '../entity/tokens';
 
 export class LoginController {
-  static async login(payload: UserModel):Promise<TokensModel| undefined> {
+  static async login(payload: LoginDto):Promise<TokensModel| undefined> {
     const user: UserModel | undefined = await UserControllerModel.getUserByLogin(payload.login);
     if (!user) {
       throw new Error403('such user doesn\'t exist');

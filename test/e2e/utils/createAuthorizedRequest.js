@@ -17,9 +17,7 @@ const createAuthorizedRequest = async request => {
     .post(routes.login)
     .set('Accept', 'application/json')
     .send({ login: 'admin', password: 'admin' });
-
   const token = `Bearer ${res.body.token}`;
-  console.log(token);
   return createRequestWithToken(request, token);
 };
 

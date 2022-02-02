@@ -12,12 +12,10 @@ import {
 } from '@nestjs/common';
 import {DeleteResult, UpdateResult} from 'typeorm';
 import {Response} from 'express';
-import {BoardsModelController, IBoard} from '../controllers/boardContoller';
 import {BoardDto} from './boardDto/boardDto';
-import {TaskModelController} from '../controllers/taskController';
-import {errorHandler} from '../../utils/errorHandler';
 import {BoardService} from './board.service';
 import {JwtAuthGuard} from "../guard/jwt-guard.guard";
+import {IBoard} from "../controllers/boardContoller";
 
 @Controller('boards')
 export class BoardsController {
