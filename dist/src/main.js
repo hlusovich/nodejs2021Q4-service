@@ -10,6 +10,7 @@ const user_1 = require("./entity/user");
 const board_1 = require("./entity/board");
 const dbCreater_1 = require("../utils/dbCreater");
 const MyLogger_1 = require("./users/MyLogger");
+const file_1 = require("./entity/file");
 const testUser = { login: 'admin', name: 'admin', password: 'admin' };
 const options = {
     type: 'postgres',
@@ -19,7 +20,7 @@ const options = {
     port: config_1.POSTGRESS_PORT,
     synchronize: true,
     database: config_1.DB,
-    entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel],
+    entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel, file_1.FileModel],
 };
 async function startServer() {
     process.on('uncaughtException', () => {

@@ -10,6 +10,7 @@ import { UserModel } from './entity/user';
 import { BoardModel } from './entity/board';
 import { dbCreater } from '../utils/dbCreater';
 import { logger } from './users/MyLogger';
+import {FileModel} from "./entity/file";
 
 const testUser = { login: 'admin', name: 'admin', password: 'admin' };
 const options: ConnectionOptions = {
@@ -20,7 +21,7 @@ const options: ConnectionOptions = {
   port: POSTGRESS_PORT,
   synchronize: true,
   database: DB,
-  entities: [TaskModel, UserModel, BoardModel, TokensModel],
+  entities: [TaskModel, UserModel, BoardModel, TokensModel, FileModel],
 };
 /**
  * create server
