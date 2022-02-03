@@ -18,6 +18,8 @@ const user_dto_1 = require("./dto/user-dto");
 const users_service_1 = require("./users.service");
 const jwt_guard_guard_1 = require("../guards/jwt-guard.guard");
 const logger_guard_guard_1 = require("../guards/logger-guard.guard");
+const MyException_1 = require("../../Errors/MyException");
+const exceptionFilter_1 = require("../exceptionFilter/exceptionFilter");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
@@ -27,20 +29,35 @@ let UsersController = class UsersController {
         return result;
     }
     async getOne(id) {
-        const user = await this.usersService.getOne(id);
-        return user;
+        try {
+            const user = await this.usersService.getOne(id);
+            return user;
+        }
+        catch (e) {
+            throw new MyException_1.MyException(e.message, e.myCode);
+        }
     }
     async create(userDto) {
         const result = await this.usersService.create(userDto);
         return result;
     }
     async update(userDto, id) {
-        const result = await this.usersService.update(userDto, id);
-        return result;
+        try {
+            const result = await this.usersService.update(userDto, id);
+            return result;
+        }
+        catch (e) {
+            throw new MyException_1.MyException(e.message, e.myCode);
+        }
     }
     async delete(id) {
-        const result = await this.usersService.delete(id);
-        return result;
+        try {
+            const result = await this.usersService.delete(id);
+            return result;
+        }
+        catch (e) {
+            throw new MyException_1.MyException(e.message, e.myCode);
+        }
     }
 };
 __decorate([
@@ -52,6 +69,7 @@ __decorate([
 ], UsersController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -69,6 +87,7 @@ __decorate([
 ], UsersController.prototype, "create", null);
 __decorate([
     (0, common_1.Put)(':id'),
+    (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
@@ -79,6 +98,7 @@ __decorate([
 ], UsersController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
+    (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),

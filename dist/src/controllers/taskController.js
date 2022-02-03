@@ -14,7 +14,7 @@ class TaskModelController {
         const tasks = await this.getAll();
         const task = tasks.find((item) => item.id === id);
         if (!task) {
-            throw new _404error_1.Error404('suck tusk doesn\'t exists');
+            throw new _404error_1.Error404('such tusk doesn\'t exists');
         }
         return task;
     }

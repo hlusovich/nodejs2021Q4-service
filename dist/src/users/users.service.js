@@ -12,6 +12,7 @@ const bcrypt_1 = require("bcrypt");
 const uuid_1 = require("uuid");
 const user_1 = require("../entity/user");
 const token_service_1 = require("../token/token.service");
+const _404error_1 = require("../../Errors/404error");
 let UsersService = class UsersService {
     async getAll() {
         const result = await user_1.UserModel.query('SELECT * FROM users');
@@ -19,6 +20,9 @@ let UsersService = class UsersService {
     }
     async getOne(id) {
         const user = await user_1.UserModel.findOne(id);
+        if (!user) {
+            throw new _404error_1.Error404("this user doesn't exist");
+        }
         return user;
     }
     async create(userDto) {
@@ -34,10 +38,16 @@ let UsersService = class UsersService {
     }
     async update(userDto, id) {
         const response = await user_1.UserModel.update(id, Object.assign({}, userDto));
+        if (response.affected === 0) {
+            throw new _404error_1.Error404("this user doesn't exist");
+        }
         return response;
     }
     async delete(id) {
         const response = await user_1.UserModel.delete(id);
+        if (response.affected === 0) {
+            throw new _404error_1.Error404("this user doesn't exist");
+        }
         return response;
     }
 };

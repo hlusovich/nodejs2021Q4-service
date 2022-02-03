@@ -41,6 +41,9 @@ class BoardsModelController {
     }
     static async deleteBoard(id) {
         const result = await board_1.BoardModel.delete(id);
+        if (result.affected === 0) {
+            throw new _404error_1.Error404("this board doesn't exist");
+        }
         return result;
     }
 }

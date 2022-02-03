@@ -18,6 +18,8 @@ const boardDto_1 = require("./boardDto/boardDto");
 const board_service_1 = require("./board.service");
 const jwt_guard_guard_1 = require("../guards/jwt-guard.guard");
 const logger_guard_guard_1 = require("../guards/logger-guard.guard");
+const exceptionFilter_1 = require("../exceptionFilter/exceptionFilter");
+const MyException_1 = require("../../Errors/MyException");
 let BoardsController = class BoardsController {
     constructor(boardsService) {
         this.boardsService = boardsService;
@@ -27,20 +29,35 @@ let BoardsController = class BoardsController {
         return result;
     }
     async getOne(id, res) {
-        const result = await this.boardsService.getOne(id, res);
-        return result;
+        try {
+            const result = await this.boardsService.getOne(id, res);
+            return result;
+        }
+        catch (e) {
+            throw new MyException_1.MyException(e.message, e.myCode);
+        }
     }
     async create(boardDto) {
         const result = await this.boardsService.create(boardDto);
         return result;
     }
     async update(boardDto, id) {
-        const result = await this.boardsService.update(boardDto, id);
-        return result;
+        try {
+            const result = await this.boardsService.update(boardDto, id);
+            return result;
+        }
+        catch (e) {
+            throw new MyException_1.MyException(e.message, e.myCode);
+        }
     }
     async delete(id, res) {
-        const deleteResult = await this.boardsService.delete(id, res);
-        return deleteResult;
+        try {
+            const deleteResult = await this.boardsService.delete(id, res);
+            return deleteResult;
+        }
+        catch (e) {
+            throw new MyException_1.MyException(e.message, e.myCode);
+        }
     }
 };
 __decorate([
@@ -52,6 +69,7 @@ __decorate([
 ], BoardsController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)({ passthrough: true })),
@@ -71,6 +89,7 @@ __decorate([
 __decorate([
     (0, common_1.Put)(':id'),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
+    (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
     __param(1, (0, common_1.Param)('id')),
@@ -81,6 +100,7 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
+    (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)({ passthrough: true })),

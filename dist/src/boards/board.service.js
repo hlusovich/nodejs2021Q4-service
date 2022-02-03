@@ -9,7 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardService = void 0;
 const common_1 = require("@nestjs/common");
 const boardContoller_1 = require("../controllers/boardContoller");
-const errorHandler_1 = require("../../utils/errorHandler");
 const taskController_1 = require("../controllers/taskController");
 let BoardService = class BoardService {
     async getAll() {
@@ -17,14 +16,8 @@ let BoardService = class BoardService {
         return result;
     }
     async getOne(id, res) {
-        try {
-            const result = await boardContoller_1.BoardsModelController.getBoardById(id);
-            return result;
-        }
-        catch (e) {
-            res.status((0, errorHandler_1.errorHandler)(e));
-            return undefined;
-        }
+        const result = await boardContoller_1.BoardsModelController.getBoardById(id);
+        return result;
     }
     async create(boardDto) {
         const result = await boardContoller_1.BoardsModelController.createBoard(boardDto);
@@ -37,9 +30,6 @@ let BoardService = class BoardService {
     async delete(id, res) {
         const deleteResult = await boardContoller_1.BoardsModelController.deleteBoard(id);
         await taskController_1.TaskModelController.unsubcribeBoard(id);
-        if (deleteResult.affected === 0) {
-            res.status(common_1.HttpStatus.NOT_FOUND);
-        }
         return deleteResult;
     }
 };

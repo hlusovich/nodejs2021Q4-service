@@ -88,6 +88,9 @@ export class BoardsModelController {
    */
   static async deleteBoard(id: string): Promise<DeleteResult> {
     const result = await BoardModel.delete(id);
+    if(result.affected === 0){
+      throw  new Error404("this board doesn't exist")
+    }
     return result;
   }
 }

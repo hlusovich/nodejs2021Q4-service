@@ -10,26 +10,19 @@ exports.TaskService = void 0;
 const common_1 = require("@nestjs/common");
 const task_1 = require("../entity/task");
 const _404error_1 = require("../../Errors/404error");
-const errorHandler_1 = require("../../utils/errorHandler");
 const taskController_1 = require("../controllers/taskController");
 let TaskService = class TaskService {
     async getAll() {
         const result = await task_1.TaskModel.query('SELECT * FROM tasks');
         return result;
     }
-    async getOne(id, res) {
-        try {
-            const tasks = await this.getAll();
-            const task = tasks.find((item) => item.id === id);
-            if (!task) {
-                throw new _404error_1.Error404('no such task');
-            }
-            return task;
+    async getOne(id) {
+        const tasks = await this.getAll();
+        const task = tasks.find((item) => item.id === id);
+        if (!task) {
+            throw new _404error_1.Error404('no such task');
         }
-        catch (e) {
-            res.status((0, errorHandler_1.errorHandler)(e));
-            return undefined;
-        }
+        return task;
     }
     async create(taskDto, boardId) {
         const result = await taskController_1.TaskModelController.createTask(Object.assign(Object.assign({}, taskDto), { boardId }));
@@ -39,8 +32,11 @@ let TaskService = class TaskService {
         const result = await taskController_1.TaskModelController.updateTask(id, taskDto);
         return result;
     }
-    async delete(id, res) {
+    async delete(id) {
         const result = await taskController_1.TaskModelController.deleteTask(id);
+        if (result.affected === 0) {
+            throw new _404error_1.Error404("this task doesn't exist");
+        }
         return result;
     }
 };
