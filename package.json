@@ -14,7 +14,7 @@
     "start": "nest start",
     "lint": "eslint --ext .ts --fix ./",
     "docker": "cross-env POSTGRES_HOST='postgres' ts-node   srcOld/server.ts",
-    "start:dev": "nest start --watch",
+    "start:dev": "cross-env POSTGRES_HOST=localhost nest start --watch",
     "test": "cross-env DEBUG=rs:* jest --testMatch \"<rootDir>/test/e2e/test/*.test.js\" --noStackTrace --runInBand",
     "test:auth": "cross-env DEBUG=rs:* TEST_MODE=auth jest --noStackTrace",
     "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ormconfig.ts",

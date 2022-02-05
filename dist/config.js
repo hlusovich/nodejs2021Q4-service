@@ -7,7 +7,7 @@ const dotenv_1 = require("dotenv");
 });
 exports.PORT = process.env.PORT || '4000';
 exports.LEVEL = process.env.LEVEL || '4';
-exports.POSTGRES_HOST = process.env.POSTGRES_HOST || 'localhost';
+exports.POSTGRES_HOST = process.env.POSTGRES_HOST || 'postgres';
 exports.POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || '7081379';
 exports.SUPER_USER = process.env.SUPER_USER || 'nikita3';
 exports.POSTGRESS_PORT = process.env.POSTGRESS_PORT ? +process.env.POSTGRESS_PORT
