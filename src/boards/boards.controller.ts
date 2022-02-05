@@ -15,7 +15,7 @@ import {Response} from 'express';
 import {BoardDto} from './boardDto/boardDto';
 import {BoardService} from './board.service';
 import {JwtAuthGuard} from '../guards/jwt-guard.guard';
-import {IBoard} from '../controllers/boardContoller';
+import {IBoard} from '../boards/boards.interfaces';
 import {LoggerGuard} from '../guards/logger-guard.guard';
 import {HttpExceptionFilter} from "../exceptionFilter/exceptionFilter";
 import {MyException} from "../../Errors/MyException";
@@ -38,7 +38,7 @@ export class BoardsController {
     @UseGuards(JwtAuthGuard, LoggerGuard)
     async getOne(@Param('id') id: string, @Res({passthrough: true}) res: Response): Promise<IBoard | undefined> {
         try {
-            const result = await this.boardsService.getOne(id, res);
+            const result = await this.boardsService.getOne(id);
             return result;
         } catch (e) {
             throw new MyException(e.message, e.myCode);
@@ -76,7 +76,7 @@ export class BoardsController {
     @HttpCode(HttpStatus.NO_CONTENT)
     async delete(@Param('id') id: string, @Res({passthrough: true}) res: Response): Promise<DeleteResult | undefined> {
         try {
-            const deleteResult = await this.boardsService.delete(id, res);
+            const deleteResult = await this.boardsService.delete(id);
             return deleteResult;
         } catch (e) {
             throw new MyException(e.message, e.myCode);

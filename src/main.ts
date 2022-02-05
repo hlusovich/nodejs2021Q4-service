@@ -11,8 +11,9 @@ import { BoardModel } from './entity/board';
 import { dbCreater } from '../utils/dbCreater';
 import { logger } from './users/MyLogger';
 import {FileModel} from "./entity/file";
+import {UserControllerModel} from "./controllers/userController";
 
-const testUser = { login: 'admin', name: 'admin', password: 'admin' };
+const testUser = { login: 'admin', name: 'admin', password: 'admin', id:"1" };
 const options: ConnectionOptions = {
   type: 'postgres',
   host: POSTGRES_HOST,
@@ -42,7 +43,9 @@ async function createDBConnection():Promise<void> {
   try {
     await dbCreater();
     await createConnection(options).then(async (serverInstance) => {
-      await UserModel.create(testUser);
+      if(!await UserControllerModel.getUserById("1")){
+        await UserControllerModel.createUser(testUser);
+      }
       await serverInstance.runMigrations();
       await startServer();
     });

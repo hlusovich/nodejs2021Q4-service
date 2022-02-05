@@ -11,7 +11,8 @@ const board_1 = require("./entity/board");
 const dbCreater_1 = require("../utils/dbCreater");
 const MyLogger_1 = require("./users/MyLogger");
 const file_1 = require("./entity/file");
-const testUser = { login: 'admin', name: 'admin', password: 'admin' };
+const userController_1 = require("./controllers/userController");
+const testUser = { login: 'admin', name: 'admin', password: 'admin', id: "1" };
 const options = {
     type: 'postgres',
     host: config_1.POSTGRES_HOST,
@@ -35,7 +36,9 @@ async function createDBConnection() {
     try {
         await (0, dbCreater_1.dbCreater)();
         await (0, typeorm_1.createConnection)(options).then(async (serverInstance) => {
-            await user_1.UserModel.create(testUser);
+            if (!await userController_1.UserControllerModel.getUserById("1")) {
+                await userController_1.UserControllerModel.createUser(testUser);
+            }
             await serverInstance.runMigrations();
             await startServer();
         });

@@ -27,7 +27,7 @@ export class TasksController {
 
     @Get()
     @UseGuards(JwtAuthGuard, LoggerGuard)
-    async getAll(): Promise<ITask[]> {
+    async getAll(): Promise<TaskModel[]> {
         const result = await this.taskService.getAll();
         return result;
     }
@@ -35,7 +35,7 @@ export class TasksController {
     @Get(':id')
     @UseFilters(HttpExceptionFilter)
     @UseGuards(JwtAuthGuard, LoggerGuard)
-    async getOne(@Param('id') id: string): Promise<ITask> {
+    async getOne(@Param('id') id: string): Promise<TaskModel> {
         try {
             const result = await this.taskService.getOne(id);
             return result;

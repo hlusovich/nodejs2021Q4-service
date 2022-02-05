@@ -10,10 +10,13 @@ exports.BoardsModule = void 0;
 const common_1 = require("@nestjs/common");
 const boards_controller_1 = require("./boards.controller");
 const board_service_1 = require("./board.service");
+const typeorm_1 = require("@nestjs/typeorm");
+const board_1 = require("../entity/board");
+const task_1 = require("../entity/task");
 let BoardsModule = class BoardsModule {
 };
 BoardsModule = __decorate([
-    (0, common_1.Module)({ controllers: [boards_controller_1.BoardsController], providers: [board_service_1.BoardService] })
+    (0, common_1.Module)({ controllers: [boards_controller_1.BoardsController,], providers: [board_service_1.BoardService], imports: [typeorm_1.TypeOrmModule.forFeature([board_1.BoardModel], "nestJs"), typeorm_1.TypeOrmModule.forFeature([task_1.TaskModel], "nestJs")] })
 ], BoardsModule);
 exports.BoardsModule = BoardsModule;
 //# sourceMappingURL=boards.module.js.map

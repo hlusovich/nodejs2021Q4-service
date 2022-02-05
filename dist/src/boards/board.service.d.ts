@@ -1,11 +1,16 @@
-import { Response } from 'express';
-import { DeleteResult, UpdateResult } from 'typeorm';
-import { IBoard } from '../controllers/boardContoller';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { IBoard } from '../boards/boards.interfaces';
 import { BoardDto } from './boardDto/boardDto';
+import { BoardModel } from "../entity/board";
+import { IBoardResponse } from "./boards.interfaces";
+import { TaskModel } from "../entity/task";
 export declare class BoardService {
-    getAll(): Promise<import("../entity/board").BoardModel[]>;
-    getOne(id: string, res: Response): Promise<IBoard | undefined>;
+    private boardsRepository;
+    private tasksRepository;
+    constructor(boardsRepository: Repository<BoardModel>, tasksRepository: Repository<TaskModel>);
+    getAll(): Promise<IBoardResponse[] | undefined>;
+    getOne(id: string): Promise<IBoard | undefined>;
     create(boardDto: BoardDto): Promise<BoardDto | undefined>;
     update(boardDto: BoardDto, id: string): Promise<UpdateResult | undefined>;
-    delete(id: string, res: Response): Promise<DeleteResult | undefined>;
+    delete(id: string): Promise<DeleteResult | undefined>;
 }

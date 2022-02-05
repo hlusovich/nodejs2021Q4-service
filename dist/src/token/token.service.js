@@ -12,7 +12,7 @@ class TokenService {
     static async saveToken(userId, newToken) {
         const tokenData = await tokens_1.TokensModel.findOne({ userId });
         if (tokenData) {
-            tokenData.token = `Bearer ${newToken}`;
+            tokenData.token = newToken;
             const result = await tokenData.save();
             return result;
         }

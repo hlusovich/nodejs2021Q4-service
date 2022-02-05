@@ -1,0 +1,1 @@
+{"version":3,"file":"columnParser.js","sourceRoot":"","sources":["../../../src/boards/columnParser.ts"],"names":[],"mappings":";;;AAOA,SAAgB,YAAY,CAAC,KAAoB;IAC7C,MAAM,OAAO,GAAG,KAAK,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,IAAW,EAAE,EAAE,CAAC,IAAI,CAAC,KAAK,CAAC,IAAI,CAAC,CAAC,CAAC;IACrE,MAAM,WAAW,mCAAe,KAAK,KAAE,OAAO,GAAE,CAAC;IACjD,OAAO,WAAW,CAAC;AAAA,CAAC;AAHxB,oCAGwB"}

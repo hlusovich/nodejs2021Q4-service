@@ -30,7 +30,7 @@ let BoardsController = class BoardsController {
     }
     async getOne(id, res) {
         try {
-            const result = await this.boardsService.getOne(id, res);
+            const result = await this.boardsService.getOne(id);
             return result;
         }
         catch (e) {
@@ -52,7 +52,7 @@ let BoardsController = class BoardsController {
     }
     async delete(id, res) {
         try {
-            const deleteResult = await this.boardsService.delete(id, res);
+            const deleteResult = await this.boardsService.delete(id);
             return deleteResult;
         }
         catch (e) {

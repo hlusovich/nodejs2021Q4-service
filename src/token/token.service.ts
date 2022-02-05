@@ -12,7 +12,7 @@ export class TokenService {
   static async saveToken(userId: string| undefined, newToken: string) {
     const tokenData = await TokensModel.findOne({ userId });
     if (tokenData) {
-      tokenData.token = `Bearer ${newToken}`;
+      tokenData.token = newToken;
       const result = await tokenData.save();
       return result;
     }
