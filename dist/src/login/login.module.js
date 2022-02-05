@@ -10,11 +10,13 @@ exports.LoginModule = void 0;
 const common_1 = require("@nestjs/common");
 const login_controller_1 = require("./login.controller");
 const login_service_1 = require("./login.service");
+const typeorm_1 = require("@nestjs/typeorm");
+const user_1 = require("../entity/user");
 let LoginModule = class LoginModule {
 };
 LoginModule = __decorate([
     (0, common_1.Module)({
-        controllers: [login_controller_1.LoginController], providers: [login_service_1.LoginService],
+        controllers: [login_controller_1.LoginController], providers: [login_service_1.LoginService], imports: [typeorm_1.TypeOrmModule.forFeature([user_1.UserModel], "nestJs"),]
     })
 ], LoginModule);
 exports.LoginModule = LoginModule;

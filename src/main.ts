@@ -11,19 +11,9 @@ import { BoardModel } from './entity/board';
 import { dbCreater } from '../utils/dbCreater';
 import { logger } from './users/MyLogger';
 import {FileModel} from "./entity/file";
-import {UserControllerModel} from "./controllers/userController";
+import {UserControllerModel} from "../utils/controllers/userController";
+import {createSuperUser} from "../utils/createSuperUserUtil";
 
-const testUser = { login: 'admin', name: 'admin', password: 'admin', id:"1" };
-const options: ConnectionOptions = {
-  type: 'postgres',
-  host: POSTGRES_HOST,
-  username: SUPER_USER,
-  password: POSTGRES_PASSWORD,
-  port: POSTGRESS_PORT,
-  synchronize: true,
-  database: DB,
-  entities: [TaskModel, UserModel, BoardModel, TokensModel, FileModel],
-};
 /**
  * create server
  * @param there is no param
@@ -34,6 +24,7 @@ async function startServer(): Promise<void> {
     logger.error('we have an uncaughtException');
   });
   process.on('unhandledRejection', (error) => {
+    logger.error(error);
     logger.error('we have an unhandledRejection');
   });
   logger.log(`Server successfully started on port ${PORT}`);
@@ -42,13 +33,8 @@ async function startServer(): Promise<void> {
 async function createDBConnection():Promise<void> {
   try {
     await dbCreater();
-    await createConnection(options).then(async (serverInstance) => {
-      if(!await UserControllerModel.getUserById("1")){
-        await UserControllerModel.createUser(testUser);
-      }
-      await serverInstance.runMigrations();
-      await startServer();
-    });
+    await startServer();
+    await createSuperUser();
   } catch (e) {
     logger.error(e);
     logger.error({ message: 'we have an error when trying to connect ot db', level: 0 });

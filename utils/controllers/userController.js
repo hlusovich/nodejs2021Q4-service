@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserControllerModel = void 0;
-var user_1 = require("../entity/user");
+var user_1 = require("../../src/entity/user");
 var UserControllerModel = (function () {
     function UserControllerModel() {
     }

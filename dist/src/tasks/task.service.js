@@ -18,7 +18,7 @@ const typeorm_1 = require("typeorm");
 const task_1 = require("../entity/task");
 const _404error_1 = require("../../Errors/404error");
 const typeorm_2 = require("@nestjs/typeorm");
-const userController_1 = require("../controllers/userController");
+const userController_1 = require("../../utils/controllers/userController");
 const uuid_1 = require("uuid");
 let TaskService = class TaskService {
     constructor(tasksRepository) {

@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { LoginController } from '../controllers/loginController';
 import { TokensModel } from '../entity/tokens';
 import { LoginDto } from './loginDto';
+import {InjectRepository} from "@nestjs/typeorm";
+import {Repository} from "typeorm";
+import {UserModel} from "../entity/user";
+import {Error403} from "../../Errors/403error";
+import {compare} from "bcrypt";
+import {TokenService} from "../token/token.service";
 
 /**
  * @param payload: UserModel:
@@ -9,8 +14,20 @@ import { LoginDto } from './loginDto';
  */
 @Injectable()
 export class LoginService {
+  constructor(@InjectRepository(UserModel, "nestJs")
+              private userssRepository: Repository<UserModel>){
+
+  }
   async logIn(payload: LoginDto): Promise<TokensModel | undefined> {
-    const token = LoginController.login(payload);
+    const user = await this.userssRepository.findOne({login:payload.login});
+    if (!user) {
+      throw new Error403('such user doesn\'t exist');
+    }
+    const isPassEquals = await compare(payload.password, user.password);
+    if (!isPassEquals) {
+      throw new Error403('such user doesn\'t exist');
+    }
+    const token = await TokenService.getToken(user.id);
     if (token) {
       return token;
     }

@@ -64,7 +64,7 @@ var common_1 = require("@nestjs/common");
 var task_1 = require("../entity/task");
 var _404error_1 = require("../../Errors/404error");
 var task_2 = require("./dto/task");
-var taskController_1 = require("../controllers/taskController");
+var taskController_1 = require("../../utils/controllers/taskController");
 var TasksController = (function () {
     function TasksController() {
     }

@@ -9,7 +9,7 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {IBoardResponse} from "./boards.interfaces";
 import {parseColumns} from "./columnParser";
 import {Error404} from "../../Errors/404error";
-import {Board} from "../controllers/board.model";
+import {Board} from "../boards/boards.interfaces";
 import {TaskModel} from "../entity/task";
 
 @Injectable()

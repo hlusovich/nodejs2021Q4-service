@@ -19,7 +19,7 @@ const board_1 = require("../entity/board");
 const typeorm_2 = require("@nestjs/typeorm");
 const columnParser_1 = require("./columnParser");
 const _404error_1 = require("../../Errors/404error");
-const board_model_1 = require("../controllers/board.model");
+const boards_interfaces_1 = require("../boards/boards.interfaces");
 const task_1 = require("../entity/task");
 let BoardService = class BoardService {
     constructor(boardsRepository, tasksRepository) {
@@ -41,7 +41,7 @@ let BoardService = class BoardService {
         return (0, columnParser_1.parseColumns)(Object.assign({}, board));
     }
     async create(boardDto) {
-        const boardInstance = new board_model_1.Board(boardDto).toResponse();
+        const boardInstance = new boards_interfaces_1.Board(boardDto).toResponse();
         const board = await this.boardsRepository
             .create({ id: boardInstance.id, title: boardInstance.title, columns: boardInstance.columns });
         const result = await board.save();

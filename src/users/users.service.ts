@@ -1,56 +1,86 @@
 import {
-  Body,
-  Injectable, Param, ValidationPipe,
+    Body,
+    Injectable, Param, ValidationPipe,
 } from '@nestjs/common';
-import { hash } from 'bcrypt';
-import { v4 } from 'uuid';
-import { DeleteResult, UpdateResult } from 'typeorm';
-import { UserModel } from '../entity/user';
-import { UserDto } from './dto/user-dto';
-import { TokenService } from '../token/token.service';
+import {hash} from 'bcrypt';
+import {v4} from 'uuid';
+import {DeleteResult, Repository, UpdateResult} from 'typeorm';
+import {UserModel} from '../entity/user';
+import {UserDto} from './dto/user-dto';
+import {TokenService} from '../token/token.service';
 import {Error404} from "../../Errors/404error";
+import {InjectRepository} from "@nestjs/typeorm";
+import {BoardModel} from "../entity/board";
 
 @Injectable()
 export class UsersService {
-  async getAll() {
-    const result = await UserModel.query('SELECT * FROM users');
-    return result;
-  }
-
-  async getOne(id: string) {
-    const user = await UserModel.findOne(id);
-    if(!user){
-      throw new Error404("this user doesn't exist")
+    constructor(@InjectRepository(UserModel, "nestJs")
+                private usersRepository: Repository<UserModel>) {
     }
-    return user;
-  }
-
-  async create(userDto: UserDto):
+  /**
+   * return  Array of Users
+   * @param there is no param
+   * @returns User[]
+   */
+    async getAll() {
+        const result = await this.usersRepository.query('SELECT * FROM users');
+        return result;
+    }
+  /**
+   * return  User by id
+   * @param id:string
+   * @returns User or if no User with such id throw error
+   */
+    async getOne(id: string) {
+        const user = await this.usersRepository.findOne(id);
+        if (!user) {
+            throw new Error404("this user doesn't exist")
+        }
+        return user;
+    }
+  /**
+   * return  Fresh created User
+   * @param payload object with  fields title, id, order, description, boardId, userId, columnId
+   * @param boardId:string
+   * @returns User
+   */
+    async create(userDto: UserDto):
         Promise<UserDto> {
-    const hashPassword = await hash(userDto.password, 3);
-    const user = await UserModel.create({ ...userDto, password: hashPassword, id: v4() });
-    await user.save();
-    if (userDto.login) {
-      const token = TokenService.generateToken({ login: user.login, id: user.id });
-      await TokenService.saveToken(user.id, token);
+        const hashPassword = await hash(userDto.password, 3);
+        const user = await this.usersRepository.create({...userDto, password: hashPassword, id: v4()});
+        await user.save();
+        if (userDto.login) {
+            const token = TokenService.generateToken({login: user.login, id: user.id});
+            await TokenService.saveToken(user.id, token);
+        }
+        delete user.password;
+        return user;
     }
-    delete user.password;
-    return user;
-  }
+    /**
+     * return  Fresh updated User
+     * @param id:string
+     * @param payload object with  fields title, id, order, description, boardId, userId, columnId
+     * @returns User
+     */
 
-  async update(userDto: UserDto, id: string): Promise<UpdateResult | undefined> {
-    const response = await UserModel.update(id, { ...userDto });
-    if(response.affected===0){
-      throw new Error404("this user doesn't exist")
+    async update(userDto: UserDto, id: string): Promise<UpdateResult | undefined> {
+        const response = await this.usersRepository.update(id, {...userDto});
+        if (response.affected === 0) {
+            throw new Error404("this user doesn't exist")
+        }
+        return response;
     }
-    return response;
-  }
 
-  async delete(id: string): Promise<DeleteResult | undefined> {
-    const response = await UserModel.delete(id);
-    if(response.affected===0){
-      throw new Error404("this user doesn't exist")
+    /**
+     * Delete user by id
+     * @param id:string
+     * @returns string with deleted board id
+     */
+    async delete(id: string): Promise<DeleteResult | undefined> {
+        const response = await this.usersRepository.delete(id);
+        if (response.affected === 0) {
+            throw new Error404("this user doesn't exist")
+        }
+        return response;
     }
-    return response;
-  }
 }

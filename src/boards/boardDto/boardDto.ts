@@ -1,4 +1,4 @@
-import { IColumn } from '../../controllers/board.model';
+import { IColumn } from '../boards.interfaces';
 
 export class BoardDto {
   id!: string;

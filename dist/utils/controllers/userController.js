@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserControllerModel = void 0;
-const user_1 = require("../entity/user");
+const user_1 = require("../../src/entity/user");
 const bcrypt_1 = require("bcrypt");
-const token_service_1 = require("../token/token.service");
+const token_service_1 = require("../../src/token/token.service");
 class UserControllerModel {
+    static toResponse(user) {
+        return { id: user.id, login: user.login, name: user.name };
+    }
     static async getUserById(id) {
         const user = await user_1.UserModel.findOne(id);
         return user;

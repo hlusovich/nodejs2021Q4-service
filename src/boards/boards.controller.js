@@ -50,10 +50,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardsController = void 0;
 var common_1 = require("@nestjs/common");
-var boardContoller_1 = require("../controllers/boardContoller");
+var boardContoller_1 = require("../../utils/controllers/boardContoller");
 var boardDto_1 = require("./boardDto/boardDto");
 var _404error_1 = require("../../Errors/404error");
-var taskController_1 = require("../controllers/taskController");
+var taskController_1 = require("../../utils/controllers/taskController");
 var BoardsController = (function () {
     function BoardsController() {
     }

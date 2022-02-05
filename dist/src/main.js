@@ -1,33 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
-const typeorm_1 = require("typeorm");
 const app_module_1 = require("./app.module");
 const config_1 = require("../config");
-const tokens_1 = require("./entity/tokens");
-const task_1 = require("./entity/task");
-const user_1 = require("./entity/user");
-const board_1 = require("./entity/board");
 const dbCreater_1 = require("../utils/dbCreater");
 const MyLogger_1 = require("./users/MyLogger");
-const file_1 = require("./entity/file");
-const userController_1 = require("./controllers/userController");
-const testUser = { login: 'admin', name: 'admin', password: 'admin', id: "1" };
-const options = {
-    type: 'postgres',
-    host: config_1.POSTGRES_HOST,
-    username: config_1.SUPER_USER,
-    password: config_1.POSTGRES_PASSWORD,
-    port: config_1.POSTGRESS_PORT,
-    synchronize: true,
-    database: config_1.DB,
-    entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel, file_1.FileModel],
-};
+const createSuperUserUtil_1 = require("../utils/createSuperUserUtil");
 async function startServer() {
     process.on('uncaughtException', () => {
         MyLogger_1.logger.error('we have an uncaughtException');
     });
     process.on('unhandledRejection', (error) => {
+        MyLogger_1.logger.error(error);
         MyLogger_1.logger.error('we have an unhandledRejection');
     });
     MyLogger_1.logger.log(`Server successfully started on port ${config_1.PORT}`);
@@ -35,13 +19,8 @@ async function startServer() {
 async function createDBConnection() {
     try {
         await (0, dbCreater_1.dbCreater)();
-        await (0, typeorm_1.createConnection)(options).then(async (serverInstance) => {
-            if (!await userController_1.UserControllerModel.getUserById("1")) {
-                await userController_1.UserControllerModel.createUser(testUser);
-            }
-            await serverInstance.runMigrations();
-            await startServer();
-        });
+        await startServer();
+        await (0, createSuperUserUtil_1.createSuperUser)();
     }
     catch (e) {
         MyLogger_1.logger.error(e);

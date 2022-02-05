@@ -1,7 +1,9 @@
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { UserModel } from '../entity/user';
 import { UserDto } from './dto/user-dto';
 export declare class UsersService {
+    private usersRepository;
+    constructor(usersRepository: Repository<UserModel>);
     getAll(): Promise<any>;
     getOne(id: string): Promise<UserModel>;
     create(userDto: UserDto): Promise<UserDto>;

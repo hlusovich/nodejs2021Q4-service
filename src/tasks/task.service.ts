@@ -6,7 +6,7 @@ import {ITask, TaskDto} from './dto/task';
 import {TaskModel} from '../entity/task';
 import {Error404} from '../../Errors/404error';
 import {InjectRepository} from "@nestjs/typeorm";
-import {UserControllerModel} from "../controllers/userController";
+import {UserControllerModel} from "../../utils/controllers/userController";
 import {v4} from "uuid";
 
 

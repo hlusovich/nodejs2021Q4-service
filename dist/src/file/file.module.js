@@ -10,12 +10,15 @@ exports.FileModule = void 0;
 const common_1 = require("@nestjs/common");
 const file_controller_1 = require("./file.controller");
 const file_service_1 = require("./file.service");
+const typeorm_1 = require("@nestjs/typeorm");
+const file_1 = require("../entity/file");
 let FileModule = class FileModule {
 };
 FileModule = __decorate([
     (0, common_1.Module)({
         controllers: [file_controller_1.FileController],
         providers: [file_service_1.FileService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([file_1.FileModel], "nestJs")]
     })
 ], FileModule);
 exports.FileModule = FileModule;
