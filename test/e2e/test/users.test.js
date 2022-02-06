@@ -91,7 +91,6 @@ describe('Users suite', () => {
             name: TEST_USER_DATA.name
           });
         });
-
       // Teardown
       await request.delete(routes.users.delete(userId));
     });
@@ -146,7 +145,6 @@ describe('Users suite', () => {
         .post(routes.users.create)
         .send(TEST_USER_DATA);
       const userId = userResponse.body.id;
-
       // Test:
       const deleteResponse = await request.delete(routes.users.delete(userId));
       expect(deleteResponse.status).oneOf([200, 204]);
@@ -169,7 +167,6 @@ describe('Users suite', () => {
         .expect(201)
         .expect('Content-Type', /json/);
       const boardId = boardResponse.body.id;
-
       const userTaskResponses = await Promise.all(
         Array.from(Array(2)).map((_, idx) =>
           request
@@ -189,9 +186,9 @@ describe('Users suite', () => {
       const userTaskIds = userTaskResponses.map(res => res.body.id);
 
       // Test:
+
       const deleteResponse = await request.delete(routes.users.delete(userId));
       expect(deleteResponse.status).oneOf([200, 204]);
-
       for (const taskId of userTaskIds) {
         const newTaskResponse = await request
           .get(routes.tasks.getById(boardId, taskId))
@@ -210,7 +207,6 @@ describe('Users suite', () => {
             .then(response => expect(response.status).oneOf([200, 204]))
         )
       );
-
       await request
         .delete(routes.boards.delete(boardId))
         .then(res => expect(res.status).oneOf([200, 204]));

@@ -79,7 +79,6 @@ describe('Boards suite', () => {
   describe('POST', () => {
     it('should create board successfully', async () => {
       let boardId;
-
       await request
         .post(routes.boards.create)
         .set('Accept', 'application/json')
@@ -94,6 +93,7 @@ describe('Boards suite', () => {
 
       // Teardown
       await request.delete(routes.boards.delete(boardId));
+
     });
   });
 
@@ -139,7 +139,6 @@ describe('Boards suite', () => {
     it('should delete board successfully', async () => {
       // Setup:
       let boardId;
-
       await request
         .post(routes.boards.create)
         .set('Accept', 'application/json')
