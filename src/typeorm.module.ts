@@ -17,7 +17,7 @@ import {FileModel} from "./entity/file";
             port: POSTGRESS_PORT,
             synchronize: true,
             database: DB,
-            entities: [TaskModel, UserModel, BoardModel, TokensModel, FileModel],
+            entities: [TaskModel, UserModel, BoardModel, TokensModel, FileModel,TokensModel],
             name:"nestJs"
         }),
     ],

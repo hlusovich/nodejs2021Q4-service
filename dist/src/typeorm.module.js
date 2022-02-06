@@ -28,7 +28,7 @@ TypeormModule = __decorate([
                 port: config_1.POSTGRESS_PORT,
                 synchronize: true,
                 database: config_1.DB,
-                entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel, file_1.FileModel],
+                entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel, file_1.FileModel, tokens_1.TokensModel],
                 name: "nestJs"
             }),
         ],

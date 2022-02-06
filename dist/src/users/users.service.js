@@ -18,12 +18,13 @@ const bcrypt_1 = require("bcrypt");
 const uuid_1 = require("uuid");
 const typeorm_1 = require("typeorm");
 const user_1 = require("../entity/user");
-const token_service_1 = require("../token/token.service");
 const _404error_1 = require("../../Errors/404error");
 const typeorm_2 = require("@nestjs/typeorm");
+const tokens_service_1 = require("../token/tokens.service");
 let UsersService = class UsersService {
-    constructor(usersRepository) {
+    constructor(usersRepository, tokensService) {
         this.usersRepository = usersRepository;
+        this.tokensService = tokensService;
     }
     async getAll() {
         const result = await this.usersRepository.query('SELECT * FROM users');
@@ -41,8 +42,8 @@ let UsersService = class UsersService {
         const user = await this.usersRepository.create(Object.assign(Object.assign({}, userDto), { password: hashPassword, id: (0, uuid_1.v4)() }));
         await user.save();
         if (userDto.login) {
-            const token = token_service_1.TokenService.generateToken({ login: user.login, id: user.id });
-            await token_service_1.TokenService.saveToken(user.id, token);
+            const token = this.tokensService.generateToken({ login: user.login, id: user.id });
+            await this.tokensService.saveToken(user.id, token);
         }
         delete user.password;
         return user;
@@ -65,7 +66,7 @@ let UsersService = class UsersService {
 UsersService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_2.InjectRepository)(user_1.UserModel, "nestJs")),
-    __metadata("design:paramtypes", [typeorm_1.Repository])
+    __metadata("design:paramtypes", [typeorm_1.Repository, tokens_service_1.TokensService])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

@@ -1,21 +1,19 @@
 import {
-    Body,
-    Injectable, Param, ValidationPipe,
+    Injectable
 } from '@nestjs/common';
 import {hash} from 'bcrypt';
 import {v4} from 'uuid';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
 import {UserModel} from '../entity/user';
 import {UserDto} from './dto/user-dto';
-import {TokenService} from '../token/token.service';
 import {Error404} from "../../Errors/404error";
 import {InjectRepository} from "@nestjs/typeorm";
-import {BoardModel} from "../entity/board";
+import {TokensService} from "../token/tokens.service";
 
 @Injectable()
 export class UsersService {
     constructor(@InjectRepository(UserModel, "nestJs")
-                private usersRepository: Repository<UserModel>) {
+                private usersRepository: Repository<UserModel>, private tokensService:TokensService) {
     }
   /**
    * return  Array of Users
@@ -50,8 +48,8 @@ export class UsersService {
         const user = await this.usersRepository.create({...userDto, password: hashPassword, id: v4()});
         await user.save();
         if (userDto.login) {
-            const token = TokenService.generateToken({login: user.login, id: user.id});
-            await TokenService.saveToken(user.id, token);
+            const token = this.tokensService.generateToken({login: user.login, id: user.id});
+            await this.tokensService.saveToken(user.id, token);
         }
         delete user.password;
         return user;

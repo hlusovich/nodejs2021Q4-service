@@ -2,7 +2,7 @@ import {
     Injectable,
 } from '@nestjs/common';
 import {DeleteResult, Repository} from 'typeorm';
-import {ITask, TaskDto} from './dto/task';
+import { TaskDto} from './dto/task';
 import {TaskModel} from '../entity/task';
 import {Error404} from '../../Errors/404error';
 import {InjectRepository} from "@nestjs/typeorm";

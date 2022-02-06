@@ -11,9 +11,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import {DeleteResult} from 'typeorm';
-import {Response} from 'express';
 import {TaskModel} from '../entity/task';
-import {ITask, TaskDto} from './dto/task';
+import { TaskDto} from './dto/task';
 import {TaskService} from './task.service';
 import {JwtAuthGuard} from '../guards/jwt-guard.guard';
 import {LoggerGuard} from '../guards/logger-guard.guard';

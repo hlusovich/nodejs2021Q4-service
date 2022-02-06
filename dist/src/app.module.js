@@ -14,11 +14,12 @@ const boards_module_1 = require("./boards/boards.module");
 const login_module_1 = require("./login/login.module");
 const file_module_1 = require("./file/file.module");
 const typeorm_module_1 = require("./typeorm.module");
+const tokens_module_1 = require("./token/tokens.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [tasks_module_1.TasksModule, users_module_1.UsersModule, boards_module_1.BoardsModule, login_module_1.LoginModule, file_module_1.FileModule, typeorm_module_1.TypeormModule],
+        imports: [tasks_module_1.TasksModule, users_module_1.UsersModule, boards_module_1.BoardsModule, login_module_1.LoginModule, file_module_1.FileModule, typeorm_module_1.TypeormModule, tokens_module_1.TokensModule],
         controllers: [],
     })
 ], AppModule);

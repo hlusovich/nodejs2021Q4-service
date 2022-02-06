@@ -6,18 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersModule = void 0;
+exports.TokensModule = void 0;
 const common_1 = require("@nestjs/common");
-const users_controller_1 = require("./users.controller");
-const users_service_1 = require("./users.service");
 const typeorm_1 = require("@nestjs/typeorm");
-const user_1 = require("../entity/user");
 const tokens_1 = require("../entity/tokens");
-const tokens_service_1 = require("../token/tokens.service");
-let UsersModule = class UsersModule {
+const tokens_service_1 = require("./tokens.service");
+let TokensModule = class TokensModule {
 };
-UsersModule = __decorate([
-    (0, common_1.Module)({ controllers: [users_controller_1.UsersController], providers: [users_service_1.UsersService, tokens_service_1.TokensService], imports: [typeorm_1.TypeOrmModule.forFeature([user_1.UserModel, tokens_1.TokensModel], "nestJs")] })
-], UsersModule);
-exports.UsersModule = UsersModule;
-//# sourceMappingURL=users.module.js.map
+TokensModule = __decorate([
+    (0, common_1.Module)({
+        providers: [tokens_service_1.TokensService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([tokens_1.TokensModel], "nestJs")]
+    })
+], TokensModule);
+exports.TokensModule = TokensModule;
+//# sourceMappingURL=tokens.module.js.map
