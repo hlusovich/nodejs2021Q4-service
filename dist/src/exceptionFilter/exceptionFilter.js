@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HttpExceptionFilter = void 0;
 const common_1 = require("@nestjs/common");
 const MyLogger_1 = require("../MyLogger");
+const MyException_1 = require("../../Errors/MyException");
 let HttpExceptionFilter = class HttpExceptionFilter {
     catch(exception, host) {
         const ctx = host.switchToHttp();
@@ -16,9 +17,7 @@ let HttpExceptionFilter = class HttpExceptionFilter {
         const request = ctx.getRequest();
         const status = exception.getStatus();
         MyLogger_1.logger.error(`${status} ${exception.message}`);
-        response
-            .status(status)
-            .json({
+        response.status(status).send({
             statusCode: status,
             timestamp: new Date().toISOString(),
             path: request.url,
@@ -27,7 +26,7 @@ let HttpExceptionFilter = class HttpExceptionFilter {
     }
 };
 HttpExceptionFilter = __decorate([
-    (0, common_1.Catch)(common_1.HttpException)
+    (0, common_1.Catch)(MyException_1.MyException)
 ], HttpExceptionFilter);
 exports.HttpExceptionFilter = HttpExceptionFilter;
 //# sourceMappingURL=exceptionFilter.js.map

@@ -7,8 +7,7 @@ import { logger, MyLogger } from './MyLogger';
 import { BoardDto } from './boards/boardDto/boardDto';
 import { TaskDto } from './tasks/dto/task';
 import { UserDto } from './users/dto/user-dto';
-import { CreateFileDto } from './file/dto/createFileDto';
-import {LoginDto} from "./login/dto/loginDto";
+import { LoginDto } from './login/dto/loginDto';
 
 @Injectable()
 export class ValidationPipe implements PipeTransform {

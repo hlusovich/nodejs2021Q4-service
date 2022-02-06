@@ -7,7 +7,7 @@ import {
   HttpStatus,
   Param,
   Post,
-  Put,  UseFilters, UseGuards,
+  Put, UseFilters, UseGuards,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
 import { TaskModel } from '../entity/task';

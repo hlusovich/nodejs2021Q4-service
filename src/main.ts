@@ -40,7 +40,7 @@ async function createDBConnection(): Promise<void> {
 
 async function bootstrap() {
   await createDBConnection();
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
+  const app = await NestFactory.create(AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
   await app.listen(PORT);
 }
 

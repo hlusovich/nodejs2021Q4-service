@@ -91,7 +91,6 @@ describe('Users suite', () => {
             name: TEST_USER_DATA.name
           });
         });
-
       // Teardown
       await request.delete(routes.users.delete(userId));
     });
@@ -146,7 +145,6 @@ describe('Users suite', () => {
         .post(routes.users.create)
         .send(TEST_USER_DATA);
       const userId = userResponse.body.id;
-
       // Test:
       const deleteResponse = await request.delete(routes.users.delete(userId));
       expect(deleteResponse.status).oneOf([200, 204]);

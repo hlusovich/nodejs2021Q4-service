@@ -12,7 +12,6 @@ const autharizationCheker_1 = require("../../utils/autharizationCheker");
 let JwtAuthGuard = class JwtAuthGuard {
     canActivate(context) {
         const req = context.switchToHttp().getRequest();
-        const res = context.switchToHttp().getResponse();
         const isAllowed = (0, autharizationCheker_1.isAuth)(req.headers.authorization);
         if (!isAllowed) {
             throw new common_1.UnauthorizedException();
