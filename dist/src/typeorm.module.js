@@ -29,7 +29,7 @@ TypeormModule = __decorate([
                 synchronize: true,
                 database: config_1.DB,
                 entities: [task_1.TaskModel, user_1.UserModel, board_1.BoardModel, tokens_1.TokensModel, file_1.FileModel, tokens_1.TokensModel],
-                name: "nestJs"
+                name: 'nestJs',
             }),
         ],
     })

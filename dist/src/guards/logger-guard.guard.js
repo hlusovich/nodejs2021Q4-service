@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoggerGuard = void 0;
 const common_1 = require("@nestjs/common");
-const MyLogger_1 = require("../users/MyLogger");
+const MyLogger_1 = require("../MyLogger");
 let LoggerGuard = class LoggerGuard {
     constructor() {
         this.logger = MyLogger_1.logger;

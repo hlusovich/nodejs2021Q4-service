@@ -4,7 +4,7 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const config_1 = require("../config");
 const dbCreater_1 = require("../utils/dbCreater");
-const MyLogger_1 = require("./users/MyLogger");
+const MyLogger_1 = require("./MyLogger");
 const createSuperUserUtil_1 = require("../utils/createSuperUserUtil");
 async function startServer() {
     process.on('uncaughtException', () => {

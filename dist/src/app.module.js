@@ -19,7 +19,8 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [tasks_module_1.TasksModule, users_module_1.UsersModule, boards_module_1.BoardsModule, login_module_1.LoginModule, file_module_1.FileModule, typeorm_module_1.TypeormModule, tokens_module_1.TokensModule],
+        imports: [tasks_module_1.TasksModule, users_module_1.UsersModule, boards_module_1.BoardsModule,
+            login_module_1.LoginModule, file_module_1.FileModule, typeorm_module_1.TypeormModule, tokens_module_1.TokensModule],
         controllers: [],
     })
 ], AppModule);

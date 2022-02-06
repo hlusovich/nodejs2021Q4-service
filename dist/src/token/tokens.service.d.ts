@@ -1,6 +1,6 @@
+import { Repository } from 'typeorm';
 import { TokensModel } from '../entity/tokens';
 import { UserDto } from '../users/dto/user-dto';
-import { Repository } from "typeorm";
 export declare class TokensService {
     private tokensRepository;
     constructor(tokensRepository: Repository<TokensModel>);

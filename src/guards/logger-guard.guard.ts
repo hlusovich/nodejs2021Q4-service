@@ -2,7 +2,7 @@ import {
   CanActivate, ExecutionContext, Injectable, Logger, UnauthorizedException,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { logger, MyLogger } from '../users/MyLogger';
+import { logger, MyLogger } from '../MyLogger';
 
 @Injectable()
 export class LoggerGuard implements CanActivate {

@@ -15,10 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
-const task_1 = require("../entity/task");
-const _404error_1 = require("../../Errors/404error");
 const typeorm_2 = require("@nestjs/typeorm");
 const uuid_1 = require("uuid");
+const task_1 = require("../entity/task");
+const _404error_1 = require("../../Errors/404error");
 const user_1 = require("../entity/user");
 let TaskService = class TaskService {
     constructor(tasksRepository, usersRepository) {
@@ -68,8 +68,8 @@ let TaskService = class TaskService {
 };
 TaskService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_2.InjectRepository)(task_1.TaskModel, "nestJs")),
-    __param(1, (0, typeorm_2.InjectRepository)(user_1.UserModel, "nestJs")),
+    __param(0, (0, typeorm_2.InjectRepository)(task_1.TaskModel, 'nestJs')),
+    __param(1, (0, typeorm_2.InjectRepository)(user_1.UserModel, 'nestJs')),
     __metadata("design:paramtypes", [typeorm_1.Repository,
         typeorm_1.Repository])
 ], TaskService);

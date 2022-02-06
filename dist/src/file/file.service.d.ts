@@ -1,7 +1,7 @@
 /// <reference types="multer" />
-import { FileModel } from "../entity/file";
-import { CreateFileDto } from "./dto/createFileDto";
-import { Repository } from "typeorm";
+import { Repository } from 'typeorm';
+import { CreateFileDto } from './dto/createFileDto';
+import { FileModel } from '../entity/file';
 export declare class FileService {
     private filesRepository;
     constructor(filesRepository: Repository<FileModel>);

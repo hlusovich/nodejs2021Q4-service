@@ -1,7 +1,7 @@
 import { DeleteResult, Repository } from 'typeorm';
 import { TaskDto } from './dto/task';
 import { TaskModel } from '../entity/task';
-import { UserModel } from "../entity/user";
+import { UserModel } from '../entity/user';
 export declare class TaskService {
     private tasksRepository;
     private usersRepository;

@@ -1,9 +1,8 @@
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { IBoard } from '../boards/boards.interfaces';
+import { IBoard, IBoardResponse } from './boards.interfaces';
 import { BoardDto } from './boardDto/boardDto';
-import { BoardModel } from "../entity/board";
-import { IBoardResponse } from "./boards.interfaces";
-import { TaskModel } from "../entity/task";
+import { BoardModel } from '../entity/board';
+import { TaskModel } from '../entity/task';
 export declare class BoardService {
     private boardsRepository;
     private tasksRepository;

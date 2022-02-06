@@ -14,8 +14,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileController = void 0;
 const common_1 = require("@nestjs/common");
-const file_service_1 = require("./file.service");
 const platform_express_1 = require("@nestjs/platform-express");
+const file_service_1 = require("./file.service");
 let FileController = class FileController {
     constructor(fileService) {
         this.fileService = fileService;
@@ -28,8 +28,8 @@ let FileController = class FileController {
     }
 };
 __decorate([
-    (0, common_1.Get)(":name"),
-    __param(0, (0, common_1.Param)("name")),
+    (0, common_1.Get)(':name'),
+    __param(0, (0, common_1.Param)('name')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)

@@ -20,6 +20,7 @@ const jwt_guard_guard_1 = require("../guards/jwt-guard.guard");
 const logger_guard_guard_1 = require("../guards/logger-guard.guard");
 const exceptionFilter_1 = require("../exceptionFilter/exceptionFilter");
 const MyException_1 = require("../../Errors/MyException");
+const validatorPipeline_1 = require("../validatorPipeline");
 let BoardsController = class BoardsController {
     constructor(boardsService) {
         this.boardsService = boardsService;
@@ -81,7 +82,7 @@ __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
-    __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
+    __param(0, (0, common_1.Body)(new validatorPipeline_1.ValidationPipe())),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [boardDto_1.BoardDto]),
     __metadata("design:returntype", Promise)
@@ -91,7 +92,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_guard_guard_1.JwtAuthGuard, logger_guard_guard_1.LoggerGuard),
     (0, common_1.UseFilters)(exceptionFilter_1.HttpExceptionFilter),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
-    __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
+    __param(0, (0, common_1.Body)(new validatorPipeline_1.ValidationPipe())),
     __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [boardDto_1.BoardDto, String]),

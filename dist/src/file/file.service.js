@@ -14,28 +14,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileService = void 0;
 const common_1 = require("@nestjs/common");
-const file_1 = require("../entity/file");
 const buffer_1 = require("memfs/lib/internal/buffer");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const file_1 = require("../entity/file");
 let FileService = class FileService {
     constructor(filesRepository) {
         this.filesRepository = filesRepository;
     }
     async getOne(name) {
         const file = await this.filesRepository.findOne({ originalname: name });
-        const data = buffer_1.Buffer.from(file.data, "utf-8");
+        const data = buffer_1.Buffer.from(file.data, 'utf-8');
         return { data, originalname: file.originalname };
     }
     async create(file) {
-        const createdFile = await this.filesRepository.create({ originalname: file.originalname, data: file.buffer.toString("base64") });
+        const createdFile = await this.filesRepository.create({ originalname: file.originalname, data: file.buffer.toString('base64') });
         await createdFile.save();
-        return { originalname: createdFile.originalname, data: buffer_1.Buffer.from(createdFile.data, "utf-8") };
+        return { originalname: createdFile.originalname, data: buffer_1.Buffer.from(createdFile.data, 'utf-8') };
     }
 };
 FileService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(file_1.FileModel, "nestJs")),
+    __param(0, (0, typeorm_1.InjectRepository)(file_1.FileModel, 'nestJs')),
     __metadata("design:paramtypes", [typeorm_2.Repository])
 ], FileService);
 exports.FileService = FileService;

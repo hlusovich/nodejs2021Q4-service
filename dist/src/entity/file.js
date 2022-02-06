@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], FileModel.prototype, "data", void 0);
 FileModel = __decorate([
-    (0, typeorm_1.Entity)("files")
+    (0, typeorm_1.Entity)('files')
 ], FileModel);
 exports.FileModel = FileModel;
 //# sourceMappingURL=file.js.map

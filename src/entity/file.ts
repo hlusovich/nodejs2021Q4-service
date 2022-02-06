@@ -1,13 +1,15 @@
-import {Entity, Column, PrimaryGeneratedColumn, BaseEntity} from "typeorm"
+import {
+  Entity, Column, PrimaryGeneratedColumn, BaseEntity,
+} from 'typeorm';
 
-
-@Entity("files")
-export class FileModel extends BaseEntity{
-
+@Entity('files')
+export class FileModel extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+      id: number;
+
     @Column()
-    originalname: string;
+      originalname: string;
+
     @Column()
-    data: string
+      data: string;
 }

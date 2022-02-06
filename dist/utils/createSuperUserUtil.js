@@ -2,15 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSuperUser = void 0;
 const typeorm_1 = require("typeorm");
+const bcrypt_1 = require("bcrypt");
+const jsonwebtoken_1 = require("jsonwebtoken");
 const config_1 = require("../config");
 const task_1 = require("../src/entity/task");
 const user_1 = require("../src/entity/user");
 const board_1 = require("../src/entity/board");
 const tokens_1 = require("../src/entity/tokens");
 const file_1 = require("../src/entity/file");
-const bcrypt_1 = require("bcrypt");
-const jsonwebtoken_1 = require("jsonwebtoken");
-const testUser = { login: 'admin', name: 'admin', password: 'admin', id: "1" };
+const testUser = {
+    login: 'admin', name: 'admin', password: 'admin', id: '1',
+};
 const options = {
     type: 'postgres',
     host: config_1.POSTGRES_HOST,

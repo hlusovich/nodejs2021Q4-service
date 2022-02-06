@@ -1,6 +1,6 @@
 import { CanActivate, ExecutionContext } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { MyLogger } from '../users/MyLogger';
+import { MyLogger } from '../MyLogger';
 export declare class LoggerGuard implements CanActivate {
     logger: MyLogger;
     constructor();

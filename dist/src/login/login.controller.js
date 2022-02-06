@@ -15,13 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginController = void 0;
 const common_1 = require("@nestjs/common");
 const login_service_1 = require("./login.service");
-const loginDto_1 = require("./loginDto");
+const loginDto_1 = require("./dto/loginDto");
 const logger_guard_guard_1 = require("../guards/logger-guard.guard");
+const validatorPipeline_1 = require("../validatorPipeline");
 let LoginController = class LoginController {
     constructor(loginService) {
         this.loginService = loginService;
     }
-    async create(loginDto, boardId) {
+    async create(loginDto) {
         const result = await this.loginService.logIn(loginDto);
         return result;
     }
@@ -30,10 +31,9 @@ __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(logger_guard_guard_1.LoggerGuard),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
-    __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ transform: true }))),
-    __param(1, (0, common_1.Param)('boardId')),
+    __param(0, (0, common_1.Body)(new validatorPipeline_1.ValidationPipe())),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [loginDto_1.LoginDto, String]),
+    __metadata("design:paramtypes", [loginDto_1.LoginDto]),
     __metadata("design:returntype", Promise)
 ], LoginController.prototype, "create", null);
 LoginController = __decorate([

@@ -16,9 +16,9 @@ exports.LoginService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const bcrypt_1 = require("bcrypt");
 const user_1 = require("../entity/user");
 const _403error_1 = require("../../Errors/403error");
-const bcrypt_1 = require("bcrypt");
 const tokens_service_1 = require("../token/tokens.service");
 let LoginService = class LoginService {
     constructor(userssRepository, tokensService) {
@@ -43,8 +43,9 @@ let LoginService = class LoginService {
 };
 LoginService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(user_1.UserModel, "nestJs")),
-    __metadata("design:paramtypes", [typeorm_2.Repository, tokens_service_1.TokensService])
+    __param(0, (0, typeorm_1.InjectRepository)(user_1.UserModel, 'nestJs')),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        tokens_service_1.TokensService])
 ], LoginService);
 exports.LoginService = LoginService;
 //# sourceMappingURL=login.service.js.map

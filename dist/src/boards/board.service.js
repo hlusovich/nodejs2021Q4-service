@@ -15,11 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
-const board_1 = require("../entity/board");
 const typeorm_2 = require("@nestjs/typeorm");
+const boards_interfaces_1 = require("./boards.interfaces");
+const board_1 = require("../entity/board");
 const columnParser_1 = require("./columnParser");
 const _404error_1 = require("../../Errors/404error");
-const boards_interfaces_1 = require("../boards/boards.interfaces");
 const task_1 = require("../entity/task");
 let BoardService = class BoardService {
     constructor(boardsRepository, tasksRepository) {
@@ -52,7 +52,8 @@ let BoardService = class BoardService {
         if (!board) {
             throw new _404error_1.Error404('board with this id isn\'t exist');
         }
-        const result = await this.boardsRepository.update(id, { title: boardDto.title, columns: boardDto.columns });
+        const result = await this.boardsRepository
+            .update(id, { title: boardDto.title, columns: boardDto.columns });
         return result;
     }
     async delete(id) {
@@ -66,8 +67,8 @@ let BoardService = class BoardService {
 };
 BoardService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_2.InjectRepository)(board_1.BoardModel, "nestJs")),
-    __param(1, (0, typeorm_2.InjectRepository)(task_1.TaskModel, "nestJs")),
+    __param(0, (0, typeorm_2.InjectRepository)(board_1.BoardModel, 'nestJs')),
+    __param(1, (0, typeorm_2.InjectRepository)(task_1.TaskModel, 'nestJs')),
     __metadata("design:paramtypes", [typeorm_1.Repository,
         typeorm_1.Repository])
 ], BoardService);

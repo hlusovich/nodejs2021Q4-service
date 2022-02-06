@@ -1,9 +1,15 @@
+import { IsString, ValidateIf, IsArray } from 'class-validator';
 import { IColumn } from '../boards.interfaces';
 
 export class BoardDto {
-  id!: string;
+    @ValidateIf((o) => o.id)
+    @IsString()
+      id: string;
 
-  title!: string;
+    @IsString()
+      title: string;
 
-  columns!: Array<IColumn>;
+    @ValidateIf((o) => o.columns)
+    @IsArray()
+      columns: Array<IColumn>;
 }

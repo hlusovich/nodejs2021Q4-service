@@ -16,7 +16,7 @@ let TokensModule = class TokensModule {
 TokensModule = __decorate([
     (0, common_1.Module)({
         providers: [tokens_service_1.TokensService],
-        imports: [typeorm_1.TypeOrmModule.forFeature([tokens_1.TokensModel], "nestJs")]
+        imports: [typeorm_1.TypeOrmModule.forFeature([tokens_1.TokensModel], 'nestJs')],
     })
 ], TokensModule);
 exports.TokensModule = TokensModule;

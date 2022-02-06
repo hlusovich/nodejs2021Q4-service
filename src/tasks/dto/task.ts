@@ -1,13 +1,24 @@
+import { IsString, IsInt, ValidateIf } from 'class-validator';
+
 export class TaskDto {
-  title: string;
+    @IsString()
+      title: string;
 
-  order: number;
+    @IsInt()
+      order: number;
 
-  userId: string;
+  @ValidateIf((o) => o.userId)
+  @IsString()
+    userId: string;
 
-  boardId: string;
+  @ValidateIf((o) => o.boardId)
+  @IsString()
+    boardId: string;
 
-  columnId: string;
+  @ValidateIf((o) => o.columnId)
+  @IsString()
+    columnId: string;
 
-  description: string;
+    @IsString()
+      description: string;
 }

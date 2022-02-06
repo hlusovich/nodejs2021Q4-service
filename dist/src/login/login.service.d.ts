@@ -1,8 +1,8 @@
+import { Repository } from 'typeorm';
 import { TokensModel } from '../entity/tokens';
-import { LoginDto } from './loginDto';
-import { Repository } from "typeorm";
-import { UserModel } from "../entity/user";
-import { TokensService } from "../token/tokens.service";
+import { LoginDto } from './dto/loginDto';
+import { UserModel } from '../entity/user';
+import { TokensService } from '../token/tokens.service';
 export declare class LoginService {
     private userssRepository;
     private tokensService;

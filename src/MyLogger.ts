@@ -1,5 +1,5 @@
 import { ConsoleLogger, Logger } from '@nestjs/common';
-import { LEVEL } from '../../config';
+import { LEVEL } from '../config';
 
 const loggerConsts = {
   log: 4,

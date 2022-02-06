@@ -1,86 +1,82 @@
 import {
-    Body,
-    Controller,
-    Delete,
-    Get,
-    HttpCode,
-    HttpStatus,
-    Param,
-    Post,
-    Put, Res, UseFilters, UseGuards,
-    ValidationPipe,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Post,
+  Put, Res, UseFilters, UseGuards,
 } from '@nestjs/common';
-import {DeleteResult, UpdateResult} from 'typeorm';
-import {Response} from 'express';
-import {BoardDto} from './boardDto/boardDto';
-import {BoardService} from './board.service';
-import {JwtAuthGuard} from '../guards/jwt-guard.guard';
-import {IBoard} from '../boards/boards.interfaces';
-import {LoggerGuard} from '../guards/logger-guard.guard';
-import {HttpExceptionFilter} from "../exceptionFilter/exceptionFilter";
-import {MyException} from "../../Errors/MyException";
+import { DeleteResult, UpdateResult } from 'typeorm';
+import { Response } from 'express';
+import { BoardDto } from './boardDto/boardDto';
+import { BoardService } from './board.service';
+import { JwtAuthGuard } from '../guards/jwt-guard.guard';
+import { IBoard } from './boards.interfaces';
+import { LoggerGuard } from '../guards/logger-guard.guard';
+import { HttpExceptionFilter } from '../exceptionFilter/exceptionFilter';
+import { MyException } from '../../Errors/MyException';
+import { ValidationPipe } from '../validatorPipeline';
 
 @Controller('boards')
 export class BoardsController {
-    constructor(private boardsService: BoardService) {
+  constructor(private boardsService: BoardService) {
 
-    }
+  }
 
     @Get()
     @UseGuards(JwtAuthGuard, LoggerGuard)
-    async getAll() {
-        const result = await this.boardsService.getAll();
-        return result;
-    }
+  async getAll() {
+    const result = await this.boardsService.getAll();
+    return result;
+  }
 
     @Get(':id')
     @UseFilters(HttpExceptionFilter)
     @UseGuards(JwtAuthGuard, LoggerGuard)
-    async getOne(@Param('id') id: string, @Res({passthrough: true}) res: Response): Promise<IBoard | undefined> {
-        try {
-            const result = await this.boardsService.getOne(id);
-            return result;
-        } catch (e) {
-            throw new MyException(e.message, e.myCode);
-        }
-
+    async getOne(@Param('id') id: string, @Res({ passthrough: true }) res: Response): Promise<IBoard | undefined> {
+      try {
+        const result = await this.boardsService.getOne(id);
+        return result;
+      } catch (e) {
+        throw new MyException(e.message, e.myCode);
+      }
     }
 
     @Post()
     @UseGuards(JwtAuthGuard, LoggerGuard)
     @HttpCode(HttpStatus.CREATED)
-    async create(@Body(new ValidationPipe({transform: true})) boardDto: BoardDto)
+    async create(@Body(new ValidationPipe()) boardDto: BoardDto)
         : Promise<BoardDto | undefined> {
-        const result = await this.boardsService.create(boardDto);
-        return result;
+      const result = await this.boardsService.create(boardDto);
+      return result;
     }
 
     @Put(':id')
     @UseGuards(JwtAuthGuard, LoggerGuard)
     @UseFilters(HttpExceptionFilter)
     @HttpCode(HttpStatus.OK)
-    async update(@Body(new ValidationPipe({transform: true})) boardDto: BoardDto, @Param('id') id: string): Promise<UpdateResult | undefined> {
-        try {
-            const result = await this.boardsService.update(boardDto, id);
-            return result;
-        } catch (e) {
-            throw new MyException(e.message, e.myCode);
-
-        }
-
+    async update(@Body(new ValidationPipe()) boardDto: BoardDto, @Param('id') id: string): Promise<UpdateResult | undefined> {
+      try {
+        const result = await this.boardsService.update(boardDto, id);
+        return result;
+      } catch (e) {
+        throw new MyException(e.message, e.myCode);
+      }
     }
 
     @Delete(':id')
     @UseGuards(JwtAuthGuard, LoggerGuard)
     @UseFilters(HttpExceptionFilter)
     @HttpCode(HttpStatus.NO_CONTENT)
-    async delete(@Param('id') id: string, @Res({passthrough: true}) res: Response): Promise<DeleteResult | undefined> {
-        try {
-            const deleteResult = await this.boardsService.delete(id);
-            return deleteResult;
-        } catch (e) {
-            throw new MyException(e.message, e.myCode);
-        }
-
+    async delete(@Param('id') id: string, @Res({ passthrough: true }) res: Response): Promise<DeleteResult | undefined> {
+      try {
+        const deleteResult = await this.boardsService.delete(id);
+        return deleteResult;
+      } catch (e) {
+        throw new MyException(e.message, e.myCode);
+      }
     }
 }

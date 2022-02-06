@@ -1,7 +1,7 @@
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { UserModel } from '../entity/user';
 import { UserDto } from './dto/user-dto';
-import { TokensService } from "../token/tokens.service";
+import { TokensService } from '../token/tokens.service';
 export declare class UsersService {
     private usersRepository;
     private tokensService;

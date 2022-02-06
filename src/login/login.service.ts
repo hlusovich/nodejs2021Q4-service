@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { compare } from 'bcrypt';
 import { TokensModel } from '../entity/tokens';
-import { LoginDto } from './loginDto';
-import {InjectRepository} from "@nestjs/typeorm";
-import {Repository} from "typeorm";
-import {UserModel} from "../entity/user";
-import {Error403} from "../../Errors/403error";
-import {compare} from "bcrypt";
-import {TokensService} from "../token/tokens.service";
+import { LoginDto } from './dto/loginDto';
+import { UserModel } from '../entity/user';
+import { Error403 } from '../../Errors/403error';
+import { TokensService } from '../token/tokens.service';
 
 /**
  * @param payload: UserModel:
@@ -14,12 +14,16 @@ import {TokensService} from "../token/tokens.service";
  */
 @Injectable()
 export class LoginService {
-  constructor(@InjectRepository(UserModel, "nestJs")
-              private userssRepository: Repository<UserModel>, private tokensService:TokensService){
+  constructor(
+@InjectRepository(UserModel, 'nestJs')
+              private userssRepository: Repository<UserModel>,
+              private tokensService:TokensService,
+  ) {
 
   }
+
   async logIn(payload: LoginDto): Promise<TokensModel | undefined> {
-    const user = await this.userssRepository.findOne({login:payload.login});
+    const user = await this.userssRepository.findOne({ login: payload.login });
     if (!user) {
       throw new Error403('such user doesn\'t exist');
     }

@@ -1,9 +1,18 @@
+import {
+  IsInt, IsNotEmpty, IsString, ValidateIf,
+} from 'class-validator';
+
 export class UserDto {
-  name: string;
+  @IsString()
+    name: string;
 
-  login: string;
+  @IsString()
+    login: string;
 
-  password: string;
+  @IsString()
+    password: string;
 
-  id?: string;
+  @ValidateIf((o) => o.id)
+  @IsString()
+    id?: string;
 }

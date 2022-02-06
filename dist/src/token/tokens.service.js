@@ -14,11 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TokensService = void 0;
 const jsonwebtoken_1 = require("jsonwebtoken");
-const config_1 = require("../../config");
-const tokens_1 = require("../entity/tokens");
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const config_1 = require("../../config");
+const tokens_1 = require("../entity/tokens");
 let TokensService = class TokensService {
     constructor(tokensRepository) {
         this.tokensRepository = tokensRepository;
@@ -45,7 +45,7 @@ let TokensService = class TokensService {
 };
 TokensService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(tokens_1.TokensModel, "nestJs")),
+    __param(0, (0, typeorm_1.InjectRepository)(tokens_1.TokensModel, 'nestJs')),
     __metadata("design:paramtypes", [typeorm_2.Repository])
 ], TokensService);
 exports.TokensService = TokensService;
