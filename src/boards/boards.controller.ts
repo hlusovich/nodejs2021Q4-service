@@ -71,10 +71,9 @@ export class BoardsController {
     @UseGuards(JwtAuthGuard, LoggerGuard)
     @UseFilters(HttpExceptionFilter)
     @HttpCode(HttpStatus.NO_CONTENT)
-    async delete(@Param('id') id: string, @Res({ passthrough: true }) res: Response): Promise<DeleteResult | undefined> {
+    async delete(@Param('id') id: string, @Res({ passthrough: true }) res: Response) {
       try {
         const deleteResult = await this.boardsService.delete(id);
-        return deleteResult;
       } catch (e) {
         throw new MyException(e.message, e.myCode);
       }

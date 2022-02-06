@@ -5,7 +5,7 @@ import {
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 import {
-  PORT,
+  PORT, USE_FASTIFY,
 } from '../config';
 import { dbCreater } from '../utils/dbCreater';
 import { logger } from './MyLogger';
@@ -40,8 +40,17 @@ async function createDBConnection(): Promise<void> {
 
 async function bootstrap() {
   await createDBConnection();
-  const app = await NestFactory.create(AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
-  await app.listen(PORT);
+  if(USE_FASTIFY ==="fastify"){
+    const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(),{ logger: ['log', 'error', 'warn', 'debug'] });
+    await app.listen(PORT);
+  }
+  else{
+    const app = await NestFactory.create(AppModule,{ logger: ['log', 'error', 'warn', 'debug'] });
+    await app.listen(PORT);
+
+  }
+
+
 }
 
 bootstrap();

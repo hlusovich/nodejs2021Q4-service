@@ -54,7 +54,6 @@ let TasksController = class TasksController {
     async delete(id) {
         try {
             const result = await this.taskService.delete(id);
-            return result;
         }
         catch (e) {
             throw new MyException_1.MyException(e.message, e.myCode);

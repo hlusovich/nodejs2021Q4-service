@@ -68,10 +68,9 @@ export class TasksController {
     @UseFilters(HttpExceptionFilter)
     @UseGuards(JwtAuthGuard, LoggerGuard)
     @HttpCode(HttpStatus.NO_CONTENT)
-    async delete(@Param('id') id: string): Promise<DeleteResult | undefined> {
+    async delete(@Param('id') id: string) {
       try {
         const result = await this.taskService.delete(id);
-        return result;
       } catch (e) {
         throw new MyException(e.message, e.myCode);
       }

@@ -54,7 +54,6 @@ let UsersController = class UsersController {
     async delete(id) {
         try {
             const result = await this.usersService.delete(id);
-            return result;
         }
         catch (e) {
             throw new MyException_1.MyException(e.message, e.myCode);

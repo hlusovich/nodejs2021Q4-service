@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
+const platform_fastify_1 = require("@nestjs/platform-fastify");
 const app_module_1 = require("./app.module");
 const config_1 = require("../config");
 const dbCreater_1 = require("../utils/dbCreater");
@@ -29,8 +30,14 @@ async function createDBConnection() {
 }
 async function bootstrap() {
     await createDBConnection();
-    const app = await core_1.NestFactory.create(app_module_1.AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
-    await app.listen(config_1.PORT);
+    if (config_1.USE_FASTIFY === "fastify") {
+        const app = await core_1.NestFactory.create(app_module_1.AppModule, new platform_fastify_1.FastifyAdapter(), { logger: ['log', 'error', 'warn', 'debug'] });
+        await app.listen(config_1.PORT);
+    }
+    else {
+        const app = await core_1.NestFactory.create(app_module_1.AppModule, { logger: ['log', 'error', 'warn', 'debug'] });
+        await app.listen(config_1.PORT);
+    }
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

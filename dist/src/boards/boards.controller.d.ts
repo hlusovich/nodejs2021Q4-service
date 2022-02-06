@@ -1,4 +1,4 @@
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { UpdateResult } from 'typeorm';
 import { Response } from 'express';
 import { BoardDto } from './boardDto/boardDto';
 import { BoardService } from './board.service';
@@ -10,5 +10,5 @@ export declare class BoardsController {
     getOne(id: string, res: Response): Promise<IBoard | undefined>;
     create(boardDto: BoardDto): Promise<BoardDto | undefined>;
     update(boardDto: BoardDto, id: string): Promise<UpdateResult | undefined>;
-    delete(id: string, res: Response): Promise<DeleteResult | undefined>;
+    delete(id: string, res: Response): Promise<void>;
 }

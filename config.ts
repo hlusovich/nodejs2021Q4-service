@@ -5,6 +5,7 @@ config({
 });
 
 export const PORT: string = process.env.PORT || '4000';
+export const USE_FASTIFY: string = process.env.USE_FASTIFY || "express" ;
 export const LEVEL: string = process.env.LEVEL || '4';
 export const POSTGRES_HOST: string = process.env.POSTGRES_HOST || 'postgres';
 export const POSTGRES_PASSWORD:string = process.env.POSTGRES_PASSWORD || '7081379';

@@ -54,7 +54,6 @@ let BoardsController = class BoardsController {
     async delete(id, res) {
         try {
             const deleteResult = await this.boardsService.delete(id);
-            return deleteResult;
         }
         catch (e) {
             throw new MyException_1.MyException(e.message, e.myCode);
