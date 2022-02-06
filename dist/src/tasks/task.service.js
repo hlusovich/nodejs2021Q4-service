@@ -18,11 +18,12 @@ const typeorm_1 = require("typeorm");
 const task_1 = require("../entity/task");
 const _404error_1 = require("../../Errors/404error");
 const typeorm_2 = require("@nestjs/typeorm");
-const userController_1 = require("../../utils/controllers/userController");
 const uuid_1 = require("uuid");
+const user_1 = require("../entity/user");
 let TaskService = class TaskService {
-    constructor(tasksRepository) {
+    constructor(tasksRepository, usersRepository) {
         this.tasksRepository = tasksRepository;
+        this.usersRepository = usersRepository;
     }
     async getAll() {
         const result = await this.tasksRepository.query('SELECT * FROM tasks');
@@ -39,7 +40,7 @@ let TaskService = class TaskService {
     async create(taskDto, boardId) {
         let user = null;
         if (taskDto.userId) {
-            user = await userController_1.UserControllerModel.getUserById(taskDto.userId);
+            user = await this.usersRepository.findOne(taskDto.userId);
         }
         const task = await this.tasksRepository.create(Object.assign(Object.assign({}, taskDto), { userId: user, id: (0, uuid_1.v4)(), boardId }));
         await task.save();
@@ -47,7 +48,7 @@ let TaskService = class TaskService {
     }
     async update(taskDto, id) {
         if (taskDto.userId) {
-            const user = await userController_1.UserControllerModel.getUserById(taskDto.userId);
+            const user = await this.usersRepository.findOne(taskDto.userId);
             await this.tasksRepository.update(id, Object.assign(Object.assign({}, taskDto), { userId: user }));
         }
         else {
@@ -68,7 +69,9 @@ let TaskService = class TaskService {
 TaskService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_2.InjectRepository)(task_1.TaskModel, "nestJs")),
-    __metadata("design:paramtypes", [typeorm_1.Repository])
+    __param(1, (0, typeorm_2.InjectRepository)(user_1.UserModel, "nestJs")),
+    __metadata("design:paramtypes", [typeorm_1.Repository,
+        typeorm_1.Repository])
 ], TaskService);
 exports.TaskService = TaskService;
 //# sourceMappingURL=task.service.js.map

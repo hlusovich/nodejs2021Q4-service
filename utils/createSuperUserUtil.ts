@@ -1,11 +1,12 @@
 import {ConnectionOptions, createConnection} from "typeorm";
-import {DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRESS_PORT, SUPER_USER} from "../config";
+import {DB, JWT_SECRET_KEY, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRESS_PORT, SUPER_USER} from "../config";
 import {TaskModel} from "../src/entity/task";
 import {UserModel} from "../src/entity/user";
 import {BoardModel} from "../src/entity/board";
 import {TokensModel} from "../src/entity/tokens";
 import {FileModel} from "../src/entity/file";
-import {UserControllerModel} from "./controllers/userController";
+import {hash} from "bcrypt";
+import {sign} from "jsonwebtoken";
 
 const testUser = { login: 'admin', name: 'admin', password: 'admin', id:"1" };
 const options: ConnectionOptions = {
@@ -20,10 +21,18 @@ const options: ConnectionOptions = {
 };
 export async function createSuperUser() {
     await createConnection(options).then(async (serverInstance) => {
-        if(!await UserControllerModel.getUserById("1")){
-            await UserControllerModel.createUser(testUser);
+            if (!await UserModel.findOne(testUser.id)) {
+                const hashPassword = await hash(testUser.password, 3);
+                const user = await UserModel.create({...testUser, password: hashPassword});
+                await user.save();
+                const accessToken = sign({login: testUser.login, userId: testUser.id}, JWT_SECRET_KEY);
+                const tokenData = await TokensModel.findOne({userId: testUser.id});
+                if (tokenData) {
+                    return
+                }
+                const createdTokenData = await TokensModel.create({userId: testUser.id, token: accessToken});
+                await createdTokenData.save();
+            }
         }
-
-    });
-
+    );
 }

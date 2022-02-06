@@ -6,7 +6,7 @@ import {Repository} from "typeorm";
 import {UserModel} from "../entity/user";
 import {Error403} from "../../Errors/403error";
 import {compare} from "bcrypt";
-import {TokenService} from "../token/token.service";
+import {TokensService} from "../token/tokens.service";
 
 /**
  * @param payload: UserModel:
@@ -15,7 +15,7 @@ import {TokenService} from "../token/token.service";
 @Injectable()
 export class LoginService {
   constructor(@InjectRepository(UserModel, "nestJs")
-              private userssRepository: Repository<UserModel>){
+              private userssRepository: Repository<UserModel>, private tokensService:TokensService){
 
   }
   async logIn(payload: LoginDto): Promise<TokensModel | undefined> {
@@ -27,7 +27,7 @@ export class LoginService {
     if (!isPassEquals) {
       throw new Error403('such user doesn\'t exist');
     }
-    const token = await TokenService.getToken(user.id);
+    const token = await this.tokensService.getToken(user.id);
     if (token) {
       return token;
     }

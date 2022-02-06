@@ -8,7 +8,8 @@ const user_1 = require("../src/entity/user");
 const board_1 = require("../src/entity/board");
 const tokens_1 = require("../src/entity/tokens");
 const file_1 = require("../src/entity/file");
-const userController_1 = require("./controllers/userController");
+const bcrypt_1 = require("bcrypt");
+const jsonwebtoken_1 = require("jsonwebtoken");
 const testUser = { login: 'admin', name: 'admin', password: 'admin', id: "1" };
 const options = {
     type: 'postgres',
@@ -22,8 +23,17 @@ const options = {
 };
 async function createSuperUser() {
     await (0, typeorm_1.createConnection)(options).then(async (serverInstance) => {
-        if (!await userController_1.UserControllerModel.getUserById("1")) {
-            await userController_1.UserControllerModel.createUser(testUser);
+        if (!await user_1.UserModel.findOne(testUser.id)) {
+            const hashPassword = await (0, bcrypt_1.hash)(testUser.password, 3);
+            const user = await user_1.UserModel.create(Object.assign(Object.assign({}, testUser), { password: hashPassword }));
+            await user.save();
+            const accessToken = (0, jsonwebtoken_1.sign)({ login: testUser.login, userId: testUser.id }, config_1.JWT_SECRET_KEY);
+            const tokenData = await tokens_1.TokensModel.findOne({ userId: testUser.id });
+            if (tokenData) {
+                return;
+            }
+            const createdTokenData = await tokens_1.TokensModel.create({ userId: testUser.id, token: accessToken });
+            await createdTokenData.save();
         }
     });
 }

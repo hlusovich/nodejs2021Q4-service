@@ -6,14 +6,15 @@ import { TaskDto} from './dto/task';
 import {TaskModel} from '../entity/task';
 import {Error404} from '../../Errors/404error';
 import {InjectRepository} from "@nestjs/typeorm";
-import {UserControllerModel} from "../../utils/controllers/userController";
 import {v4} from "uuid";
+import {UserModel} from "../entity/user";
 
 
 @Injectable()
 export class TaskService {
     constructor(@InjectRepository(TaskModel, "nestJs")
-                private tasksRepository: Repository<TaskModel>) {
+                private tasksRepository: Repository<TaskModel>,@InjectRepository(UserModel, "nestJs")
+    private usersRepository: Repository<UserModel>) {
 
     }
     /**
@@ -42,7 +43,7 @@ export class TaskService {
     async create(taskDto: TaskDto, boardId: string): Promise<TaskModel | undefined> {
         let user = null;
         if (taskDto.userId) {
-            user = await UserControllerModel.getUserById(taskDto.userId);
+            user = await this.usersRepository.findOne(taskDto.userId);
         }
         const task = await this.tasksRepository.create({
             ...taskDto, userId: user, id: v4(), boardId
@@ -58,7 +59,7 @@ export class TaskService {
      */
     async update(taskDto: TaskDto, id: string): Promise<TaskModel | undefined> {
         if (taskDto.userId) {
-            const user = await UserControllerModel.getUserById(taskDto.userId);
+            const user = await this.usersRepository.findOne(taskDto.userId);
             await this.tasksRepository.update(id, { ...taskDto, userId: user });
         } else {
             const oldTask = await this.getOne(id);

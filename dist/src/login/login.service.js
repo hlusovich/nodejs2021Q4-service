@@ -19,10 +19,11 @@ const typeorm_2 = require("typeorm");
 const user_1 = require("../entity/user");
 const _403error_1 = require("../../Errors/403error");
 const bcrypt_1 = require("bcrypt");
-const token_service_1 = require("../token/token.service");
+const tokens_service_1 = require("../token/tokens.service");
 let LoginService = class LoginService {
-    constructor(userssRepository) {
+    constructor(userssRepository, tokensService) {
         this.userssRepository = userssRepository;
+        this.tokensService = tokensService;
     }
     async logIn(payload) {
         const user = await this.userssRepository.findOne({ login: payload.login });
@@ -33,7 +34,7 @@ let LoginService = class LoginService {
         if (!isPassEquals) {
             throw new _403error_1.Error403('such user doesn\'t exist');
         }
-        const token = await token_service_1.TokenService.getToken(user.id);
+        const token = await this.tokensService.getToken(user.id);
         if (token) {
             return token;
         }
@@ -43,7 +44,7 @@ let LoginService = class LoginService {
 LoginService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(user_1.UserModel, "nestJs")),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __metadata("design:paramtypes", [typeorm_2.Repository, tokens_service_1.TokensService])
 ], LoginService);
 exports.LoginService = LoginService;
 //# sourceMappingURL=login.service.js.map
